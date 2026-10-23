@@ -1,0 +1,39 @@
+{
+  "source": "https://data.scryfall.io/oracle-cards/oracle-cards-20261021210201.jsonl.gz",
+  "source_updated_at": "2026-10-21T21:02:01.935+00:00",
+  "retrieved_date": "2026-10-22",
+  "sha256": "007e6ebb110589c4ce37dc317d152180ed2287ce14f888cc0b61e7846b07e8d1",
+  "purpose": "Reproduce paper Oracle identities omitted when the representative bulk printing is digital; keep digital-only cards excluded.",
+  "cards": [
+    {
+      "name": "Badlands",
+      "oracle_id": "13ff3222-91cb-4796-a34e-899ed817694c",
+      "printing_id": "73403d04-fe97-4830-8b80-16dd1a1a6cc1",
+      "games": [
+        "mtgo"
+      ],
+      "commander_legality": "legal",
+      "scryfall_uri": "https://scryfall.com/card/vma/291/badlands?utm_source=api"
+    },
+    {
+      "name": "Black Lotus",
+      "oracle_id": "5089ec1a-f881-4d55-af14-5d996171203b",
+      "printing_id": "bd8fa327-dd41-4737-8f19-2cf5eb1f7cdd",
+      "games": [
+        "mtgo"
+      ],
+      "commander_legality": "banned",
+      "scryfall_uri": "https://scryfall.com/card/vma/4/black-lotus?utm_source=api"
+    },
+    {
+      "name": "Oracle of the Alpha",
+      "oracle_id": "b77dcee1-f42e-4c9d-b6b7-6d5885826060",
+      "printing_id": "f51d8822-1d4d-417c-a281-8b011b978de2",
+      "games": [
+        "arena"
+      ],
+      "commander_legality": "not_legal",
+      "scryfall_uri": "https://scryfall.com/card/mbc/64/oracle-of-the-alpha?utm_source=api"
+    }
+  ]
+}

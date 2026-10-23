@@ -1,0 +1,78 @@
+{
+  "verified_at_utc": "2026-10-22T04:52:01.967204+00:00",
+  "command": "DEBUG=false ./scripts/verify.sh",
+  "result": "BUILD SUCCESS",
+  "totals": {
+    "tests": 67,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "name": "dev.manacheck.BrowserTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 8.017
+    },
+    {
+      "name": "dev.manacheck.DeckValidatorTest",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.076
+    },
+    {
+      "name": "dev.manacheck.HaikuExplainerTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.513
+    },
+    {
+      "name": "dev.manacheck.MigrationIntegrationTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 3.705
+    },
+    {
+      "name": "dev.manacheck.RecommendationIntegrationTest",
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.411
+    },
+    {
+      "name": "dev.manacheck.WorkflowIntegrationTest",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.511
+    }
+  ],
+  "build_wall_seconds": 19.944,
+  "source_tree_sha256": "6b88733a643e7ddf5107ba20f5ca1d9c7d517dfd61e8b231ea9d68c5b139fd78",
+  "jar_sha256": "937fb1325f211f939fdb1595abce6e23d36ac337d87ad94b6fd33f36b7229aeb",
+  "receipt": {
+    "model": "unknown",
+    "effort": "unknown",
+    "coding_agents": 1,
+    "symphony_worker_attempts": 0,
+    "maven_test_invocations": 7,
+    "development_test_runs_failed": 3,
+    "test_runs_passed": 4,
+    "token_usage": "unknown"
+  },
+  "hosted_ci": "not run; local workflow configured",
+  "live_haiku_quality": "unverified; no live model requests made",
+  "fresh_database_startup": "passed; disposable database removed",
+  "full_catalog_cards": 33411
+}

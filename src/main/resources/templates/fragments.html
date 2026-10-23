@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <header th:fragment="sidebar" class="app-header">
+      <div class="header-inner">
+        <a class="wordmark" href="/" aria-label="ManaCheck deck library">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M7 18a9 9 0 0 1 18 0" />
+            <path
+              d="M3 19h26M7 24h18M12 29h8M16 2v3M4.7 7l2.1 2.1M27.3 7l-2.1 2.1"
+            />
+          </svg>
+          ManaCheck
+        </a>
+        <nav aria-label="Main navigation">
+          <a class="nav-item" href="/">Your decks</a>
+          <a class="nav-item" href="/#new-deck">New deck</a>
+        </nav>
+        <span class="workspace-label">Local workspace</span>
+      </div>
+    </header>
+    <footer th:fragment="footer" class="footer">
+      <span>Commander / EDH</span>
+      <details>
+        <summary>Data &amp; limits</summary>
+        <p>
+          Unofficial fan project. Card data and images from
+          <a href="https://scryfall.com" rel="noreferrer">Scryfall</a>. Magic:
+          The Gathering is © Wizards of the Coast. Role targets and suggestions
+          are heuristics; cards can fill multiple roles. Review AI explanations
+          before relying on them.
+        </p>
+      </details>
+    </footer>
+  </body>
+</html>

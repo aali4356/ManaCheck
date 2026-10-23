@@ -1,0 +1,10 @@
+{
+  "source": "Scryfall Oracle bulk export",
+  "source_updated_at": "2026-10-21T21:02:01.935+00:00",
+  "source_metadata_url": "https://api.scryfall.com/bulk-data",
+  "source_download_uri": "https://data.scryfall.io/oracle-cards/oracle-cards-20261021210201.jsonl.gz",
+  "source_archive_sha256": "16929bdb0b0b743e1d836b81a21e038d67d658572f64ab72ca0d71642a12631f",
+  "fixture_sha256": "013b425e4f724ace7c1700f38bcc4a14022781d11f8e23417158b85342022dc6",
+  "record_count": 116,
+  "selection": "Named sample of original card records with a subset of fields; excludes price data. This is an offline demo, not the full catalog."
+}

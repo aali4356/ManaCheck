@@ -1,0 +1,10 @@
+{
+  "change": "Materialize role_counts and pool CTEs to avoid repeated correlated work",
+  "compared_candidate_rows": 50,
+  "identical_order_and_scores": true,
+  "baseline_sql_execution_ms": 414.697,
+  "variant_sql_execution_ms": 29.35,
+  "baseline_jit_ms": 238.249,
+  "variant_jit_ms": 0,
+  "scope": "Read-only experiment on the same local 33411-card catalog and saved Meren deck. End-to-end timing is measured separately."
+}

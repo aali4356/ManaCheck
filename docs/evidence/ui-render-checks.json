@@ -1,0 +1,121 @@
+[ {
+  "background" : "rgba(0, 0, 0, 0)",
+  "bodyColor" : "rgb(241, 238, 241)",
+  "bodySize" : "14px",
+  "brokenVisibleImages" : [ ],
+  "cardImageUrls" : [ "https://cards.scryfall.io/normal/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1783907026", "https://cards.scryfall.io/normal/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1783907026", "https://cards.scryfall.io/normal/front/8/a/8a448dbf-08a1-4145-a4b2-0265cc9f2e53.jpg?1783935094", "https://cards.scryfall.io/normal/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1783907026" ],
+  "h1Size" : "28px",
+  "height" : 1000,
+  "overflow" : 0,
+  "page" : "library",
+  "scrollWidth" : 1440,
+  "severeConsole" : [ ],
+  "width" : 1440,
+  "console" : [ ]
+}, {
+  "background" : "rgba(0, 0, 0, 0)",
+  "bodyColor" : "rgb(241, 238, 241)",
+  "bodySize" : "14px",
+  "brokenVisibleImages" : [ ],
+  "cardImageUrls" : [ "https://cards.scryfall.io/normal/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1783907026" ],
+  "h1Size" : "26px",
+  "height" : 1000,
+  "overflow" : 0,
+  "page" : "editor",
+  "scrollWidth" : 1440,
+  "severeConsole" : [ ],
+  "width" : 1440,
+  "console" : [ ]
+}, {
+  "background" : "rgba(0, 0, 0, 0)",
+  "bodyColor" : "rgb(241, 238, 241)",
+  "bodySize" : "14px",
+  "brokenVisibleImages" : [ ],
+  "cardImageUrls" : [ ],
+  "h1Size" : "28px",
+  "height" : 1000,
+  "overflow" : 0,
+  "page" : "compare",
+  "scrollWidth" : 1440,
+  "severeConsole" : [ ],
+  "width" : 1440,
+  "console" : [ ]
+}, {
+  "background" : "rgba(0, 0, 0, 0)",
+  "bodyColor" : "rgb(241, 238, 241)",
+  "bodySize" : "14px",
+  "brokenVisibleImages" : [ ],
+  "cardImageUrls" : [ "https://cards.scryfall.io/normal/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1783907026", "https://cards.scryfall.io/normal/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1783907026", "https://cards.scryfall.io/normal/front/8/a/8a448dbf-08a1-4145-a4b2-0265cc9f2e53.jpg?1783935094", "https://cards.scryfall.io/normal/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1783907026" ],
+  "h1Size" : "24px",
+  "height" : 844,
+  "overflow" : 0,
+  "page" : "library",
+  "scrollWidth" : 390,
+  "severeConsole" : [ ],
+  "width" : 390,
+  "console" : [ ]
+}, {
+  "background" : "rgba(0, 0, 0, 0)",
+  "bodyColor" : "rgb(241, 238, 241)",
+  "bodySize" : "14px",
+  "brokenVisibleImages" : [ ],
+  "cardImageUrls" : [ "https://cards.scryfall.io/normal/front/5/0/508b1442-bf2c-4ad6-9bcf-bd894e081ab6.jpg?1783907026" ],
+  "h1Size" : "24px",
+  "height" : 844,
+  "overflow" : 0,
+  "page" : "editor",
+  "scrollWidth" : 390,
+  "severeConsole" : [ ],
+  "width" : 390,
+  "console" : [ ]
+}, {
+  "background" : "rgba(0, 0, 0, 0)",
+  "bodyColor" : "rgb(241, 238, 241)",
+  "bodySize" : "14px",
+  "brokenVisibleImages" : [ ],
+  "cardImageUrls" : [ ],
+  "h1Size" : "24px",
+  "height" : 844,
+  "overflow" : 0,
+  "page" : "compare",
+  "scrollWidth" : 390,
+  "severeConsole" : [ ],
+  "width" : 390,
+  "console" : [ ]
+}, {
+  "overflow" : 0,
+  "page" : "library",
+  "width" : 360
+}, {
+  "overflow" : 0,
+  "page" : "editor",
+  "width" : 360
+}, {
+  "overflow" : 0,
+  "page" : "compare",
+  "width" : 360
+}, {
+  "overflow" : 0,
+  "page" : "library",
+  "width" : 768
+}, {
+  "overflow" : 0,
+  "page" : "editor",
+  "width" : 768
+}, {
+  "overflow" : 0,
+  "page" : "compare",
+  "width" : 768
+}, {
+  "overflow" : 0,
+  "page" : "library",
+  "width" : 900
+}, {
+  "overflow" : 0,
+  "page" : "editor",
+  "width" : 900
+}, {
+  "overflow" : 0,
+  "page" : "compare",
+  "width" : 900
+} ]

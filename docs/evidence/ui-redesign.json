@@ -1,0 +1,117 @@
+{
+  "verified_at_utc": "2026-10-22T18:46:19.838168+00:00",
+  "scope": "Sunset UI redesign; existing Commander workflows preserved",
+  "command": "DEBUG=false ./scripts/verify.sh",
+  "result": "BUILD SUCCESS",
+  "totals": {
+    "tests": 68,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "name": "dev.manacheck.BrowserTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 11.843
+    },
+    {
+      "name": "dev.manacheck.DeckValidatorTest",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.065
+    },
+    {
+      "name": "dev.manacheck.HaikuExplainerTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.632
+    },
+    {
+      "name": "dev.manacheck.MigrationIntegrationTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.062
+    },
+    {
+      "name": "dev.manacheck.RecommendationIntegrationTest",
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.277
+    },
+    {
+      "name": "dev.manacheck.WorkflowIntegrationTest",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.858
+    }
+  ],
+  "build_wall_seconds": 26.028,
+  "source_tree_sha256": "3b246854f9c915dadabcf06fb688b0dc5872000047d6a66c6dc138d0e6ff8c52",
+  "jar_sha256": "155f4043cb1ca4f40bfb2eb3716bfb6655882f3b73b735e1335a800d9ea06d12",
+  "visual_review": {
+    "batched_rounds": 2,
+    "required_captures": 6,
+    "measured_widths": [360, 390, 768, 900, 1440],
+    "page_width_combinations": 15,
+    "horizontal_overflow_combinations": 0,
+    "visible_broken_images": 0,
+    "console_messages_in_six_captured_states": 0,
+    "sampled_text_contrast_pairs": 11,
+    "minimum_sampled_ratio": 5.39,
+    "disposition": "ship",
+    "disposition_scope": "Both material fixes scored resolved; verdict is limited to those fixes",
+    "review": "../../.impeccable/review/finish-review.md",
+    "verdict": "../../.impeccable/review/finish-verdict.md",
+    "screenshots_sha256": {
+      "compare-mobile.png": "c3eed1db53a1c859071dd4cc8135835a4d4b493937cf992f5d967326a00ab0cb",
+      "compare.png": "5f1a4d807e083dbc70c781e0d0e725037825eb9d79bd4865588fb9700711ba42",
+      "editor-mobile.png": "64e1afb9671601557e26af2608ee54e0d0b2fff1a33d89f53662a6633f3105a5",
+      "editor.png": "54b5b8e990be572bb653dc565d4807f40e1a802150435cc937e5b8265059d0a7",
+      "library-mobile.png": "83626aca2fc750d1841947e606772ab6a58699cdc77c1ffc3c709627cf8082d2",
+      "library.png": "52b7eac101cbdc526002dbef17ae870f5e62f7ef357566d85a7a2d47a8eb15db"
+    },
+    "shipping_raster_provenance": "Embedded screenshot origin in all six documentation screenshots and fourteen review screenshots"
+  },
+  "static_detector": {
+    "runs": 1,
+    "exit_code": 2,
+    "limits": "Thymeleaf th:src and the Spring static stylesheet path were unresolved by the static parser. Runtime URLs, fallback visibility, and computed type hierarchy were inspected."
+  },
+  "receipt": {
+    "coding_agents": 1,
+    "review_agents": 1,
+    "documentation_agents": 1,
+    "total_agents": 3,
+    "maximum_active_subagents": 1,
+    "root_model": "unknown",
+    "root_effort": "unknown",
+    "review_and_documentation_model_requested": "gpt-6.1-sol",
+    "review_and_documentation_effort_requested": "high",
+    "symphony_worker_attempts": 0,
+    "implementation_passes": 2,
+    "maven_test_invocations": 2,
+    "test_runs_passed": 2,
+    "capture_helper_compile_failures": 1,
+    "token_usage": "unknown"
+  },
+  "limits": [
+    "Local verification only; hosted CI was not run.",
+    "This is a UI refresh, not a new rules-engine or live-AI acceptance claim.",
+    "The existing five-minute video shows the previous visual design; current screenshots show the redesign.",
+    "Remote card imagery is optional and may be unavailable offline."
+  ]
+}

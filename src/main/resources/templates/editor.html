@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title th:text="|${deck.name()} · ManaCheck|">Deck · ManaCheck</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/app.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body data-page="editor" th:attr="data-deck-id=${deck.id()}">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div th:replace="~{fragments :: sidebar}"></div>
+    <main id="main" class="main-shell editor-shell">
+      <a class="back-link" href="/"
+        ><svg class="icon" aria-hidden="true">
+          <use href="/icons.svg#back" /></svg
+        >Your decks</a
+      >
+      <header class="page-heading editor-heading">
+        <div>
+          <h1 th:text="${deck.name()}">Deck</h1>
+          <p class="revision-status">
+            <span id="revision-label" th:text="|Revision ${deck.revision()}|"
+              >Revision</span
+            ><span aria-hidden="true"> · </span
+            ><span id="save-state">All changes saved</span>
+          </p>
+        </div>
+        <div class="page-actions">
+          <a
+            class="button secondary"
+            th:href="@{/decks/{id}/compare(id=${deck.id()})}"
+            ><svg class="icon" aria-hidden="true">
+              <use href="/icons.svg#compare" /></svg
+            >Compare revisions</a
+          ><button id="save-deck" class="button primary" type="button" disabled>
+            Save revision
+          </button>
+        </div>
+      </header>
+      <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+      <div class="workspace-grid">
+        <aside class="commander-panel" aria-labelledby="commander-heading">
+          <h2 id="commander-heading">Commander</h2>
+          <img id="commander-image" class="commander-image" alt="" hidden />
+          <div class="commander-details">
+            <h3 id="commander-name" th:text="${deck.commander().name()}">
+              Commander
+            </h3>
+            <p
+              id="commander-type"
+              class="quiet"
+              th:text="${deck.commander().typeLine()}"
+            >
+              Legendary creature
+            </p>
+            <details class="compact-details">
+              <summary>Change commander</summary>
+              <label for="editor-commander-search">Commander</label
+              ><input
+                type="search"
+                id="editor-commander-search"
+                autocomplete="off"
+                placeholder="Search commanders"
+                aria-controls="editor-commander-results"
+              />
+              <div
+                id="editor-commander-results"
+                class="search-results"
+                aria-live="polite"
+              ></div>
+            </details>
+            <label class="theme-label" for="deck-theme">Theme</label
+            ><select id="deck-theme">
+              <option value="general">General</option>
+              <option value="tokens">Tokens</option>
+              <option value="counters">Counters</option>
+              <option value="graveyard">Graveyard</option>
+            </select>
+          </div>
+        </aside>
+        <section class="deck-workspace" aria-labelledby="decklist-heading">
+          <div class="section-heading">
+            <h2 id="decklist-heading">Decklist</h2>
+            <span id="deck-total" class="count" title="Includes commander"
+              >0 / 100</span
+            >
+          </div>
+          <label class="sr-only" for="card-search">Add a card</label>
+          <div class="search-field">
+            <svg class="icon" aria-hidden="true">
+              <use href="/icons.svg#search" /></svg
+            ><input
+              id="card-search"
+              type="search"
+              autocomplete="off"
+              placeholder="Find a card to add"
+              aria-controls="card-results"
+            />
+          </div>
+          <div
+            id="card-results"
+            class="search-results"
+            aria-live="polite"
+          ></div>
+          <details class="import-panel">
+            <summary>Paste decklist</summary>
+            <label for="import-text">Quantity and card name</label
+            ><textarea
+              id="import-text"
+              rows="6"
+              placeholder="18 Forest&#10;18 Swamp&#10;1 Sol Ring&#10;1 Cultivate"
+            ></textarea
+            ><button id="preview-import" class="button secondary" type="button">
+              Preview import
+            </button>
+            <div
+              id="import-preview"
+              class="import-preview"
+              aria-live="polite"
+            ></div>
+            <button
+              id="use-import"
+              class="button secondary"
+              type="button"
+              hidden
+            >
+              Use this list
+            </button>
+          </details>
+          <div class="list-toolbar" aria-hidden="true">
+            <span>Card / type</span><span>MV / Qty.</span>
+          </div>
+          <div id="deck-entries" class="deck-entries"></div>
+          <div class="revision-note">
+            <label for="revision-note"
+              >Revision note <span class="quiet">(optional)</span></label
+            ><input
+              id="revision-note"
+              maxlength="1500"
+              placeholder="What changed?"
+            />
+          </div>
+        </section>
+        <aside class="analysis-panel" aria-labelledby="analysis-heading">
+          <div class="section-heading">
+            <h2 id="analysis-heading">Analysis</h2>
+            <span class="quiet">Saved deck</span>
+          </div>
+          <div id="validation"></div>
+          <section class="analysis-section">
+            <h3>Roles</h3>
+            <div id="role-coverage"></div>
+          </section>
+          <section class="analysis-section">
+            <h3>Mana curve</h3>
+            <div id="mana-curve" class="mana-chart"></div>
+          </section>
+          <section class="analysis-section">
+            <h3>Color identity</h3>
+            <div id="color-distribution" class="color-distribution"></div>
+          </section>
+          <p id="catalog-timestamp" class="catalog-timestamp quiet"></p>
+          <details class="compact-details rules-details">
+            <summary>Rules &amp; targets</summary>
+            <p>
+              Checks one commander, card count, color identity, land types, copy
+              limits, and catalog legality. Paired commanders, companions, and
+              selectable identities require manual review.
+            </p>
+            <p>
+              Role targets are adjustable heuristics; one card can fill multiple
+              roles. Tags use text rules (roles-v1). Mana curve excludes lands
+              and counts quantities. Multicolor cards appear in each matching
+              color.
+            </p>
+          </details>
+        </aside>
+      </div>
+      <section class="suggestions-panel" aria-labelledby="suggestions-heading">
+        <div class="section-heading">
+          <div>
+            <h2 id="suggestions-heading">Suggestions</h2>
+            <p class="quiet">
+              Role tags are heuristics; review each change before applying.
+            </p>
+          </div>
+          <button
+            id="generate-suggestions"
+            class="button secondary"
+            type="button"
+          >
+            Find improvements
+          </button>
+        </div>
+        <div id="suggestions" class="suggestion-grid">
+          <p class="empty-note">
+            Find up to five additions or swaps for the saved deck.
+          </p>
+        </div>
+        <div id="explanation-controls" class="explanation-controls" hidden>
+          <button id="explain-ai" class="button secondary" type="button">
+            Explain with AI</button
+          ><span id="explanation-status" class="quiet">Rule explanations</span>
+          <details class="compact-details">
+            <summary>Model &amp; usage</summary>
+            <pre id="model-usage">No provider request made.</pre>
+          </details>
+        </div>
+      </section>
+      <footer th:replace="~{fragments :: footer}"></footer>
+    </main>
+  </body>
+</html>

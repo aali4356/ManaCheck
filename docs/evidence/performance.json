@@ -1,0 +1,23 @@
+{
+  "measured_at_utc": "2026-10-22T04:47:16Z",
+  "platform": "Darwin arm64",
+  "java": "21",
+  "postgresql_major": 17,
+  "catalog_cards": 33411,
+  "catalog_source_updated_at": "2026-10-21T21:02:01.935Z",
+  "deck_id": "d9ba03eb-5a68-4d9a-8a69-11e66b4c1f67",
+  "deck_name": "The graveyard shift",
+  "deck_revision": 2,
+  "suggestions": 5,
+  "first_measured_http_ms": 118.0,
+  "warm_http_ms": {
+    "iterations": 20,
+    "p50": 59.315,
+    "p95": 69.055,
+    "min": 40.189,
+    "max": 83.004
+  },
+  "sql_planning_ms": 0.753,
+  "sql_execution_ms": 59.226,
+  "limits": "Local sample on one deck; JVM already running. No cold-start, concurrent-load, hosted, or AI latency claim."
+}

@@ -1,0 +1,11 @@
+target/
+.env
+.tools/
+.DS_Store
+*.log
+.idea/
+*.iml
+.vscode/
+.local/
+__pycache__/
+*.pyc

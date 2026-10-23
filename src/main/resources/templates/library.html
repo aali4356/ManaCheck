@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Your decks · ManaCheck</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/app.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body data-page="library">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div th:replace="~{fragments :: sidebar}"></div>
+    <main id="main" class="main-shell">
+      <header class="page-heading">
+        <div class="title-line">
+          <h1 id="decks-heading">Your decks</h1>
+          <span id="deck-count" class="count" th:text="${decks.size()}">0</span
+          ><span class="format-label">Commander</span>
+        </div>
+        <a class="button primary" href="#new-deck"
+          ><svg class="icon" aria-hidden="true">
+            <use href="/icons.svg#plus" /></svg
+          >New deck</a
+        >
+      </header>
+      <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+      <div class="library-layout">
+        <section class="deck-library" aria-labelledby="decks-heading">
+          <div class="library-toolbar">
+            <div class="search-field">
+              <svg class="icon" aria-hidden="true">
+                <use href="/icons.svg#search" /></svg
+              ><label class="sr-only" for="deck-filter">Search your decks</label
+              ><input
+                id="deck-filter"
+                type="search"
+                placeholder="Search your decks"
+                autocomplete="off"
+              />
+            </div>
+            <label class="sr-only" for="deck-sort">Sort decks</label
+            ><select id="deck-sort">
+              <option value="updated">Last updated</option>
+              <option value="name">Name</option>
+              <option value="cards">Card count</option>
+            </select>
+          </div>
+          <div class="deck-columns" aria-hidden="true">
+            <span>Deck</span><span>Cards</span><span>Revision</span>
+          </div>
+          <ul id="deck-list" class="deck-list">
+            <li
+              th:each="deck : ${decks}"
+              th:attr="data-deck-name=${deck.name()},data-commander=${deck.commanderName()},data-total=${deck.totalCards()},data-updated=${deck.updatedAt()}"
+            >
+              <a class="deck-row" th:href="@{/decks/{id}(id=${deck.id()})}">
+                <span class="deck-thumbnail"
+                  ><svg class="card-fallback icon" aria-hidden="true">
+                    <use href="/icons.svg#cards" /></svg
+                  ><img
+                    th:if="${deck.commanderImageUri() != null and #strings.startsWith(deck.commanderImageUri(), 'https://cards.scryfall.io/')}"
+                    th:src="${deck.commanderImageUri()}"
+                    alt=""
+                    loading="lazy"
+                    width="62"
+                    height="86"
+                    data-card-image
+                /></span>
+                <span class="deck-row-info"
+                  ><span class="deck-name" th:text="${deck.name()}"
+                    >Deck name</span
+                  ><span
+                    class="commander-name"
+                    th:text="${deck.commanderName()}"
+                    >Commander</span
+                  ><span class="deck-meta"
+                    ><span class="theme-tag" th:text="${deck.theme()}"
+                      >general</span
+                    ><span
+                      class="deck-updated"
+                      th:attr="data-date=${deck.updatedAt()}"
+                      >Updated recently</span
+                    ></span
+                  ></span
+                >
+                <span class="deck-card-count"
+                  ><strong th:text="${deck.totalCards()}">1</strong
+                  ><span> / 100</span></span
+                >
+                <span class="deck-revision" th:text="|Rev. ${deck.revision()}|"
+                  >Rev. 1</span
+                >
+              </a>
+            </li>
+          </ul>
+          <p id="deck-empty" class="empty-note" th:hidden="${!decks.isEmpty()}">
+            No decks yet. Choose a commander to create one.
+          </p>
+        </section>
+        <section
+          id="new-deck"
+          class="create-panel"
+          aria-labelledby="new-heading"
+        >
+          <h2 id="new-heading">New deck</h2>
+          <form id="create-form" class="create-form">
+            <label for="new-name">Deck name</label
+            ><input
+              id="new-name"
+              name="name"
+              maxlength="120"
+              placeholder="E.g. Meren reanimator"
+              required
+            />
+            <label for="commander-search">Commander</label
+            ><input
+              id="commander-search"
+              type="search"
+              placeholder="Search commanders"
+              autocomplete="off"
+              aria-controls="commander-results"
+            />
+            <div
+              id="commander-results"
+              class="search-results"
+              aria-live="polite"
+            ></div>
+            <p
+              id="selected-commander"
+              class="selected-note"
+              aria-live="polite"
+            ></p>
+            <label for="new-theme">Theme</label
+            ><select id="new-theme">
+              <option value="general">General</option>
+              <option value="tokens">Tokens</option>
+              <option value="counters">Counters</option>
+              <option value="graveyard">Graveyard</option>
+            </select>
+            <button
+              id="create-deck"
+              class="button primary"
+              type="submit"
+              disabled
+            >
+              Create deck
+            </button>
+          </form>
+        </section>
+      </div>
+      <section class="catalog-bar" aria-label="Card catalog">
+        <div>
+          <h2>Card catalog</h2>
+          <p
+            id="catalog-summary"
+            th:text="|${#numbers.formatInteger(catalog.activeCards(), 1, 'COMMA')} cards|"
+          >
+            Local catalog
+          </p>
+          <p class="quiet" id="catalog-source">Loading snapshot…</p>
+        </div>
+        <button id="refresh-catalog" class="button secondary" type="button">
+          <svg class="icon" aria-hidden="true">
+            <use href="/icons.svg#refresh" /></svg
+          ><span id="refresh-label">Load full catalog</span>
+        </button>
+      </section>
+      <footer th:replace="~{fragments :: footer}"></footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "R01",
+    "commander": "Meren of Clan Nel Toth",
+    "theme": "graveyard",
+    "complete": false
+  },
+  {
+    "id": "R02",
+    "commander": "Meren of Clan Nel Toth",
+    "theme": "graveyard",
+    "complete": true
+  },
+  {
+    "id": "R03",
+    "commander": "Meren of Clan Nel Toth",
+    "theme": "general",
+    "complete": false
+  },
+  {
+    "id": "R04",
+    "commander": "Ezuri, Renegade Leader",
+    "theme": "general",
+    "complete": false
+  },
+  {
+    "id": "R05",
+    "commander": "Ezuri, Renegade Leader",
+    "theme": "general",
+    "complete": true
+  },
+  {
+    "id": "R06",
+    "commander": "Ezuri, Renegade Leader",
+    "theme": "counters",
+    "complete": false
+  },
+  {
+    "id": "R07",
+    "commander": "Trostani, Selesnya's Voice",
+    "theme": "tokens",
+    "complete": false
+  },
+  {
+    "id": "R08",
+    "commander": "Trostani, Selesnya's Voice",
+    "theme": "tokens",
+    "complete": true
+  },
+  {
+    "id": "R09",
+    "commander": "Atraxa, Praetors' Voice",
+    "theme": "counters",
+    "complete": false
+  },
+  {
+    "id": "R10",
+    "commander": "Atraxa, Praetors' Voice",
+    "theme": "counters",
+    "complete": true
+  },
+  {
+    "id": "R11",
+    "commander": "Atraxa, Praetors' Voice",
+    "theme": "graveyard",
+    "complete": false
+  },
+  {
+    "id": "R12",
+    "commander": "Krenko, Mob Boss",
+    "theme": "tokens",
+    "complete": false
+  },
+  {
+    "id": "R13",
+    "commander": "Krenko, Mob Boss",
+    "theme": "tokens",
+    "complete": true
+  },
+  {
+    "id": "R14",
+    "commander": "Talrand, Sky Summoner",
+    "theme": "general",
+    "complete": false
+  },
+  {
+    "id": "R15",
+    "commander": "Talrand, Sky Summoner",
+    "theme": "general",
+    "complete": true
+  },
+  {
+    "id": "R16",
+    "commander": "Ayula, Queen Among Bears",
+    "theme": "general",
+    "complete": false
+  },
+  {
+    "id": "R17",
+    "commander": "Ayula, Queen Among Bears",
+    "theme": "general",
+    "complete": true
+  },
+  {
+    "id": "R18",
+    "commander": "Losheel, Clockwork Scholar",
+    "theme": "general",
+    "complete": false
+  },
+  {
+    "id": "R19",
+    "commander": "Losheel, Clockwork Scholar",
+    "theme": "general",
+    "complete": true
+  },
+  {
+    "id": "R20",
+    "commander": "Meren of Clan Nel Toth",
+    "theme": "counters",
+    "complete": true
+  }
+]

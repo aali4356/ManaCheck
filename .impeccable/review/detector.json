@@ -1,0 +1,24 @@
+{
+  "command": "impeccable detect --json <six changed HTML/CSS/JS targets>",
+  "runs": 1,
+  "exitCode": 2,
+  "findings": [
+    {
+      "rule": "broken-image",
+      "targets": [
+        "library.html",
+        "editor.html"
+      ],
+      "reason": "Static parser does not resolve th:src or JS-populated hidden image. Verify real rendered image URLs/fallbacks."
+    },
+    {
+      "rule": "flat-type-hierarchy",
+      "targets": [
+        "library.html",
+        "editor.html"
+      ],
+      "reason": "Detector resolves /app.css relative to templates rather than Spring static resource mapping; reports default 16px for every role. Verify computed sizes in browser."
+    }
+  ],
+  "limitation": "Three unresolved linked-stylesheet warnings from Thymeleaf/static directory separation. app.css was also supplied explicitly. No detector rerun."
+}

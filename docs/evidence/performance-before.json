@@ -1,0 +1,21 @@
+{
+  "measured_at_utc": "2026-10-22T04:37:04Z",
+  "platform": "Darwin arm64",
+  "java": "21",
+  "postgresql_major": 17,
+  "catalog_cards": 33411,
+  "catalog_source_updated_at": "2026-10-21T21:02:01.935Z",
+  "deck_revision": 2,
+  "suggestions": 5,
+  "first_measured_http_ms": 437.888,
+  "warm_http_ms": {
+    "iterations": 20,
+    "p50": 145.197,
+    "p95": 351.674,
+    "min": 141.631,
+    "max": 351.767
+  },
+  "sql_planning_ms": 1.056,
+  "sql_execution_ms": 414.697,
+  "limits": "Local sample on one deck; JVM already running. No cold-start, concurrent-load, hosted, or AI latency claim."
+}

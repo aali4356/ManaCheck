@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-22T18:48:03.349458+00:00",
+  "title": "Design System: ManaCheck",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Pacific Navy",
+        "tonalRamp": [
+          "oklch(15% 0.03594 260.68)",
+          "oklch(27% 0.03594 260.68)",
+          "oklch(38% 0.03594 260.68)",
+          "oklch(50% 0.03594 260.68)",
+          "oklch(61% 0.03594 260.68)",
+          "oklch(73% 0.03594 260.68)",
+          "oklch(84% 0.03594 260.68)",
+          "oklch(95% 0.03594 260.68)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "header": {
+        "role": "neutral",
+        "displayName": "Header Navy",
+        "tonalRamp": [
+          "oklch(15% 0.04577 257.84)",
+          "oklch(27% 0.04577 257.84)",
+          "oklch(38% 0.04577 257.84)",
+          "oklch(50% 0.04577 257.84)",
+          "oklch(61% 0.04577 257.84)",
+          "oklch(73% 0.04577 257.84)",
+          "oklch(84% 0.04577 257.84)",
+          "oklch(95% 0.04577 257.84)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Blue Slate Panel",
+        "tonalRamp": [
+          "oklch(15% 0.04534 257.84)",
+          "oklch(27% 0.04534 257.84)",
+          "oklch(38% 0.04534 257.84)",
+          "oklch(50% 0.04534 257.84)",
+          "oklch(61% 0.04534 257.84)",
+          "oklch(73% 0.04534 257.84)",
+          "oklch(84% 0.04534 257.84)",
+          "oklch(95% 0.04534 257.84)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "surface-hover": {
+        "role": "neutral",
+        "displayName": "Hover Slate",
+        "tonalRamp": [
+          "oklch(15% 0.04867 255.87)",
+          "oklch(27% 0.04867 255.87)",
+          "oklch(38% 0.04867 255.87)",
+          "oklch(50% 0.04867 255.87)",
+          "oklch(61% 0.04867 255.87)",
+          "oklch(73% 0.04867 255.87)",
+          "oklch(84% 0.04867 255.87)",
+          "oklch(95% 0.04867 255.87)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "input": {
+        "role": "neutral",
+        "displayName": "Inset Navy",
+        "tonalRamp": [
+          "oklch(15% 0.03666 258.86)",
+          "oklch(27% 0.03666 258.86)",
+          "oklch(38% 0.03666 258.86)",
+          "oklch(50% 0.03666 258.86)",
+          "oklch(61% 0.03666 258.86)",
+          "oklch(73% 0.03666 258.86)",
+          "oklch(84% 0.03666 258.86)",
+          "oklch(95% 0.03666 258.86)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Divider Slate",
+        "tonalRamp": [
+          "oklch(15% 0.04649 257.04)",
+          "oklch(27% 0.04649 257.04)",
+          "oklch(38% 0.04649 257.04)",
+          "oklch(50% 0.04649 257.04)",
+          "oklch(61% 0.04649 257.04)",
+          "oklch(73% 0.04649 257.04)",
+          "oklch(84% 0.04649 257.04)",
+          "oklch(95% 0.04649 257.04)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Off White",
+        "tonalRamp": [
+          "oklch(15% 0.00510 325.62)",
+          "oklch(27% 0.00510 325.62)",
+          "oklch(38% 0.00510 325.62)",
+          "oklch(50% 0.00510 325.62)",
+          "oklch(61% 0.00510 325.62)",
+          "oklch(73% 0.00510 325.62)",
+          "oklch(84% 0.00510 325.62)",
+          "oklch(95% 0.00510 325.62)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Blue Gray",
+        "tonalRamp": [
+          "oklch(15% 0.02753 257.04)",
+          "oklch(27% 0.02753 257.04)",
+          "oklch(38% 0.02753 257.04)",
+          "oklch(50% 0.02753 257.04)",
+          "oklch(61% 0.02753 257.04)",
+          "oklch(73% 0.02753 257.04)",
+          "oklch(84% 0.02753 257.04)",
+          "oklch(95% 0.02753 257.04)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "coral": {
+        "role": "primary",
+        "displayName": "Sunset Coral",
+        "tonalRamp": [
+          "oklch(15% 0.11141 33.37)",
+          "oklch(27% 0.11141 33.37)",
+          "oklch(38% 0.11141 33.37)",
+          "oklch(50% 0.11141 33.37)",
+          "oklch(61% 0.11141 33.37)",
+          "oklch(73% 0.11141 33.37)",
+          "oklch(84% 0.11141 33.37)",
+          "oklch(95% 0.11141 33.37)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "coral-hover": {
+        "role": "primary",
+        "displayName": "Bright Coral",
+        "tonalRamp": [
+          "oklch(15% 0.09414 36.08)",
+          "oklch(27% 0.09414 36.08)",
+          "oklch(38% 0.09414 36.08)",
+          "oklch(50% 0.09414 36.08)",
+          "oklch(61% 0.09414 36.08)",
+          "oklch(73% 0.09414 36.08)",
+          "oklch(84% 0.09414 36.08)",
+          "oklch(95% 0.09414 36.08)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "apricot": {
+        "role": "secondary",
+        "displayName": "Apricot",
+        "tonalRamp": [
+          "oklch(15% 0.08816 68.90)",
+          "oklch(27% 0.08816 68.90)",
+          "oklch(38% 0.08816 68.90)",
+          "oklch(50% 0.08816 68.90)",
+          "oklch(61% 0.08816 68.90)",
+          "oklch(73% 0.08816 68.90)",
+          "oklch(84% 0.08816 68.90)",
+          "oklch(95% 0.08816 68.90)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "rose": {
+        "role": "secondary",
+        "displayName": "Rose",
+        "tonalRamp": [
+          "oklch(15% 0.09448 12.94)",
+          "oklch(27% 0.09448 12.94)",
+          "oklch(38% 0.09448 12.94)",
+          "oklch(50% 0.09448 12.94)",
+          "oklch(61% 0.09448 12.94)",
+          "oklch(73% 0.09448 12.94)",
+          "oklch(84% 0.09448 12.94)",
+          "oklch(95% 0.09448 12.94)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "success": {
+        "role": "neutral",
+        "displayName": "Seafoam Success",
+        "tonalRamp": [
+          "oklch(15% 0.05658 165.40)",
+          "oklch(27% 0.05658 165.40)",
+          "oklch(38% 0.05658 165.40)",
+          "oklch(50% 0.05658 165.40)",
+          "oklch(61% 0.05658 165.40)",
+          "oklch(73% 0.05658 165.40)",
+          "oklch(84% 0.05658 165.40)",
+          "oklch(95% 0.05658 165.40)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "danger": {
+        "role": "neutral",
+        "displayName": "Soft Red Danger",
+        "tonalRamp": [
+          "oklch(15% 0.09289 19.22)",
+          "oklch(27% 0.09289 19.22)",
+          "oklch(38% 0.09289 19.22)",
+          "oklch(50% 0.09289 19.22)",
+          "oklch(61% 0.09289 19.22)",
+          "oklch(73% 0.09289 19.22)",
+          "oklch(84% 0.09289 19.22)",
+          "oklch(95% 0.09289 19.22)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "field-hover-line": {
+        "role": "neutral",
+        "displayName": "Bright Field Stroke",
+        "tonalRamp": [
+          "oklch(15% 0.04416 255.38)",
+          "oklch(27% 0.04416 255.38)",
+          "oklch(38% 0.04416 255.38)",
+          "oklch(50% 0.04416 255.38)",
+          "oklch(61% 0.04416 255.38)",
+          "oklch(73% 0.04416 255.38)",
+          "oklch(84% 0.04416 255.38)",
+          "oklch(95% 0.04416 255.38)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      },
+      "theme-bg": {
+        "role": "neutral",
+        "displayName": "Warm Tag Backing",
+        "tonalRamp": [
+          "oklch(15% 0.02404 305.98)",
+          "oklch(27% 0.02404 305.98)",
+          "oklch(38% 0.02404 305.98)",
+          "oklch(50% 0.02404 305.98)",
+          "oklch(61% 0.02404 305.98)",
+          "oklch(73% 0.02404 305.98)",
+          "oklch(84% 0.02404 305.98)",
+          "oklch(95% 0.02404 305.98)"
+        ],
+        "rampPurpose": "Synthesized preview only; not shipped application tokens."
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Library and comparison titles."
+      },
+      "headline-editor": {
+        "displayName": "Headline Editor",
+        "purpose": "Desktop editor title."
+      },
+      "headline-mobile": {
+        "displayName": "Headline Mobile",
+        "purpose": "All page titles at 680px and below."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section headings."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Subsection headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "General interface reading."
+      },
+      "button-label": {
+        "displayName": "Button Label",
+        "purpose": "Compact actions."
+      },
+      "field-label": {
+        "displayName": "Field Label",
+        "purpose": "Form labels."
+      },
+      "quiet": {
+        "displayName": "Quiet",
+        "purpose": "Supporting context."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "color-transition",
+        "value": "background-color 160ms ease-out, border-color 160ms ease-out",
+        "purpose": "Buttons; rows transition background color only."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition: none !important; animation: none !important; scroll-behavior: auto !important;",
+        "purpose": "Applied globally under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-desktop",
+        "value": "1150px"
+      },
+      {
+        "name": "tablet",
+        "value": "950px"
+      },
+      {
+        "name": "mobile",
+        "value": "680px"
+      }
+    ],
+    "focus": {
+      "outline": "2px solid var(--apricot)",
+      "outlineOffset": "3px",
+      "purpose": "Shared keyboard-visible focus on interactive controls."
+    },
+    "sources": [
+      "src/main/resources/static/app.css",
+      "src/main/resources/static/app.js",
+      "src/main/resources/static/icons.svg",
+      "src/main/resources/templates/fragments.html",
+      "src/main/resources/templates/library.html",
+      "src/main/resources/templates/editor.html",
+      "src/main/resources/templates/compare.html"
+    ],
+    "evidence": {
+      "review": ".impeccable/review/finish-verdict.md",
+      "renderChecks": ".impeccable/review/render-checks.json",
+      "contrast": ".impeccable/review/contrast.json",
+      "scope": "Existing evidence consulted; no new browser run. Verdict ships the scored fixes only."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Compact primary action; supports disabled and busy states.",
+      "html": "<button type=\"button\" class=\"ds-button-primary\">Save revision</button>",
+      "css": ".ds-button-primary{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:40px;padding:9px 15px;border:1px solid transparent;border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;line-height:20px;font-weight:650;white-space:nowrap;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out;background:var(--coral);color:var(--input);}.ds-button-primary:hover{background:var(--coral-hover);color:var(--input);}.ds-button-primary:active{background:var(--apricot);}.ds-button-primary:disabled{cursor:default;background:var(--panel);border-color:var(--line);color:var(--muted);}.ds-button-primary[data-busy]{cursor:progress;border-color:var(--apricot);}.ds-button-primary:focus-visible{outline:2px solid var(--apricot);outline-offset:3px;}@media(prefers-reduced-motion:reduce){.ds-button-primary{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Compact secondary action; supports disabled and busy states.",
+      "html": "<button type=\"button\" class=\"ds-button-secondary\">Compare revisions</button>",
+      "css": ".ds-button-secondary{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:40px;padding:9px 15px;border:1px solid transparent;border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;line-height:20px;font-weight:650;white-space:nowrap;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out;background:transparent;border-color:var(--line);color:var(--text);}.ds-button-secondary:hover{background:var(--surface-hover);border-color:var(--muted);color:var(--text);}.ds-button-secondary:active{background:var(--panel);}.ds-button-secondary:disabled{cursor:default;background:var(--panel);border-color:var(--line);color:var(--muted);}.ds-button-secondary[data-busy]{cursor:progress;border-color:var(--apricot);}.ds-button-secondary:focus-visible{outline:2px solid var(--apricot);outline-offset:3px;}@media(prefers-reduced-motion:reduce){.ds-button-secondary{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Text field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labeled inset field with source hover and keyboard focus.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-name\">Deck name</label><input class=\"ds-field\" id=\"ds-name\" placeholder=\"E.g. Meren reanimator\">",
+      "css": ".ds-field-label{display:block;font-family:var(--sans);font-size:12px;line-height:1.5;font-weight:600;color:var(--text);margin:16px 0 6px;}.ds-field{min-width:0;width:100%;min-height:42px;padding:9px 12px;background:var(--input);border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.5;caret-color:var(--coral);}.ds-field:hover{border-color:#71849d;}.ds-field::placeholder{color:var(--muted);opacity:1;}.ds-field:focus-visible{outline:2px solid var(--apricot);outline-offset:3px;}"
+    },
+    {
+      "name": "Header navigation",
+      "kind": "nav",
+      "description": "Current-page underline and compact mobile navigation.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a class=\"ds-nav-item\" href=\"#decks\" aria-current=\"page\">Your decks</a><a class=\"ds-nav-item\" href=\"#new-deck\">New deck</a></nav>",
+      "css": ".ds-nav{display:flex;gap:28px;background:var(--header);}.ds-nav-item{display:flex;align-items:center;min-height:64px;color:var(--muted);border-bottom:2px solid transparent;font-family:var(--sans);font-size:13px;font-weight:600;line-height:1.5;text-decoration:none;}.ds-nav-item:hover,.ds-nav-item[aria-current=\"page\"]{color:var(--text);border-bottom-color:var(--coral);}.ds-nav-item:focus-visible{outline:2px solid var(--apricot);outline-offset:3px;}@media(max-width:680px){.ds-nav{gap:20px;margin-left:auto;}.ds-nav-item{min-height:60px;font-size:12px;}.ds-nav-item:last-child{display:none;}}"
+    },
+    {
+      "name": "Theme tag",
+      "kind": "chip",
+      "refersTo": "theme-tag",
+      "description": "Passive theme label; no invented toggle state.",
+      "html": "<span class=\"ds-theme-tag\">graveyard</span>",
+      "css": ".ds-theme-tag{color:var(--apricot);background:#37313e;border-radius:4px;padding:1px 7px;font-family:var(--sans);font-size:11px;line-height:1.5;text-transform:capitalize;}"
+    },
+    {
+      "name": "Suggestion card",
+      "kind": "card",
+      "refersTo": "suggestion-card",
+      "description": "One card name, a concise reason and the add action; shared caveat stays at section level.",
+      "html": "<article class=\"ds-suggestion\"><h3 class=\"ds-suggestion-title\">Cultivate</h3><p class=\"ds-suggestion-reason\">Adds ramp for the saved deck.</p><button class=\"ds-button-primary\" type=\"button\">Add to deck</button></article>",
+      "css": ".ds-suggestion{padding:20px;border-radius:var(--radius-panel);background:var(--panel);color:var(--text);display:flex;flex-direction:column;align-items:start;gap:10px;min-width:0;font-family:var(--sans);line-height:1.5;}.ds-suggestion-title{margin:0;font-size:16px;font-weight:650;line-height:1.4;overflow-wrap:anywhere;}.ds-suggestion-reason{margin:0;color:var(--muted);font-size:12px;max-width:70ch;}.ds-suggestion .ds-button-primary{margin-top:auto;}.ds-button-primary{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:40px;padding:9px 15px;border:1px solid transparent;border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;line-height:20px;font-weight:650;white-space:nowrap;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out;background:var(--coral);color:var(--input);}.ds-button-primary:hover{background:var(--coral-hover);color:var(--input);}.ds-button-primary:active{background:var(--apricot);}.ds-button-primary:disabled{cursor:default;background:var(--panel);border-color:var(--line);color:var(--muted);}.ds-button-primary[data-busy]{cursor:progress;border-color:var(--apricot);}.ds-button-primary:focus-visible{outline:2px solid var(--apricot);outline-offset:3px;}@media(prefers-reduced-motion:reduce){.ds-button-primary{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Deck entry",
+      "kind": "custom",
+      "refersTo": "deck-entry",
+      "description": "Aligned card identity, mana value, quantity and inline SVG remove control.",
+      "html": "<div class=\"ds-entry\"><div class=\"ds-card-info\"><span class=\"ds-card-name\">Cultivate</span><span class=\"ds-card-type\">Sorcery</span></div><span class=\"ds-mana\">3</span><input class=\"ds-quantity\" type=\"number\" min=\"1\" value=\"1\" aria-label=\"Cultivate quantity\"><button type=\"button\" class=\"ds-remove\" aria-label=\"Remove Cultivate\"><svg class=\"ds-remove-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\"/></svg></button></div>",
+      "css": ".ds-entry{display:grid;grid-template-columns:minmax(0,1fr) 24px 50px 30px;gap:10px;align-items:center;padding:10px 4px 10px 8px;min-height:60px;border-bottom:1px solid var(--line);color:var(--text);font-family:var(--sans);line-height:1.5;}.ds-entry:hover{background:var(--panel);}.ds-card-info{min-width:0;}.ds-card-name{display:block;font-size:13px;font-weight:500;overflow-wrap:anywhere;}.ds-card-type{font-size:11px;display:block;margin-top:2px;color:var(--muted);}.ds-mana{text-align:center;color:var(--apricot);font-size:12px;font-variant-numeric:tabular-nums;}.ds-quantity{min-width:0;width:100%;min-height:34px;padding:5px 3px;text-align:center;background:var(--input);border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--text);font-family:var(--sans);font-size:12px;line-height:1.5;caret-color:var(--coral);}.ds-quantity:hover{border-color:#71849d;}.ds-remove{width:30px;height:36px;display:grid;place-items:center;border:0;border-radius:var(--radius-sm);background:transparent;color:var(--muted);cursor:pointer;}.ds-remove:hover{background:var(--surface-hover);color:var(--danger);}.ds-remove-icon{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}.ds-quantity:focus-visible{outline:2px solid var(--apricot);outline-offset:3px;}.ds-remove:focus-visible{outline:2px solid var(--apricot);outline-offset:3px;}@media(max-width:680px){.ds-entry{gap:8px;grid-template-columns:minmax(0,1fr) 20px 45px 26px;padding-left:0;}.ds-remove{width:26px;}.ds-card-name{font-size:12px;}.ds-card-type{font-size:10px;}}"
+    },
+    {
+      "name": "Analysis role coverage",
+      "kind": "custom",
+      "refersTo": "analysis-panel",
+      "description": "Panel tone, numeric coverage and native progress; illustrative values only.",
+      "html": "<section class=\"ds-analysis\" aria-label=\"Analysis\"><h2 class=\"ds-analysis-title\">Analysis</h2><div class=\"ds-role\"><span>Ramp</span><span>6 / 10</span><progress class=\"ds-role-progress\" value=\"6\" max=\"10\" aria-label=\"Ramp: 6 of target 10\"></progress></div></section>",
+      "css": ".ds-analysis{padding:20px;background:var(--panel);border-radius:var(--radius-panel);min-width:0;color:var(--text);font-family:var(--sans);line-height:1.5;}.ds-analysis-title{margin:0;font-size:16px;font-weight:650;line-height:1.4;}.ds-role{display:grid;grid-template-columns:1fr auto;gap:6px;font-size:12px;text-transform:capitalize;margin-top:12px;}.ds-role>span:last-of-type{font-variant-numeric:tabular-nums;font-size:11px;}.ds-role-progress{grid-column:1/-1;width:100%;height:5px;appearance:none;border:0;border-radius:3px;overflow:hidden;background:var(--line);}.ds-role-progress::-webkit-progress-bar{background:var(--line);}.ds-role-progress::-webkit-progress-value{background:var(--apricot);}.ds-role-progress::-moz-progress-bar{background:var(--apricot);}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pacific Deck Workbench",
+    "overview": "A compact local deck workbench, following the user-confirmed Moxfield-inspired working density. Pacific navy surrounds blue-slate panels; coral identifies primary actions and apricot marks focus and analysis. Full card imagery anchors the deck library and commander area.\n\nThe interface uses one system sans, aligned rows, short labels and native controls. Deck editing, saved-revision findings and comparison stay close to the task. Supporting rules, provenance and optional AI details use progressive disclosure.",
+    "keyCharacteristics": [
+      "Dark Pacific navy with restrained coral and apricot accents.",
+      "Dense aligned rows and desktop working columns that stack on mobile.",
+      "Real card imagery, short copy and visible keyboard focus."
+    ],
+    "rules": [
+      {
+        "name": "Action and Evidence",
+        "body": "Use coral for primary actions, apricot for focus and role coverage, rose for mana-curve marks, and text alongside status color.",
+        "section": "colors"
+      },
+      {
+        "name": "One Interface Voice",
+        "body": "Use the system sans throughout the interface; reserve monospace for pasted decklists and diagnostic output.",
+        "section": "typography"
+      },
+      {
+        "name": "Tonal Depth",
+        "body": "Separate work areas with surface tone, spacing and fine borders; the shipped interface has no shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep deck names, counts and quantities aligned in rows.",
+      "Do retain card-image fallbacks and contain the full card artwork.",
+      "Do keep keyboard focus visible and reduced-motion preferences effective.",
+      "Do keep shared caveats beside the relevant work and detailed limits in disclosures."
+    ],
+    "donts": [
+      "Don't add a marketing hero or ornamental display face to task screens.",
+      "Don't repeat card titles or the shared review warning inside each suggestion.",
+      "Don't use color as the only description of validation or revision changes."
+    ]
+  }
+}

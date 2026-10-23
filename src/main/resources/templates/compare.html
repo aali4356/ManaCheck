@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Compare revisions · ManaCheck</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/app.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body data-page="compare" th:attr="data-deck-id=${deck.id()}">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div th:replace="~{fragments :: sidebar}"></div>
+    <main id="main" class="main-shell compare-shell">
+      <a class="back-link" th:href="@{/decks/{id}(id=${deck.id()})}"
+        ><svg class="icon" aria-hidden="true">
+          <use href="/icons.svg#back" /></svg
+        >Back to deck</a
+      >
+      <header class="page-heading compare-heading">
+        <div>
+          <h1>Compare revisions</h1>
+          <p class="quiet" th:text="${deck.name()}">Deck</p>
+        </div>
+      </header>
+      <section class="compare-panel" aria-label="Revision comparison">
+        <div class="compare-selectors">
+          <div>
+            <label for="compare-from">From</label
+            ><select id="compare-from">
+              <option
+                th:each="r : ${revisions}"
+                th:value="${r.revision()}"
+                th:text="|Revision ${r.revision()}|"
+              >
+                Revision
+              </option>
+            </select>
+            <p id="from-note" class="quiet"></p>
+          </div>
+          <svg class="icon compare-arrow" aria-hidden="true">
+            <use href="/icons.svg#forward" />
+          </svg>
+          <div>
+            <label for="compare-to">To</label
+            ><select id="compare-to">
+              <option
+                th:each="r : ${revisions}"
+                th:value="${r.revision()}"
+                th:text="|Revision ${r.revision()}|"
+              >
+                Revision
+              </option>
+            </select>
+            <p id="to-note" class="quiet"></p>
+          </div>
+        </div>
+        <p id="theme-diff" class="quiet"></p>
+        <div class="table-wrap">
+          <table class="diff-table">
+            <caption>
+              Card quantities, including commander
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Card</th>
+                <th scope="col">Before</th>
+                <th scope="col">After</th>
+                <th scope="col">Change</th>
+              </tr>
+            </thead>
+            <tbody id="diff-entries"></tbody>
+          </table>
+        </div>
+        <p id="diff-empty" class="empty-note" hidden>
+          No card quantities changed.
+        </p>
+      </section>
+      <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+      <footer th:replace="~{fragments :: footer}"></footer>
+    </main>
+  </body>
+</html>

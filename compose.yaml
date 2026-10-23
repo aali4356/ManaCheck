@@ -1,0 +1,19 @@
+name: manacheck
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: manacheck
+      POSTGRES_USER: manacheck
+      POSTGRES_PASSWORD: local-demo-only
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - manacheck-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U manacheck -d manacheck"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  manacheck-data:

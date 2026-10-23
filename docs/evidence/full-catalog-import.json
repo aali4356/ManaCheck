@@ -1,0 +1,11 @@
+{
+  "id": "bc7d0a48-29c5-4daf-98e8-5dbce8ae2ef6",
+  "source": "scryfall-oracle",
+  "sourceUpdatedAt": "2026-10-21T21:02:01.935Z",
+  "status": "SUCCEEDED",
+  "recordCount": 33411,
+  "skippedCount": 5536,
+  "error": null,
+  "startedAt": "2026-10-22T04:47:12.511993Z",
+  "completedAt": "2026-10-22T04:47:14.603515Z"
+}

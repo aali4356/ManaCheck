@@ -1,0 +1,30 @@
+name: Verify ManaCheck
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  java-sql-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ANTHROPIC_API_KEY: ""
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+      - name: Run Java, PostgreSQL, API, and Chrome checks
+        run: ./mvnw -B -Pbrowser verify
+      - name: Retain test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: manacheck-verification
+          path: |
+            target/surefire-reports/
+            target/site/jacoco/
+            target/browser/

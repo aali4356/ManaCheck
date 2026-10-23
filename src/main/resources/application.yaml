@@ -1,0 +1,42 @@
+debug: false
+server:
+  address: 127.0.0.1
+  port: ${PORT:8080}
+  error:
+    include-message: never
+spring:
+  application:
+    name: manacheck
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:55432/manacheck}
+    username: ${DATABASE_USERNAME:manacheck}
+    password: ${DATABASE_PASSWORD:local-demo-only}
+    hikari:
+      maximum-pool-size: 5
+  flyway:
+    enabled: true
+  thymeleaf:
+    cache: false
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+  mvc:
+    problemdetails:
+      enabled: true
+manacheck:
+  demo: ${MANACHECK_DEMO:true}
+  targets:
+    land: 36
+    ramp: 10
+    draw: 10
+    interaction: 10
+  anthropic:
+    api-key: ${ANTHROPIC_API_KEY:}
+    model: ${ANTHROPIC_MODEL:claude-haiku-5-5}
+    endpoint: https://api.anthropic.com/v1/messages
+    timeout-seconds: 10
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    dev.manacheck: INFO

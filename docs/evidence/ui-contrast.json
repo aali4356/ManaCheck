@@ -1,0 +1,68 @@
+[
+  {
+    "foreground": "text",
+    "background": "bg",
+    "ratio": 14.36,
+    "pass": true
+  },
+  {
+    "foreground": "muted",
+    "background": "bg",
+    "ratio": 8.69,
+    "pass": true
+  },
+  {
+    "foreground": "text",
+    "background": "panel",
+    "ratio": 12.23,
+    "pass": true
+  },
+  {
+    "foreground": "muted",
+    "background": "panel",
+    "ratio": 7.4,
+    "pass": true
+  },
+  {
+    "foreground": "muted",
+    "background": "input",
+    "ratio": 8.8,
+    "pass": true
+  },
+  {
+    "foreground": "input",
+    "background": "coral",
+    "ratio": 7.79,
+    "pass": true
+  },
+  {
+    "foreground": "coral",
+    "background": "bg",
+    "ratio": 7.7,
+    "pass": true
+  },
+  {
+    "foreground": "apricot",
+    "background": "panel",
+    "ratio": 8.21,
+    "pass": true
+  },
+  {
+    "foreground": "rose",
+    "background": "panel",
+    "ratio": 5.39,
+    "pass": true
+  },
+  {
+    "foreground": "success",
+    "background": "bg",
+    "ratio": 9.66,
+    "pass": true
+  },
+  {
+    "foreground": "danger",
+    "background": "panel",
+    "ratio": 8.11,
+    "pass": true
+  }
+]

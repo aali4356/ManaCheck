@@ -1,0 +1,116 @@
+{
+  "verified_at_utc": "2026-10-22T19:24:03.121022+00:00",
+  "scope": "Printing/Oracle availability regression and ten requested local deck imports",
+  "classifier_version": "catalog-v3",
+  "command": "DEBUG=false ./scripts/verify.sh",
+  "result": "BUILD SUCCESS",
+  "totals": {
+    "tests": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "name": "dev.manacheck.BrowserTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 11.163
+    },
+    {
+      "name": "dev.manacheck.DeckValidatorTest",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.072
+    },
+    {
+      "name": "dev.manacheck.HaikuExplainerTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.574
+    },
+    {
+      "name": "dev.manacheck.MigrationIntegrationTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 3.728
+    },
+    {
+      "name": "dev.manacheck.RecommendationIntegrationTest",
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.443
+    },
+    {
+      "name": "dev.manacheck.WorkflowIntegrationTest",
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.606
+    }
+  ],
+  "build_wall_seconds": 23.329,
+  "source_tree_sha256": "cbc771227352890aed27bb8bfdc68e01676f5a12588df2f6d70ef5ca3f99a4c9",
+  "jar_sha256": "6382ca4e074f21a8d218a59845d98d2b0ceb1288c60c99c47b8d76126f0f46cd",
+  "regression_before_fix": "Expected failure: Badlands absent from catalog; NoSuchElementException in oracleIdentitiesSurviveDigitalPreferredPrintings.",
+  "reprocessed_catalog": {
+    "id": "b244565e-79ea-42de-82ac-2a0e76989766",
+    "source": "scryfall-oracle",
+    "sourceUpdatedAt": "2026-10-21T21:02:01.935Z",
+    "status": "SUCCEEDED",
+    "recordCount": 34473,
+    "skippedCount": 4474,
+    "error": null,
+    "startedAt": "2026-10-22T19:17:08.654227Z",
+    "completedAt": "2026-10-22T19:17:10.916175Z"
+  },
+  "previous_active_cards": 33411,
+  "recovered_identities": 1062,
+  "fixture_provenance": "../../src/test/resources/catalog-digital-preferred.provenance.json",
+  "personal_decks": {
+    "imported": 10,
+    "cards_each": 100,
+    "all_oracle_id_and_quantity_matches": true,
+    "construction_errors": 0,
+    "prior_decks_preserved": 4,
+    "final_library_count": 14,
+    "private_receipt": "Stored under ignored .local/archidekt-imports/2026-10-22/"
+  },
+  "receipt": {
+    "agents": 1,
+    "implementation_corrections": 1,
+    "maven_test_invocations": 2,
+    "expected_regression_failures": 1,
+    "full_verification_passes": 1,
+    "symphony_worker_attempts": 0,
+    "model": "unknown",
+    "effort": "unknown",
+    "token_usage": "unknown"
+  },
+  "limits": [
+    "Local checks only; hosted CI not run.",
+    "No live AI inference or new AI-quality acceptance claimed.",
+    "Existing performance timings retain their earlier catalog size and dates."
+  ],
+  "live_browser": {
+    "severeBrowserErrors": [],
+    "constructionState": "Construction checks passed",
+    "editorCardCount": 100,
+    "libraryRows": 14,
+    "importedRowsVerified": 10,
+    "editorVerified": "Yuriko $50",
+    "verifiedAtUtc": "2026-10-22T19:24:08.835630Z",
+    "remoteImagesDisabled": true
+  }
+}
