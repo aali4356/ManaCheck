@@ -1,0 +1,37 @@
+{
+  "verified_at": "2026-10-23T22:08:12.660405+00:00",
+  "base_commit": "db61330ff90891c21e7ec45c18328b1867712efe",
+  "local_verification": {
+    "command": "DEBUG=false ./scripts/verify.sh",
+    "tests": 90,
+    "unique_test_keys": 90,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "maven_seconds": 31.209
+  },
+  "cucumber_scenarios": 21,
+  "existing_tests": 69,
+  "validator_exercise_files_unchanged": true,
+  "worker": {
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "agents": 1,
+    "attempts": 1,
+    "tokens": {
+      "input": 2248668,
+      "cached_input": 2142592,
+      "output": 24343,
+      "total": 2273011
+    },
+    "cost_usd": null,
+    "quota_units": null,
+    "full_browser_run": "Browser startup failed in restricted worker; passed in integration checkout"
+  },
+  "integration_owner": {
+    "model": "unknown",
+    "effort": "unknown",
+    "tokens": "unknown"
+  },
+  "live_ai_review": "separate; human review pending"
+}
