@@ -6,7 +6,7 @@ A local Commander deck tracker with immutable revision history, explicit SQL ran
 
 ![ManaCheck deck library](docs/evidence/library.png)
 
-Verified locally and in GitHub Actions: **98 checks**, including Cucumber scenarios, REST Assured contracts, PostgreSQL, and Chrome. Local Jenkins passed the same suite; ten full local runs found no changed outcomes. The local catalog contains **34,473 cards**. The recorded walkthrough predates the sunset redesign; screenshots predate personal imports, and performance measurements used the earlier 33,411-card catalog. See [verification evidence](docs/VERIFICATION.md).
+Verified locally and in GitHub Actions: **98 checks**, including Cucumber scenarios, REST Assured contracts, PostgreSQL, and Chrome. Jenkins passed the same suite; ten-run stability checks passed locally and in Actions. The local catalog contains **34,473 cards**. The recorded walkthrough predates the sunset redesign; screenshots predate personal imports, and performance measurements used the earlier 33,411-card catalog. See [verification evidence](docs/VERIFICATION.md).
 
 ## Run locally
 

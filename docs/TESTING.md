@@ -65,6 +65,12 @@ at commit `539dd9f8f1d635acb17555f936e79e6dc3b5f17e`. All ten verifier exits wer
 per-run timings; original logs, XML and browser evidence remain in ignored local
 `stability-results/`.
 
+The [first hosted nightly invocation](https://github.com/aali4356/ManaCheck/actions/runs/40049439290)
+also passed ten complete runs at commit `31ecebb1ab66b0cc270b17058c5ab6af208d7bfc`.
+The downloaded artifact digest and every run’s 98 unique passing XML records were
+independently checked; [the hosted receipt](evidence/stability-hosted.json) records
+980 executions and zero changed outcomes.
+
 ## HTTP response contracts
 
 `ApiContractTest` uses REST Assured **6.0.0** and its **6.0.0** `json-schema-validator`, both test-scoped, against the random-port Spring server and `PostgresTestBase`'s disposable PostgreSQL 17 fixture. Its eight tests cover card search/filtering/pagination; deck create/get/list; immutable revision retrieval/history; bidirectional differences and atomic stale-save 409 problems; analysis counts, roles and catalog provenance; validated recommendation swaps and stale-run rejection; retained no-key explanation fallback; and a negative schema regression.
