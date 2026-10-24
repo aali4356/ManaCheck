@@ -1,50 +1,47 @@
-# Know the code
+# Code ownership and delegated review
 
-The implementation is AI-assisted. These tasks belong to the owner; automation cannot establish that someone understands the code. Reading and the unaided rewrite remain unverified.
+The owner asked Codex to perform the class read-through, review the three Haiku
+wording findings, and rewrite `DeckValidator`. The resulting work is **AI-assisted**.
+It establishes reviewed source and executable checks. It does not establish an
+unaided owner-written exercise or individual human rubric scores.
 
-Read each class in this order. Check a box only after explaining its purpose and tracing a request through it without assistance.
+## Delivery record
 
-- [ ] `Domain`: records, Oracle identity, quantities, and derived totals.
-- [ ] `ManaCheckApplication`: Spring startup and component discovery.
-- [ ] `CardClassifier`: required fields, commander eligibility, copy exceptions, and versioned text heuristics.
-- [ ] `CatalogImporter`: streamed staging, duplicate rejection, atomic promotion, and failed-import preservation.
-- [ ] `CatalogRepository`: bound SQL, array containment, current source provenance, and retired identities.
-- [ ] `DeckValidator`: supported construction rules, errors versus heuristic warnings, and recommendation eligibility.
-- [ ] `DeckService`: complete snapshots, row locks, expected revisions, previews, and SQL differences.
-- [ ] `RecommendationService`: SQL candidates, coverage-aware cuts, simulation, stale results, and one-attempt explanations.
-- [ ] `HaikuExplainer`: supplied facts, strict IDs, bounded requests, usage, and fallback.
-- [ ] `ApiController`: HTTP contracts and status codes.
-- [ ] `ApiException` and `ApiErrors`: domain errors, safe problem responses, and unexpected failures.
-- [ ] `LocalOnlyGuard`: localhost/origin checks and response headers.
-- [ ] `PageController`: server-rendered library, editor, and comparison.
-- [ ] `DemoSeeder`: offline startup and recovery of interrupted work.
+- Read all 15 application and 13 test source files, their nested records/classes,
+  the Java demo recorder, migrations, ranking SQL, browser save/apply flow and CI.
+  [The read-through](CODE-REVIEW.md) explains each responsibility and the transaction paths.
+- Rewrote the validator into construction, copy allowance, composition and finding
+  stages. The 54 focused cases use stated card facts and explicit business
+  expectations, including deterministic catalog-age boundaries. Historical
+  classifier regressions and the Cucumber acceptance scenarios are preserved.
+- Reviewed the Haiku findings against supplied Oracle facts; corrected the
+  interaction tags, ability-boundary guidance and response validation.
+  [The review](HAIKU-REVIEW.md) records the fresh provider sample and its actual reviewer.
+- Retained failed development diagnostics and source-pinned verification in the
+  [closeout receipt](evidence/delegated-closeout.json).
 
-Then read every test class, including the Cucumber glue and REST Assured contracts, plus the migrations and `sql/recommendations.sql`. Trace the browser's save/apply requests from `app.js` to the transaction and back.
+One Symphony worker handled the two validator files at requested
+`gpt-6.1-sol` / `xhigh`. Codex reviewed and integrated that patch and completed
+the remaining fixes. No parallel coding workers or nested dispatch were used.
+The receipt separates requested runtime settings from unavailable usage telemetry.
 
-## Unaided exercise
+The owner's earlier “its fine” response remains general approval of the initial
+worksheet. No per-run human ratings, owner read-through, rehearsal recording or
+unaided authorship have been inferred from it. Those claims are absent from the
+project's completion evidence.
 
-Use a practice branch. Close the existing validator and its tests, then rewrite `DeckValidator` and `DeckValidatorTest` yourself from the product rules. Do not ask an AI to generate or repair either file during the exercise. Keep the public method signatures and response records compatible.
+## Optional personal rehearsal
 
-Cover boundaries, color identity and basic land types, singleton/copy exceptions, unsupported constructions, and the distinction between invalid drafts and eligible recommendations. Write your own assertions before checking the existing acceptance suite.
+The original unaided rewrite was a learning exercise. Delegating this delivery
+changes who did the work; personal practice remains available when useful.
 
-```bash
-git switch -c practice/deck-validator
-DEBUG=false ./scripts/verify.sh -Dtest=DeckValidatorTest
-DEBUG=false ./scripts/verify.sh
-```
+Use a separate practice branch, close the implementation and tests, and write
+from the product rules. Check the 99/100/101 boundaries, combined color identity,
+basic land types, copy exceptions, unsupported cards and recommendation eligibility.
+Keep failed runs. Explain one assertion's business meaning and the save/apply
+transaction boundaries without consulting an assistant.
 
-Keep your diff and failed runs. After finishing, explain a failure you found and why the corrected assertion represents a business rule. A later code review can assess the result; the current project does not claim this exercise is complete.
-
-## Panel rehearsal
-
-Explain these without opening an assistant:
-
-1. Why does saving lock both the catalog pointer and deck row? Where does the transaction begin when `create` calls `save` inside the same service?
-2. How do PostgreSQL triggers seal a snapshot? What happens when a save fails halfway through?
-3. Walk through role aggregation, candidate filtering, scoring, and deterministic ties in the ranking SQL. Why was a CTE materialized?
-4. What stays immutable when Oracle text or legality changes? Why can an old deck revision display current card details?
-5. What do the 20 recommendation scenarios establish, and which strategic claims remain outside them?
-6. Which inputs are controlled to prevent flaky browser/provider tests? How would you investigate a failing prerequisite?
-7. Why can a valid AI response still give poor advice? Use the observed `nontoken` tagging error as an example.
-
-Record a five-minute walkthrough after completing the exercise. Keep learning completion separate from build, CI, and provider receipts.
+The [source guide](CODE-REVIEW.md) contains the reviewed explanations for SQL
+ranking, immutable history, provider fallback and controls against false failures.
+Use it as study material. The repository makes no claim that reading it proves
+personal fluency.

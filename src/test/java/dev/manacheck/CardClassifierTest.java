@@ -168,6 +168,111 @@ class CardClassifierTest {
     assertThat(tags("Instant", "Proliferate.")).containsExactly("counters");
   }
 
+  @Test
+  void lazotepQuarryRecursionIsNotOpponentInteraction() {
+    assertThat(
+            tags(
+                "Land — Desert",
+                "{T}: Add {C}.\n"
+                    + "{T}, Sacrifice a creature: Add one mana of any color.\n"
+                    + "{X}{2}, {T}, Sacrifice a Desert: Exile target creature card with mana value"
+                    + " X from your graveyard. Create a token that's a copy of it, except it's a"
+                    + " 4/4 black Zombie. Activate only as a sorcery."))
+        .containsExactlyInAnyOrder("land", "tokens", "graveyard");
+  }
+
+  @Test
+  void staffOfCompleationKeepsItsOtherRolesWithoutSelfRemovalInteraction() {
+    assertThat(
+            tags(
+                "Artifact",
+                "{T}, Pay 1 life: Destroy target permanent you own.\n"
+                    + "{T}, Pay 2 life: Add one mana of any color.\n"
+                    + "{T}, Pay 3 life: Proliferate.\n{T}, Pay 4 life: Draw a card.\n"
+                    + "{5}: Untap this artifact."))
+        .containsExactlyInAnyOrder("ramp", "draw", "counters");
+  }
+
+  @Test
+  void allyEncampmentSelfBounceDoesNotSupplyInteraction() {
+    assertThat(
+            tags(
+                "Land",
+                "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast an"
+                    + " Ally spell.\n{1}, {T}, Sacrifice this land: Return target Ally you control"
+                    + " to its owner's hand."))
+        .containsExactly("land");
+  }
+
+  @ParameterizedTest
+  @ValueSource(
+      strings = {
+        "Exile target creature card from your graveyard.",
+        "Destroy target creature you control.",
+        "Destroy all creatures you control.",
+        "Counter target spell you control.",
+        "Return target creature you own to its owner's hand."
+      })
+  void effectsRestrictedToYourOwnResourcesDoNotSupplyInteraction(String oracle) {
+    assertThat(tags("Instant", oracle)).doesNotContain("interaction");
+  }
+
+  @ParameterizedTest
+  @ValueSource(
+      strings = {
+        "Destroy target permanent.",
+        "Destroy all creatures.",
+        "Destroy all creatures you don't control.",
+        "Exile target creature you don't control.",
+        "Exile target card from a graveyard.",
+        "Counter target spell.",
+        "Return target creature to its owner's hand.",
+        "Exile target creature card from your graveyard.\nDestroy target artifact.",
+        "Return target creature you control to its owner's hand. Exile target creature.",
+        "Destroy target artifact you control and target artifact you don't control."
+      })
+  void opponentAndUnrestrictedEffectsStillSupplyInteraction(String oracle) {
+    assertThat(tags("Instant", oracle)).contains("interaction");
+  }
+
+  @Test
+  void selectableIdentityFromTheCatalogStillRequiresReview() {
+    assertThat(Fixture.card("The Prismatic Piper").unsupportedReason())
+        .contains("Selectable color identity");
+  }
+
+  @Test
+  void arcaneSignetManaWrittenInWordsSuppliesRamp() {
+    assertThat(
+            tags("Artifact", "{T}: Add one mana of any color in your commander's color identity."))
+        .containsExactly("ramp");
+  }
+
+  @Test
+  void multipleManaWrittenInWordsSuppliesRamp() {
+    assertThat(tags("Artifact", "{T}: Add two mana of any one color.")).containsExactly("ramp");
+  }
+
+  @Test
+  void addingACounterDoesNotSupplyManaRamp() {
+    assertThat(tags("Artifact", "Add one +1/+1 counter to target creature."))
+        .containsExactly("counters");
+  }
+
+  @ParameterizedTest
+  @ValueSource(
+      strings = {
+        "{1}, {T}, Sacrifice this artifact: Add one mana of any color.\n"
+            + "When this artifact is put into a graveyard from the battlefield, draw a card.",
+        "{1}, {T}: Add one mana of any color.",
+        "{T}, {1}: Add one mana of any color.",
+        "Enchant land\nWhen this Aura enters, draw a card.\n"
+            + "Enchanted land has \"{T}: Add one mana of any color.\""
+      })
+  void manaFilteringAndGrantingALandFixingDoNotEstablishWordManaRamp(String oracle) {
+    assertThat(tags("Artifact", oracle)).doesNotContain("ramp");
+  }
+
   private Set<String> tags(String type, String oracle) {
     var source = json.createObjectNode();
     source.put("oracle_id", "00000000-0000-0000-0000-000000000001");

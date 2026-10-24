@@ -6,7 +6,7 @@ A local Commander deck tracker with immutable revision history, explicit SQL ran
 
 ![ManaCheck deck library](docs/evidence/library.png)
 
-The verifier passes **130 checks**, including Cucumber scenarios, REST Assured contracts, PostgreSQL, Chrome, and role-tag regressions. Jenkins passed the same suite; ten-run stability samples passed locally and in Actions with 130 checks. Saved receipts identify each tested revision. The local catalog contains **34,473 cards**. The recorded walkthrough predates the sunset redesign; screenshots predate personal imports, and performance measurements used the earlier 33,411-card catalog. See [verification evidence](docs/VERIFICATION.md), [role-tag limits](docs/ROLE-TAGGING.md), and [AI review findings](docs/HAIKU-REVIEW.md).
+The verifier passes **208 checks** across Java, PostgreSQL, Cucumber, REST Assured and Chrome. Earlier Jenkins and ten-run stability receipts cover the 130-check revision. The local catalog holds **34,473 cards**. See [verification](docs/VERIFICATION.md), [tagging limits](docs/ROLE-TAGGING.md), and the [completed AI review](docs/HAIKU-REVIEW.md).
 
 ## Run locally
 
@@ -53,9 +53,9 @@ The application does not read `.env` automatically. `.env.example` lists support
 
 Only **Explain with AI** calls the provider. It receives the commander, theme, deck count, and already selected changes, with a structured response schema, disabled thinking, a 1,200-token output cap, and a 10-second timeout. Each recommendation run permits one attempt; subsequent requests reuse the retained outcome. Provider usage is recorded when returned. No AI requests run during catalog imports, normal editing, ranking, startup, or CI.
 
-Java checks every returned suggestion ID and required explanation. Ten live fixture runs completed with saved usage and explanations. The [review](docs/HAIKU-REVIEW.md) records open heuristic findings; individual human rubric scores remain unrecorded.
+Java checks every returned suggestion ID and required explanation. Two fresh batches completed ten fixture runs each, with saved usage and explanations. The [completed assistant review](docs/HAIKU-REVIEW.md) records the three original wording findings, corrected references and fresh live failures. AI prose remains a preview; individual human ratings are not claimed.
 
-Development used Codex assistance. The [code reading and unaided exercise guide](docs/OWNERSHIP.md) separates passing automation from the owner's learning work.
+Development used Codex assistance. The [source read-through](docs/CODE-REVIEW.md) and [delegated rewrite record](docs/OWNERSHIP.md) identify who did the work and separate verification from personal learning.
 
 ## What this project tests
 

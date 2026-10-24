@@ -25,7 +25,7 @@ ENVIRONMENT = {"ANTHROPIC_API_KEY": "", "DEBUG": "false"}
 TOTAL_SECONDS = 24 * 60
 RUN_SECONDS = 180
 # Reviewed full browser-profile inventory at this base; update on intentional discovery changes.
-EXPECTED_TEST_COUNT = 130
+EXPECTED_TEST_COUNT = 208
 
 
 def read_reports(folder):

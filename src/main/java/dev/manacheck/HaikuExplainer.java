@@ -13,6 +13,8 @@ import tools.jackson.databind.json.JsonMapper;
 
 @Service
 public class HaikuExplainer {
+  public static final String PROMPT_VERSION = "explanations-v4";
+
   public record Result(
       Map<String, String> explanations,
       String status,
@@ -84,6 +86,8 @@ public class HaikuExplainer {
       String prompt =
           json.writeValueAsString(
               Map.of(
+                  "promptVersion",
+                  PROMPT_VERSION,
                   "commander",
                   facts(deck.commander()),
                   "theme",
@@ -108,7 +112,17 @@ public class HaikuExplainer {
                   + " tradeoffs supported by the cut card's Oracle text. Rule reasons describe"
                   + " heuristic gaps in the current deck: never claim the cut created those gaps"
                   + " or supplied an ability absent from its facts. Preserve relevant conditions,"
-                  + " costs, and target restrictions. Keep the current commander; do not discuss"
+                  + " costs, and target restrictions. Focus on one relevant ability. Each"
+                  + " activated ability has its own costs and effects; never combine separate"
+                  + " abilities. Preserve optional 'may' choices and if/otherwise destinations."
+                  + " Choosing a target does not make a required effect optional. An optional"
+                  + " effect after drawing is not a cost or condition for drawing. Describe"
+                  + " effects in their supplied order. Describe lands by the mana they produce;"
+                  + " producing colored mana does not give a land that color."
+                  + " When describing a tutor, specify each named card type's destination."
+                  + " Self-recursion and effects restricted to your own cards do not establish"
+                  + " opposing interaction. Mana value alone does not prove a spell is cheap or"
+                  + " efficient, especially with X. Keep the current commander; do not discuss"
                   + " changing commanders. A theme tag does not prove strategic benefit.",
               "messages",
               List.of(Map.of("role", "user", "content", prompt)),
@@ -136,10 +150,15 @@ public class HaikuExplainer {
       for (JsonNode part : root.path("content"))
         if (part.path("type").asText().equals("text")) text.append(part.path("text").asText());
       JsonNode output = json.readTree(text.toString());
-      if (!output.path("explanations").isArray())
+      if (!output.isObject() || output.size() != 1 || !output.path("explanations").isArray())
         return fallback("Invalid explanation structure; rule explanations retained", usage);
       Map<String, String> explanations = new LinkedHashMap<>();
       for (JsonNode itemNode : output.path("explanations")) {
+        if (!itemNode.isObject()
+            || itemNode.size() != 2
+            || !itemNode.path("suggestionId").isString()
+            || !itemNode.path("explanation").isString())
+          return fallback("Invalid explanation fields; rule explanations retained", usage);
         String id = itemNode.path("suggestionId").asText(),
             explanation = itemNode.path("explanation").asText();
         if (!ids.contains(id)
@@ -177,7 +196,9 @@ public class HaikuExplainer {
         "type",
         c.typeLine(),
         "oracleText",
-        c.oracleText());
+        c.oracleText(),
+        "oracleLines",
+        c.oracleText().lines().filter(line -> !line.isBlank()).toList());
   }
 
   private Result fallback(String detail, Map<String, Object> usage) {

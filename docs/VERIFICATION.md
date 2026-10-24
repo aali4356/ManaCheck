@@ -1,5 +1,16 @@
 # Local verification receipt
 
+## Delegated review and validator rewrite — 24 October 2026 UTC
+
+- **208 application checks passed**, zero failures/errors/skips, plus 11 stability-detector checks.
+- The rewritten validator has **54 focused invocations**. The classifier has 58 and provider adapter 24; the complete verifier includes PostgreSQL, 20 recommendation scenarios, API/Cucumber and all three Chrome journeys.
+- [Hosted verification](https://github.com/aali4356/ManaCheck/actions/runs/40058891991) passed at source `c5200d03d03b09451e2f8f824992e181ab03d7db`.
+- [The source read-through](CODE-REVIEW.md) covers all 29 Java source files, migrations, ranking SQL and browser request paths. [Authorship](OWNERSHIP.md) is explicit.
+- [The completed assistant review](HAIKU-REVIEW.md) preserves both fresh Haiku batches and its failing content verdict. Structural success is separate from human ratings and factual quality.
+- The catalog refresh preserved exact fingerprints of 10 decks, 20 revisions and 876 entries; 34,473 cards remain active. No personal deck was sent to a provider.
+
+The [closeout receipt](evidence/delegated-closeout.json) pins source hashes, tests, failed diagnostics, runtime activation and actual execution settings. Earlier receipts below describe their own source revisions and inventories.
+
 ## Role tags and explanation follow-up — October 23, 2026
 
 The [current receipt](evidence/role-tag-verification.json) separates tested source

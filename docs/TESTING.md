@@ -32,7 +32,7 @@ and records passed/failed/error/skipped, missing, unavailable and duplicate
 outcomes. Any outcome change, nonpassing outcome (including a stable failure or
 skip), missing execution/report, duplicate, empty/malformed/incomplete XML, retry
 evidence or nonzero verifier exit fails the sample. A later passing run preserves
-every earlier failure. The current full-suite inventory is **98 unique keys**;
+every earlier failure. The current full-suite inventory is **208 unique keys**;
 the detector also rejects consistently absent tests/reports through that count
 guard. Update `EXPECTED_TEST_COUNT` only after reviewing intentional discovery
 changes. XML suite totals must match their testcase outcomes.
@@ -100,7 +100,7 @@ Run all existing tests, including the three Chrome journeys, plus the business s
 DEBUG=false bash -c 'source scripts/environment.sh; ./mvnw -B -Pbrowser test'
 ```
 
-The original suite has 69 test invocations with `-Pbrowser` (66 without it). The feature files add 21 scenario invocations, `ApiContractTest` adds 8, and the role-tag regressions add 32. A full successful run should report **130 tests** (**127** without browser tests), with each test and expanded scenario discovered once. The focused Cucumber command should report **21 tests**. Historical receipts retain the inventory tested at that revision.
+The original suite has 69 test invocations with `-Pbrowser` (66 without it). The feature files add 21 scenario invocations, `ApiContractTest` adds 8, and the role-tag regressions add 32. The validator rewrite adds 36 invocations, and the follow-up classifier/provider regressions add 42. A full successful run now reports **208 tests** (**205** without browser tests), with each test and expanded scenario discovered once. The focused Cucumber command should report **21 tests**. Historical receipts retain the inventory tested at that revision.
 
 | Feature | Business assertions |
 | --- | --- |
@@ -145,7 +145,7 @@ The pinned source sample is under `src/main/resources/demo`; its provenance mani
 - Testcontainers uses PostgreSQL's actual constraints and transactions.
 - A checked-in additive migration is tested against populated prior data.
 
-Reports: `target/surefire-reports`, `target/site/jacoco`, and `target/browser`. GitHub Actions uploads them even when a job fails. The workflow exists locally; a hosted run is separate evidence and requires publishing the repository.
+Reports: `target/surefire-reports`, `target/site/jacoco`, and `target/browser`. GitHub Actions uploads them even when a job fails. Hosted runs are linked in [VERIFICATION.md](VERIFICATION.md); their receipts identify the source tested.
 
 ## SQL measurement
 
@@ -159,11 +159,11 @@ The script measures one first request and 20 subsequent requests, then executes 
 
 ## Live explanation review
 
-Live model quality needs an API key and a human reviewer. Keep this separate from the passing offline suite. Review at least ten explanation runs across general, tokens, counters, and graveyard decks. Record model ID, prompt/rules version, token usage, and these checks for each run:
+Live model quality needs an API key and content review. Keep this separate from the passing offline suite. Record the actual reviewer. The original acceptance plan called for human review; the latest delegated assistant review does not establish individual human ratings. Review at least ten explanation runs across general, tokens, counters, and graveyard decks. Record model ID, prompt/rules version, token usage, and these checks for each run:
 
 1. Every card fact and claimed interaction is supported by the supplied Oracle text.
 2. The explanation describes the actual addition or swap.
 3. It gives a useful reason and preserves uncertainty about strategic value.
 4. It avoids invented statistics, unsupported optimality claims, and instructions taken from card text.
 
-Any unsupported card fact fails that run. Revisit the prompt and rerun the affected cases. Live review is pending until results are recorded; schema compliance alone cannot pass it.
+Any unsupported card fact fails that run. Revisit the prompt and rerun the affected cases. Schema compliance alone cannot pass content review. [HAIKU-REVIEW.md](HAIKU-REVIEW.md) records the delegated review, its fresh live results, retained failures and authorship. The owner supplied general approval of the initial worksheet; individual human rubric ratings have not been supplied.

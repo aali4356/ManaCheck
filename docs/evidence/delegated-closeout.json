@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "verified_utc": "2026-10-24",
+  "source_code_commit": "c5200d03d03b09451e2f8f824992e181ab03d7db",
+  "source_review": {
+    "source_commit": "c5200d03d03b09451e2f8f824992e181ab03d7db",
+    "application_jar_sha256": "63e6669a6341b2e1855c177f7e6a610a7c115760b6e97c86c5ec28e2a6250b17",
+    "reviewer": "Codex assistant",
+    "human_attestation": false,
+    "reviewed_files": [
+      {
+        "path": "scripts/RecordDemo.java",
+        "sha256": "cb469b4e683058579d8da7d02b43628d7e8ea7cbeb272e8e23688a8fe1aae17c"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/ApiController.java",
+        "sha256": "293612ac044b06fdb3344812c907e18ab59f44cc845acb2f099ec2fc27da09c4"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/ApiErrors.java",
+        "sha256": "95af6e935e4a069c7a26aaf70cdd74007de1f4701eeba01c6f732bb958b46f3a"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/ApiException.java",
+        "sha256": "65e28837c3eeb6e2742ae8bfdc3a9d73f4ee808888235b89a233562eea546e24"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/CardClassifier.java",
+        "sha256": "ea7bc72d7a03cf74e3d9b6a5f45cf44e9c9aa7c3b9eeb05985221eefb06c2d91"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/CatalogImporter.java",
+        "sha256": "298a4aafcf642fa956b777786b25f34f497ed76d40ed26ff5cbd662d946bcf35"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/CatalogRepository.java",
+        "sha256": "ebb5351811ece3c94ec09114e7049faf2c5c6b8ad4d548068323e9ab99918e74"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/DeckService.java",
+        "sha256": "510675db7ea84ed6689ff85d43b91185864504904416d217d8f867a5b5817ee3"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/DeckValidator.java",
+        "sha256": "6121f17deeee7816d439519dd55b4b85141acbd7f4f117ad30d3c93fbf29f897"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/DemoSeeder.java",
+        "sha256": "5e3e2bd8f4b2f13e20b9aacbcadb4ccf476c269862a3b01773301c8806ea61ad"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/Domain.java",
+        "sha256": "f4896cabfebb10e05676db125c370f1c602120b8b3786abdc2e64d8348bbb370"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/HaikuExplainer.java",
+        "sha256": "42fe4c4d7a69da39ccc41bac77bf92c557bb1af7ce05a5c212ab638e137928c5"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/LocalOnlyGuard.java",
+        "sha256": "e294c2177ad3a55b5192165bb0e17608a081bcee30607fcd859a3e98c9374315"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/ManaCheckApplication.java",
+        "sha256": "abf9a4d7ee3d9bfe0d5b9255669483cb808c4816cfd82b8779b1cb521d9616d0"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/PageController.java",
+        "sha256": "aba1582026a702ea4c7c3fbabab812dc27642dabad7d74af9d61ad939a17b60e"
+      },
+      {
+        "path": "src/main/java/dev/manacheck/RecommendationService.java",
+        "sha256": "d6dca36055e8ded4438da15a1ed1e6f2fbceff2a36bf03dd21febe1f6fda1d7e"
+      },
+      {
+        "path": "src/main/resources/db/migration/V1__catalog_and_deck_history.sql",
+        "sha256": "cac00f5b633be194ff2b07d6ff9e65d8e3a71b0fd54f54ee0da406941c382a53"
+      },
+      {
+        "path": "src/main/resources/db/migration/V2__themes_and_recommendation_audit.sql",
+        "sha256": "8e75ccf9d6bfcafb1420506512060a49f29a3d04fc0315bf94f84b53d16fd650"
+      },
+      {
+        "path": "src/main/resources/db/migration/V3__seal_revision_membership.sql",
+        "sha256": "b09a6034ba7f40beb83a80dfd9f050d4bc8a59db31e65ebe9b89b00b70803aa6"
+      },
+      {
+        "path": "src/main/resources/sql/recommendations.sql",
+        "sha256": "7d2eb9f71760b0dae7c7a53f10b0e0836e564eef6afc26d00c3206089266ee71"
+      },
+      {
+        "path": "src/main/resources/static/app.js",
+        "sha256": "254c0ef9496adfbdb93050056d148c07a9c9064d7ac8d34b1f25138376b2025d"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/ApiContractTest.java",
+        "sha256": "2c52b4eeb9a250eec0baada4c47e5af444112e21f3bf65b1bdd4033e9920facb"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/BrowserTest.java",
+        "sha256": "6da725bc6ae10071d60ee28110d3f121d1730e738aeaa1818f7ded44528886b1"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/CardClassifierTest.java",
+        "sha256": "0f1ddf85479d7dcf3391607375229c59cf550a4f6794eb967ea4d3ae62693878"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/CommanderSteps.java",
+        "sha256": "3c7d7c8b5ae539f0edc562c09b6f935c67153a2f10e172d5a6d39305d9abe92e"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/CucumberSpringConfiguration.java",
+        "sha256": "25282b0f87618f49fbe4b10d6aa6339e191b9237132f53086237ab55ea3cf9f9"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/DeckValidatorTest.java",
+        "sha256": "153611988bd8ccf148ddad016e98afab583f3a2fd394e812ef1662fe7dcb8d40"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/Fixture.java",
+        "sha256": "e3042055a5735d84c52143fbafe13112c183965ed0fa9ea5746bfe3318d8532a"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/HaikuExplainerTest.java",
+        "sha256": "ae5e9033e33b213129f430eebc1d4afd24c07e95b7cc568d5f4547efafdd740d"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/MigrationIntegrationTest.java",
+        "sha256": "8c2011f764f8d1a2c3efa9729a8935f6c9c8645e1044e98f1eca7aec9d4fe785"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/PostgresTestBase.java",
+        "sha256": "da5208004557993fed122dbb2a4eedc9bf10b7a4c9388c572a975c92eb515aba"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/RecommendationIntegrationTest.java",
+        "sha256": "7bbd9c7a35d897bb20f9036f088c62b90414dbd50fe3509e6b0a34dcd8721c2c"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/RunCucumberTest.java",
+        "sha256": "104300efa3728711be734ccaf9315c8058bbc940e89c8dc6dec46353e2236158"
+      },
+      {
+        "path": "src/test/java/dev/manacheck/WorkflowIntegrationTest.java",
+        "sha256": "ac8e6f113b7422c84d6bfd31bc76d296dd548dc0f69b3fea65151e1fc8556af0"
+      }
+    ]
+  },
+  "full_verifier": {
+    "returncode": 0,
+    "elapsed_seconds": 33.299,
+    "suites": [
+      {
+        "name": "dev.manacheck.ApiContractTest",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "2.262"
+      },
+      {
+        "name": "dev.manacheck.BrowserTest",
+        "tests": "3",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "13.37"
+      },
+      {
+        "name": "dev.manacheck.CardClassifierTest",
+        "tests": "58",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.03"
+      },
+      {
+        "name": "dev.manacheck.DeckValidatorTest",
+        "tests": "54",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.073"
+      },
+      {
+        "name": "dev.manacheck.HaikuExplainerTest",
+        "tests": "24",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "2.247"
+      },
+      {
+        "name": "dev.manacheck.MigrationIntegrationTest",
+        "tests": "1",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "4.548"
+      },
+      {
+        "name": "dev.manacheck.RecommendationIntegrationTest",
+        "tests": "25",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "1.581"
+      },
+      {
+        "name": "dev.manacheck.RunCucumberTest",
+        "tests": "21",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "1.248"
+      },
+      {
+        "name": "dev.manacheck.WorkflowIntegrationTest",
+        "tests": "14",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "0.548"
+      }
+    ],
+    "unique_passing_test_count": 208,
+    "independent_xml_recount_passed": true,
+    "provider_key_disabled": true,
+    "personal_database_used_for_tests": false
+  },
+  "stability_detector": {
+    "tests": 11,
+    "failures": 0,
+    "current_full_suite_inventory": 208,
+    "latest_ten_run_receipt": "role-tag-verification.json, earlier 130-check revision; no 208-check ten-run sample claimed"
+  },
+  "hosted_source_verification": {
+    "run_id": 40058891991,
+    "url": "https://github.com/aali4356/ManaCheck/actions/runs/40058891991",
+    "head_sha": "c5200d03d03b09451e2f8f824992e181ab03d7db",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "local_catalog_and_runtime": {
+    "application_jar_sha256": "63e6669a6341b2e1855c177f7e6a610a7c115760b6e97c86c5ec28e2a6250b17",
+    "source_commit": "c5200d03d03b09451e2f8f824992e181ab03d7db",
+    "fingerprints": {
+      "deck": {
+        "rows": 10,
+        "sha256": "96b4b149e0f9be9d4ea21aaeb6035dd47c5673d8a4f68fb694ebf515b55b898a"
+      },
+      "deck_revision": {
+        "rows": 20,
+        "sha256": "45ff7790770e426c74de16249caad88affc8f1dd1dd2265f071133ed522f0c2f"
+      },
+      "deck_entry": {
+        "rows": 876,
+        "sha256": "231570d55e3e809f9c4a3cd2abf39cb1cfdf86d83ebc1737e3a0eb28cea8e4ad"
+      }
+    },
+    "history_unchanged": true,
+    "active_cards": 34473,
+    "source_updated_at": "2026-10-21T21:02:01.935Z",
+    "tag_versions": [
+      "roles-v4"
+    ],
+    "verified_tags": {
+      "Lazotep Quarry": [
+        "graveyard",
+        "land",
+        "tokens"
+      ],
+      "Staff of Compleation": [
+        "counters",
+        "draw",
+        "ramp"
+      ],
+      "Ally Encampment": [
+        "land"
+      ],
+      "Arcane Signet": [
+        "ramp"
+      ],
+      "Abundant Growth": [
+        "draw"
+      ],
+      "Chromatic Star": [
+        "draw",
+        "graveyard"
+      ],
+      "Arcum's Astrolabe": [
+        "draw"
+      ]
+    },
+    "demo_seeding": false,
+    "personal_decks_sent_to_provider": false,
+    "personal_analyses": {
+      "decks": 10,
+      "all_100_cards": true,
+      "all_no_construction_errors": true
+    }
+  },
+  "private_backup_retained": true,
+  "ai_review": {
+    "receipt": "haiku-review-closeout.json",
+    "batches": 2,
+    "runs_per_batch": 10,
+    "explanations_per_batch": 50,
+    "live_requests": 20,
+    "input_tokens": 51076,
+    "output_tokens": 9952,
+    "final_content_verdict": {
+      "reviewer": "Codex assistant",
+      "human_attestation": false,
+      "status": "completed_with_failures",
+      "rubric": [
+        "factual_support",
+        "correct_change",
+        "usefulness",
+        "no_invented_claims"
+      ],
+      "counts": {
+        "flag": 5,
+        "pass": 3,
+        "fail": 2
+      },
+      "overall_quality_gate": "fail",
+      "scope": "Ten known synthetic regression scenarios, 50 explanations. Prompt changes used observed examples; this is not a blind evaluation. Pass means the stated facts/reason were acceptable for that sample, not strategic optimality or complete coverage of every ability cost."
+    },
+    "human_ratings_claimed": false,
+    "unaided_owner_rewrite_claimed": false
+  },
+  "development_diagnostics": {
+    "worker_test_invocations": 2,
+    "worker_first_attempt": "Maven shared-cache lock failed before compilation; original diagnostic retained",
+    "worker_second_attempt": {
+      "offline": true,
+      "passing_validator_tests": 54
+    },
+    "root_maven_test_invocations": 6,
+    "expected_red_regression_run": {
+      "tests": 75,
+      "failures": 13,
+      "errors": 0,
+      "log_retained": true
+    },
+    "subsequent_focused_failure": {
+      "tests": 129,
+      "failures": 1,
+      "cause": "Number-word mana not recognized as ramp; the first broad fix then exposed filtering false positives in the live sample. roles-v4 narrows recognition.",
+      "log_retained": true
+    },
+    "passing_final_focused": {
+      "classifier": 58,
+      "provider": 24
+    },
+    "prior_passing_full_suite": 204,
+    "final_passing_full_suite": 208
+  },
+  "execution": {
+    "chat_model_effort": "unknown",
+    "requested_worker_model": "gpt-6.1-sol",
+    "requested_worker_effort": "xhigh",
+    "agents": "chat integrator plus one sequential Symphony worker",
+    "coding_workers": 1,
+    "concurrent_coding_workers": 1,
+    "worker_attempts": 1,
+    "worker_elapsed_seconds": 564.6,
+    "worker_usage_available": false,
+    "coding_tokens": null,
+    "coding_cost": null,
+    "owner_human_attestation_inferred": false,
+    "worker_patch_scope_reviewed": [
+      "src/main/java/dev/manacheck/DeckValidator.java",
+      "src/test/java/dev/manacheck/DeckValidatorTest.java"
+    ],
+    "worker_out_of_scope": []
+  }
+}

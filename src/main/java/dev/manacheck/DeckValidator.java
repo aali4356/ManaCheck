@@ -2,8 +2,11 @@ package dev.manacheck;
 
 import static dev.manacheck.Domain.*;
 
+import java.time.Clock;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,32 +15,83 @@ public class DeckValidator {
   private static final Map<String, String> LAND_COLORS =
       Map.of("Plains", "W", "Island", "U", "Swamp", "B", "Mountain", "R", "Forest", "G");
   private final Map<String, Integer> targets;
+  private final Clock clock;
 
+  @Autowired
   public DeckValidator(
       @Value("${manacheck.targets.land:36}") int land,
       @Value("${manacheck.targets.ramp:10}") int ramp,
       @Value("${manacheck.targets.draw:10}") int draw,
       @Value("${manacheck.targets.interaction:10}") int interaction) {
-    targets = new LinkedHashMap<>();
-    targets.put("land", land);
-    targets.put("ramp", ramp);
-    targets.put("draw", draw);
-    targets.put("interaction", interaction);
+    this(land, ramp, draw, interaction, Clock.systemUTC());
+  }
+
+  DeckValidator(int land, int ramp, int draw, int interaction, Clock clock) {
+    Map<String, Integer> configured = new LinkedHashMap<>();
+    configured.put("land", land);
+    configured.put("ramp", ramp);
+    configured.put("draw", draw);
+    configured.put("interaction", interaction);
+    targets = freeze(configured);
+    this.clock = clock;
   }
 
   public Map<String, Integer> targets() {
-    return Collections.unmodifiableMap(targets);
+    return targets;
   }
 
   public Analysis validate(DeckView deck, UUID importId, Instant updatedAt) {
     List<Finding> errors = new ArrayList<>(), warnings = new ArrayList<>();
     Card commander = deck.commander();
+    Map<UUID, Card> cards = new LinkedHashMap<>();
+    cards.put(commander.oracleId(), commander);
+    for (DeckEntry entry : deck.entries()) cards.putIfAbsent(entry.card().oracleId(), entry.card());
+
+    checkConstruction(commander, cards.values(), errors);
+    checkCopyAllowances(deck, cards.values(), errors);
+    Composition composition = mainDeckComposition(deck, errors);
+    addDeckFindings(composition, updatedAt, errors, warnings);
+    boolean eligible =
+        errors.isEmpty()
+            || (composition.total() < 100
+                && errors.stream().allMatch(e -> e.code().equals("CARD_COUNT")));
+    return new Analysis(
+        composition.total(),
+        errors.isEmpty(),
+        eligible,
+        List.copyOf(errors),
+        List.copyOf(warnings),
+        freeze(composition.roles()),
+        targets(),
+        freeze(composition.curve()),
+        freeze(composition.colors()),
+        importId,
+        updatedAt);
+  }
+
+  private void checkConstruction(Card commander, Collection<Card> cards, List<Finding> errors) {
     if (!commander.commanderEligible())
       errors.add(
           new Finding("COMMANDER", "Selected card cannot be a commander", commander.oracleId()));
-    checkCard(commander, commander, warnings, errors);
+    for (Card card : cards) checkCard(card, commander, errors);
+  }
+
+  private void checkCopyAllowances(DeckView deck, Collection<Card> cards, List<Finding> errors) {
     Map<UUID, Integer> copies = new HashMap<>();
-    copies.put(commander.oracleId(), 1);
+    copies.put(deck.commander().oracleId(), 1);
+    for (DeckEntry entry : deck.entries())
+      if (entry.quantity() > 0)
+        copies.merge(entry.card().oracleId(), entry.quantity(), Integer::sum);
+    for (Card card : cards)
+      if (card.copyLimit() != null && copies.getOrDefault(card.oracleId(), 0) > card.copyLimit())
+        errors.add(
+            new Finding(
+                "COPY_LIMIT",
+                card.name() + " exceeds its copy limit of " + card.copyLimit(),
+                card.oracleId()));
+  }
+
+  private Composition mainDeckComposition(DeckView deck, List<Finding> errors) {
     Map<String, Integer> roles = new LinkedHashMap<>(),
         curve = new TreeMap<>(),
         colors = new LinkedHashMap<>();
@@ -47,11 +101,12 @@ public class DeckValidator {
     for (DeckEntry entry : deck.entries()) {
       Card card = entry.card();
       int quantity = entry.quantity();
+      // Preserve DeckView's reported count even for invalid drafts.
       total += quantity;
-      if (quantity <= 0)
+      if (quantity <= 0) {
         errors.add(new Finding("QUANTITY", "Card quantities must be positive", card.oracleId()));
-      copies.merge(card.oracleId(), quantity, Integer::sum);
-      checkCard(card, commander, warnings, errors);
+        continue;
+      }
       for (String role : roles.keySet())
         if (card.tags().contains(role)) roles.merge(role, quantity, Integer::sum);
       if (!card.land())
@@ -62,52 +117,39 @@ public class DeckValidator {
       if (card.colorIdentity().isEmpty()) colors.merge("C", quantity, Integer::sum);
       else for (String c : card.colorIdentity()) colors.merge(c, quantity, Integer::sum);
     }
-    for (DeckEntry e : deck.entries())
-      if (e.card().copyLimit() != null && copies.get(e.card().oracleId()) > e.card().copyLimit())
-        errors.add(
-            new Finding(
-                "COPY_LIMIT",
-                e.card().name() + " exceeds its copy limit of " + e.card().copyLimit(),
-                e.card().oracleId()));
-    if (total != 100)
+    return new Composition(total, roles, curve, colors);
+  }
+
+  private void addDeckFindings(
+      Composition composition, Instant updatedAt, List<Finding> errors, List<Finding> warnings) {
+    if (composition.total() != 100)
       errors.add(
           new Finding(
               "CARD_COUNT",
-              "Deck contains " + total + " cards; a complete Commander deck contains 100",
+              "Deck contains "
+                  + composition.total()
+                  + " cards; a complete Commander deck contains 100",
               null));
     for (var role : targets.entrySet())
-      if (roles.get(role.getKey()) < role.getValue())
+      if (composition.roles().get(role.getKey()) < role.getValue())
         warnings.add(
             new Finding(
                 "ROLE_GAP",
                 role.getKey()
                     + ": "
-                    + roles.get(role.getKey())
+                    + composition.roles().get(role.getKey())
                     + " of heuristic target "
                     + role.getValue(),
                 null));
-    if (updatedAt != null && updatedAt.isBefore(Instant.now().minusSeconds(7 * 86400)))
+    if (updatedAt != null && updatedAt.isBefore(clock.instant().minus(Duration.ofDays(7))))
       warnings.add(
           new Finding(
               "CATALOG_AGE",
               "Catalog snapshot is more than seven days old; refresh before relying on legality",
               null));
-    boolean eligible = total <= 100 && errors.stream().allMatch(e -> e.code().equals("CARD_COUNT"));
-    return new Analysis(
-        total,
-        errors.isEmpty(),
-        eligible,
-        List.copyOf(errors),
-        List.copyOf(warnings),
-        roles,
-        targets(),
-        curve,
-        colors,
-        importId,
-        updatedAt);
   }
 
-  private void checkCard(Card card, Card commander, List<Finding> warnings, List<Finding> errors) {
+  private void checkCard(Card card, Card commander, List<Finding> errors) {
     if (!card.active())
       errors.add(
           new Finding(
@@ -134,4 +176,14 @@ public class DeckValidator {
           new Finding(
               "UNSUPPORTED", card.name() + ": " + card.unsupportedReason(), card.oracleId()));
   }
+
+  private static Map<String, Integer> freeze(Map<String, Integer> values) {
+    return Collections.unmodifiableMap(new LinkedHashMap<>(values));
+  }
+
+  private record Composition(
+      int total,
+      Map<String, Integer> roles,
+      Map<String, Integer> curve,
+      Map<String, Integer> colors) {}
 }

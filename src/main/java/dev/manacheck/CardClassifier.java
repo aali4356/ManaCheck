@@ -10,7 +10,7 @@ import tools.jackson.databind.JsonNode;
 
 @Component
 public class CardClassifier {
-  public static final String RULES_VERSION = "roles-v2";
+  public static final String RULES_VERSION = "roles-v4";
   public static final String CLASSIFIER_VERSION = "catalog-v3";
   // MH2 release notes: Grist is a creature during deck construction, despite its printed type.
   // https://magic.wizards.com/en/news/feature/modern-horizons-2-release-notes-2021-06-04
@@ -35,6 +35,18 @@ public class CardClassifier {
           "\\bdraws?\\s+(?:a|one|two|three|four|five|six|seven|x|that many|[0-9]+)\\s+cards?\\b");
   private static final Pattern DRAW_CONDITION = Pattern.compile("\\b(?:when|whenever|if|would)\\b");
   private static final Pattern TOKEN = Pattern.compile("\\btokens?\\b");
+  private static final Pattern MANA_IN_WORDS =
+      Pattern.compile("\\badd (?:one|two|three|four|five|six|[0-9]+) mana\\b");
+  private static final Pattern TAP_COST = Pattern.compile("^\\{[tq]\\}");
+  private static final Pattern COST_SYMBOL = Pattern.compile("\\{([^}]+)\\}");
+  private static final Pattern INTERACTION =
+      Pattern.compile(
+          "\\b(?:destroy (?:target|all)|exile target|counter target)\\b[^.;\\r\\n]*"
+              + "|\\breturn target\\b[^.;\\r\\n]*owner.s hand");
+  private static final Pattern SELF_TARGET =
+      Pattern.compile("\\b(?:you (?:own|control)|your graveyard)\\b");
+  private static final Pattern OPPONENT_TARGET =
+      Pattern.compile("\\b(?:opponent|you don't (?:own|control))\\b");
   private static final Set<String> EXCLUDED_LAYOUTS =
       Set.of(
           "token",
@@ -161,17 +173,45 @@ public class CardClassifier {
     if (type.contains("Land")) tags.add("land");
     if (!type.contains("Land")
         && (text.contains("add {")
+            || hasUnpaidWordManaAbility(text)
             || text.matches("(?s).*search your library.*land.*onto the battlefield.*")))
       tags.add("ramp");
     if (hasDrawInstruction(text)) tags.add("draw");
-    if (text.matches(
-        "(?s).*(?:destroy target|destroy all|exile target|counter target|return target.*owner.s"
-            + " hand).*")) tags.add("interaction");
+    if (hasInteraction(text)) tags.add("interaction");
     // Standalone token mentions retain the theme without matching "nontoken".
     if (TOKEN.matcher(text).find()) tags.add("tokens");
     if (text.contains("+1/+1 counter") || text.contains("proliferate")) tags.add("counters");
     if (text.contains("graveyard")) tags.add("graveyard");
     return tags;
+  }
+
+  private boolean hasUnpaidWordManaAbility(String text) {
+    // Recognize direct tap-for-mana wording. A paid mana filter or a granted land
+    // ability does not establish acceleration. More complex mana engines remain heuristic.
+    for (String line : withoutReminderText(text).split("\\R")) {
+      int colon = line.indexOf(':');
+      if (colon < 0) continue;
+      String cost = line.substring(0, colon).strip();
+      if (!TAP_COST.matcher(cost).find()
+          || !MANA_IN_WORDS.matcher(line.substring(colon + 1)).find()) continue;
+      var symbols = COST_SYMBOL.matcher(cost);
+      boolean paysMana = false;
+      while (symbols.find()) if (!Set.of("t", "q").contains(symbols.group(1))) paysMana = true;
+      if (!paysMana) return true;
+    }
+    return false;
+  }
+
+  private boolean hasInteraction(String text) {
+    // Bounded target-clause heuristic. Self-only recursion, bounce and removal do not
+    // establish opposing interaction. A separate unrestricted/opponent effect still counts.
+    var effects = INTERACTION.matcher(withoutReminderText(text));
+    while (effects.find()) {
+      String effect = effects.group();
+      if (!SELF_TARGET.matcher(effect).find() || OPPONENT_TARGET.matcher(effect).find())
+        return true;
+    }
+    return false;
   }
 
   private boolean hasDrawInstruction(String text) {
