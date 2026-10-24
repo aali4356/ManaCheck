@@ -8,6 +8,63 @@ This runs Java unit tests, actual PostgreSQL 17 integration tests, the 20 pinned
 
 For faster backend iteration, run `./mvnw test` after sourcing `scripts/environment.sh` when this Mac's toolchain needs discovery. For only the browser journeys: `./scripts/verify.sh -Dtest=BrowserTest`.
 
+## Nightly stability sample
+
+`.github/workflows/stability.yml` runs daily at **06:20 UTC** and supports manual
+dispatch with `gh workflow run stability.yml`. Each invocation runs the full
+`./scripts/verify.sh` suite **ten times sequentially**, with synthetic fixtures,
+no provider keys, no retries and no failure selection. Java 21, Chrome, Docker,
+Python 3 and the normal Maven/container dependencies are prerequisites, as in
+`verify.yml`. GitHub's Ubuntu runner supplies Python, Chrome and Docker; setup-java
+selects Java 21. Registry downloads can require network access; tests use local
+fixtures and HTTP stubs. No live business integration is activated.
+
+```bash
+python3 -m unittest discover -s scripts -p test_check_stability.py
+python3 scripts/check_stability.py                 # default: ten full runs
+python3 scripts/check_stability.py --count 2       # diagnostic sample only
+```
+
+The standard-library-only detector accepts a count from 1 through 10; it accepts
+no commands or base URLs. Samples below ten are labeled **diagnostic**. It compares
+exact Surefire `(classname, name)` keys, including Cucumber's expanded names,
+and records passed/failed/error/skipped, missing, unavailable and duplicate
+outcomes. Any outcome change, nonpassing outcome (including a stable failure or
+skip), missing execution/report, duplicate, empty/malformed/incomplete XML, retry
+evidence or nonzero verifier exit fails the sample. A later passing run preserves
+every earlier failure. The current full-suite inventory is **98 unique keys**;
+the detector also rejects consistently absent tests/reports through that count
+guard. Update `EXPECTED_TEST_COUNT` only after reviewing intentional discovery
+changes. XML suite totals must match their testcase outcomes.
+
+Every invocation gets a new timestamped folder under precisely ignored
+`stability-results/`, outside Maven's `target` cleanup. It contains `invocation.json`
+(source SHA, dirty-worktree flag and invocation), `summary.json` (every test's
+ordered outcomes and per-run issues), concise `summary.md`, and `run-01` through
+`run-10` folders with exact command/environment receipts, exit status, combined
+`verify.log`, Surefire, Cucumber, Chrome and JaCoCo evidence. Old evidence is cleared
+before each execution and archived before the next clean; prior invocations remain
+intact. Source SHA identifies HEAD; a dirty receipt means local modifications also
+participated. Keep the reviewed diff with local evidence.
+
+Each execution has a 180-second timeout; the invocation has a 24-minute execution
+budget inside a 30-minute Actions job. Timeouts fail, later runs continue while
+budget remains, and unstarted slots remain explicit failures. Summaries refresh
+after each run, so evidence survives interruption. Actions retains the artifact
+for 14 days and writes a step summary even on failure. A runner forcibly killed
+during a run can retain that run's pending receipt and partial build output;
+host/job loss can prevent artifact upload. Full-suite execution is separate from
+the lightweight detector checks in push/PR verification.
+
+Ten clean runs establish **no observed instability in that sample**; they provide
+no guarantee of flake-free tests.
+
+Observed local sample: **10 × 98 passing checks**, no skips or changed outcomes,
+at commit `539dd9f8f1d635acb17555f936e79e6dc3b5f17e`. All ten verifier exits were zero.
+[The receipt](evidence/stability-verification.json) includes ordered outcomes and
+per-run timings; original logs, XML and browser evidence remain in ignored local
+`stability-results/`.
+
 ## HTTP response contracts
 
 `ApiContractTest` uses REST Assured **6.0.0** and its **6.0.0** `json-schema-validator`, both test-scoped, against the random-port Spring server and `PostgresTestBase`'s disposable PostgreSQL 17 fixture. Its eight tests cover card search/filtering/pagination; deck create/get/list; immutable revision retrieval/history; bidirectional differences and atomic stale-save 409 problems; analysis counts, roles and catalog provenance; validated recommendation swaps and stale-run rejection; retained no-key explanation fallback; and a negative schema regression.

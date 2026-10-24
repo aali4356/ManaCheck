@@ -12,6 +12,8 @@ jobs:
       ANTHROPIC_API_KEY: ""
     steps:
       - uses: actions/checkout@v4
+      - name: Check stability detector with synthetic XML
+        run: python3 -m unittest discover -s scripts -p test_check_stability.py
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
