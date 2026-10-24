@@ -1,32 +1,41 @@
-# Role tags: roles-v2
+# Role tags: roles-v4
 
 Role tags guide SQL ranking. They describe likely functions and themes; they do
-not establish that a card improves every deck.
+not establish that a card improves every deck. Main-deck quantities supply role
+coverage; the commander counts toward construction totals and copy allowances.
 
-| Card | Correction |
+| Card | Current behavior |
 | --- | --- |
-| Guardian Project | Keeps draw; `nontoken` no longer supplies the tokens theme |
-| Sign in Blood | Recognizes “draws two cards” as draw |
-| Life from the Loam | Keeps graveyard; dredge reminder text no longer supplies draw |
+| Lazotep Quarry | Land, tokens and graveyard; exiling your own graveyard card for a copy supplies no opposing interaction |
+| Staff of Compleation | Ramp, draw and counters; destroying a permanent you own supplies no opposing interaction |
+| Ally Encampment | Land; returning your own Ally supplies no opposing interaction |
+| Arcane Signet | Ramp; recognizes mana written as “add one mana” |
+| Guardian Project | Draw and graveyard; `nontoken` supplies no tokens theme |
+| Sign in Blood | Draw; recognizes “draws two cards” |
+| Life from the Loam | Graveyard; dredge reminder text supplies no draw |
 
-The draw rule ignores parenthesized reminder text, distinguishes draw conditions
-from draw instructions within punctuation-separated clauses, and supports a
-bounded quantity vocabulary. Conditional instructions such as “If you do, draw a
-card” still count. Tokens require a standalone word match. Ramp, interaction,
-counters, graveyard and construction rules retain their earlier behavior.
+Interaction matching checks bounded effect clauses. A restriction to cards you
+own/control or your graveyard removes that clause's interaction contribution;
+a separate unrestricted or opposing removal/counter/bounce effect still counts.
+Mana in symbols can supply nonland ramp. Number-word/number mana text counts when a direct tap/untap activation has no mana payment. Paying one mana to produce one, or granting a land a fixing ability, supplies no ramp through that template.
+These rules cover the observed errors and their explicit regressions.
 
-Limits remain: arbitrary Oracle grammar, negation and quoted abilities can fool
-these heuristics. Keyword abilities whose draw appears only in reminder text,
-such as cycling, can be missed. A token mention can describe an opponent's
-tokens and does not establish strategic benefit. Cards can fill multiple roles.
+Draw ignores parenthesized reminder text, distinguishes draw conditions from
+instructions within punctuation-separated clauses, and uses a bounded quantity
+vocabulary. Conditional instructions such as “If you do, draw a card” still count.
+Tokens require a standalone word match. Cards can fill multiple roles.
 
-Both classifier and role versions contribute to the import identity. Importing
-the same source snapshot under `roles-v2` recomputes tags through the normal
-staging/promotion transaction. `catalog-v3` retains its existing identity rules.
-The local cached-source refresh retained 34,473 active cards and preserved exact
-fingerprints for 10 decks, 20 revisions and 876 entries. A private database backup
-was retained before the refresh.
+Limits remain: complex compound targets, negation, quoted abilities and arbitrary
+Oracle grammar can fool these heuristics. Keyword draw appearing only in reminder
+text, such as cycling, can be missed. A token mention can concern an opponent's
+tokens. A mana ability with a cost does not guarantee a net increase in mana.
+Theme matches do not establish strategic benefit.
 
-`CardClassifierTest` adds 32 regression invocations. Run the full verifier with
-`./scripts/verify.sh`; its expected inventory is 130, including browser checks.
-Historical AI and stability receipts remain pinned to their original versions.
+Classifier and role versions both contribute to import identity. Reimporting the
+cached source under `roles-v4` recomputes tags through normal staging/promotion;
+`catalog-v3` retains its identity rules. The [closeout receipt](evidence/delegated-closeout.json)
+records the refresh and personal-history fingerprints. The prior `roles-v2`
+[receipt](evidence/role-tag-verification.json) remains unchanged.
+
+`CardClassifierTest` now has 58 invocations. The complete suite and its intentional
+inventory changes are described in [TESTING.md](TESTING.md).

@@ -1,0 +1,2149 @@
+{
+  "schema_version": 1,
+  "review_completed_utc": "2026-10-24",
+  "review_type": "delegated_assistant_review",
+  "human_scores_or_attestation_created": false,
+  "owner_general_approval": "its fine, for the initial worksheet; no per-run ratings supplied",
+  "original_three_findings": [
+    {
+      "id": "F1",
+      "original_run": "R07",
+      "original_suggestion": "s5",
+      "card": "Stardew Valley",
+      "status": "reviewed; reference corrected; residual Food-cost omission flagged",
+      "remediation": "Separate Oracle lines in provider input; preserve ability boundaries, effect order and optional choices. Keep the remaining omission visible in final R07/s4.",
+      "corrected_reference": "Stardew Valley adds a land and can create Food for {2}, {T}, and tapping an untapped creature you control. Its separate sorcery-speed {3}, {T} ability chooses a permanent you control and draws a card, then another player of your choice may gain control of that permanent."
+    },
+    {
+      "id": "F2",
+      "original_run": "R09",
+      "original_suggestion": "s4",
+      "card": "Archdruid's Charm",
+      "status": "reviewed; reference corrected; generated destination omissions flagged",
+      "remediation": "Prompt specifies conditional destinations. Final R06/s2, R09/s4 and R10/s4 still need clearer prose; no content pass is claimed for those runs.",
+      "corrected_reference": "Archdruid's Charm chooses one mode: search for a creature or land, putting a land onto the battlefield tapped and a creature into your hand; put a +1/+1 counter on a creature you control and have it deal its power in damage to a creature you do not control; or exile an artifact or enchantment."
+    },
+    {
+      "id": "F3",
+      "original_run": "R07",
+      "original_suggestion": "s4",
+      "card": "Lazotep Quarry",
+      "status": "tag defect fixed and verified",
+      "remediation": "roles-v4 excludes recursion restricted to your own graveyard from opposing interaction; the catalog refresh and named regression verify the corrected tag. This card did not appear in the final 50 ranked changes.",
+      "corrected_reference": "Lazotep Quarry adds a colorless land; its {T}, sacrifice-a-creature ability produces one mana of any color. Its sorcery-speed {X}{2}, {T} ability also sacrifices a Desert and exiles a creature card of mana value X from your graveyard to make a 4/4 black Zombie copy. This is conditional recursion and token support."
+    }
+  ],
+  "first_batch": {
+    "source_commit": "d0e13436c2a63df1087bf212546d28dd660acbae",
+    "role_version": "roles-v3",
+    "prompt_version": "explanations-v3",
+    "summary": {
+      "model": "claude-haiku-5-5",
+      "catalog_cards": 34473,
+      "runs": 10,
+      "explanations": 50,
+      "input_tokens": 25231,
+      "output_tokens": 4581,
+      "personal_decks_sent": false,
+      "live_provider_requests": 10,
+      "retained_results": 10,
+      "application_jar_sha256": "aaa07af5d0cae665d0e02cb083387c601eda9ff0d72effa81338f703691f6f92",
+      "human_scores_supplied": false
+    },
+    "runs": [
+      {
+        "id": "R01",
+        "commander": "Meren of Clan Nel Toth",
+        "theme": "graveyard",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2269,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 488,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Kozilek's Command adds instant-speed interaction and card advantage: it can exile a creature with mana value X or less, or make Eldrazi Spawn tokens or draw a card, and can also exile up to X cards from graveyards. Graveyard exile here is an optional choice, not a fixed effect."
+          },
+          {
+            "id": "s2",
+            "add": "Bojuka Bog",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Bojuka Bog adds a black mana source that enters tapped. When it enters, it exiles target player's graveyard, which can target either player and is optional in the sense that you choose the target."
+          },
+          {
+            "id": "s3",
+            "add": "Hive of the Eye Tyrant",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Hive of the Eye Tyrant is a black land that enters tapped if you control two or more other lands. For {3}{B} it becomes a 3/3 menace creature until end of turn, and when it attacks it exiles a card from the defending player's graveyard."
+          },
+          {
+            "id": "s4",
+            "add": "Chromatic Star",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the graveyard theme.",
+            "explanation": "Chromatic Star provides one mana of any color by paying {1} and sacrificing it, and it draws a card when it goes to the graveyard from the battlefield."
+          },
+          {
+            "id": "s5",
+            "add": "Cling to Dust",
+            "cut": null,
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Cling to Dust is an instant that exiles target card from a graveyard, gaining 3 life if it was a creature card or drawing a card otherwise. It can also be cast from your graveyard for its escape cost of {3}{B} plus exiling five other cards from your graveyard."
+          }
+        ]
+      },
+      {
+        "id": "R02",
+        "commander": "Meren of Clan Nel Toth",
+        "theme": "graveyard",
+        "change_type": "swap",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2696,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 544,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Kozilek's Command adds instant-speed interaction: choose two modes, such as making Eldrazi Spawn tokens for ramp, scrying then drawing, exiling a creature with mana value X or less, or exiling graveyard cards. Cutting Command Tower trades away a land that makes any color in the commander's color identity."
+          },
+          {
+            "id": "s2",
+            "add": "Chromatic Star",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the graveyard theme.",
+            "explanation": "Chromatic Star provides one-shot mana of any color for {1} and draws a card when it goes from the battlefield to a graveyard. Its mana costs a sacrifice and a tap, so it is a single use rather than repeatable like Command Tower."
+          },
+          {
+            "id": "s3",
+            "add": "Cling to Dust",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Cling to Dust exiles a card from a graveyard and either gains 3 life if it was a creature card or draws a card otherwise. Its escape ability lets it be cast again from the graveyard by paying {3}{B} and exiling five other cards, which requires black mana."
+          },
+          {
+            "id": "s4",
+            "add": "Cremate",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Cremate exiles a target card from a graveyard and draws a card for one mana. It is a cheap instant that gives card draw and graveyard hate, but it does not produce mana like Command Tower."
+          },
+          {
+            "id": "s5",
+            "add": "Deathrite Shaman",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Deathrite Shaman has three tap abilities: exile a land card from a graveyard for mana, pay {B} to exile an instant or sorcery to drain 2, or pay {G} to exile a creature card and gain 2 life. Each ability requires its own tap and mana cost, and only one can be used per tap."
+          }
+        ]
+      },
+      {
+        "id": "R03",
+        "commander": "Meren of Clan Nel Toth",
+        "theme": "general",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2316,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 536,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds two modes from its options, such as making Eldrazi Spawn tokens for ramp or scry-and-draw for card flow, and it can exile a creature with mana value X or less. It is a flexible instant that fills the ramp, draw, and interaction gaps."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Freyalise, Llanowar's Fury makes a 1/1 Elf Druid token with a mana ability on +2, which adds ramp. Her −6 draws a card for each green creature you control, and her −2 can destroy an artifact or enchantment, filling the ramp, draw, and interaction gaps."
+          },
+          {
+            "id": "s3",
+            "add": "Arch of Orazca",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Arch of Orazca taps for colorless mana and, once you control ten or more permanents, can pay {5} and tap to draw a card, which fills the land and draw gaps. Its draw ability requires the city's blessing."
+          },
+          {
+            "id": "s4",
+            "add": "Avishkar Raceway",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Avishkar Raceway taps for colorless mana, and at max speed it can pay {3}, tap, and discard a card to draw a card, which fills the land and draw gaps. Its draw ability requires max speed and a discard."
+          },
+          {
+            "id": "s5",
+            "add": "Baxter Building",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Baxter Building taps for colorless mana and can pay {4} and tap to add four mana of any colors, which helps with fixing. Its other ability, paying {4} and tapping to draw, requires you to control a creature with toughness 4 or greater, and it fills the land and draw gaps."
+          }
+        ]
+      },
+      {
+        "id": "R04",
+        "commander": "Ezuri, Renegade Leader",
+        "theme": "general",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2246,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 412,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds instant-speed interaction through its exile-creature mode and can also make Eldrazi Spawn tokens or draw a card, providing flexible choices against the current deck's gaps."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Freyalise, Llanowar's Fury makes a 1/1 Elf Druid token that taps for green mana each turn, and its −2 can destroy a target artifact or enchantment, filling the ramp and interaction gaps."
+          },
+          {
+            "id": "s3",
+            "add": "Arch of Orazca",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Arch of Orazca taps for colorless mana and, once you have the city's blessing from ten or more permanents, can pay {5} and tap to draw a card."
+          },
+          {
+            "id": "s4",
+            "add": "Avishkar Raceway",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Avishkar Raceway taps for colorless mana and, at max speed, can pay {3}, tap, and discard a card to draw a card."
+          },
+          {
+            "id": "s5",
+            "add": "Baxter Building",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Baxter Building taps for colorless mana, can pay {4} and tap to add four mana of any combination of colors, and can pay {4} and tap to draw a card if you control a creature with toughness 4 or greater."
+          }
+        ]
+      },
+      {
+        "id": "R05",
+        "commander": "Ezuri, Renegade Leader",
+        "theme": "general",
+        "change_type": "swap",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2548,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 445,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds two modes from a choice of four, including token creation, scry-then-draw, and exile of a creature with mana value X or less, providing ramp, card draw, and interaction; it costs an instant-speed spell and scales with X."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Freyalise, Llanowar's Fury makes a 1/1 mana Elf each turn with +2 for ramp, can destroy an artifact or enchantment with -2, and can draw cards with -6 based on green creatures; it replaces a land drop with a five-mana planeswalker."
+          },
+          {
+            "id": "s3",
+            "add": "Abundant Growth",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap.",
+            "explanation": "Abundant Growth draws a card when it enters and gives the enchanted land the ability to tap for one mana of any color, providing both card draw and ramp for one mana."
+          },
+          {
+            "id": "s4",
+            "add": "Arcum's Astrolabe",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap.",
+            "explanation": "Arcum's Astrolabe draws a card when it enters and can be activated for {1} and a tap to add one mana of any color, adding ramp and card draw."
+          },
+          {
+            "id": "s5",
+            "add": "Barbed Sextant",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap.",
+            "explanation": "Barbed Sextant costs {1} plus a tap and sacrifice to add one mana of any color now and draw a card at the next turn's upkeep, providing ramp and delayed card draw."
+          }
+        ]
+      },
+      {
+        "id": "R06",
+        "commander": "Ezuri, Renegade Leader",
+        "theme": "counters",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2682,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 462,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds two modes at instant speed: it can create Eldrazi Spawn tokens that sacrifice for mana, or scry and draw, and it can exile a creature with mana value X or less."
+          },
+          {
+            "id": "s2",
+            "add": "Archdruid's Charm",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Archdruid's Charm can tutor a creature or land card into hand or onto the battlefield tapped as a land, and it can instead put a +1/+1 counter on your creature to deal damage equal to its power to an opposing creature."
+          },
+          {
+            "id": "s3",
+            "add": "Staff of Compleation",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the counters theme.",
+            "explanation": "Staff of Compleation provides repeatable mana for a payment of life, the option to draw a card for 4 life, and proliferate for 3 life, which can add to counters."
+          },
+          {
+            "id": "s4",
+            "add": "Summon: Fenrir",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the counters theme.",
+            "explanation": "Summon: Fenrir fetches a basic land onto the battlefield tapped on its first chapter, adds a +1/+1 counter to your next creature spell that turn, and draws a card on chapter III if you control the creature with the greatest power or tied for it."
+          },
+          {
+            "id": "s5",
+            "add": "The First Iroan Games",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the counters theme.",
+            "explanation": "The First Iroan Games makes a 1/1 Human Soldier, puts three +1/+1 counters on a creature you control, draws two cards on chapter III if you control a creature with power 4 or greater, and creates a Gold token for mana."
+          }
+        ]
+      },
+      {
+        "id": "R07",
+        "commander": "Trostani, Selesnya's Voice",
+        "theme": "tokens",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2350,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 420,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Kozilek's Command adds instant-speed interaction and can make Eldrazi Spawn tokens or draw a card, matching the tokens theme and filling the gaps noted."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Freyalise, Llanowar's Fury makes a 1/1 Elf Druid token that taps for green mana each turn, adding ramp and token generation, and its -2 can destroy an artifact or enchantment."
+          },
+          {
+            "id": "s3",
+            "add": "Fountainport",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap; matches the tokens theme.",
+            "explanation": "Fountainport makes colorless mana and can sacrifice a token to draw a card, or create Fish tokens for a mana cost plus life, fitting the tokens plan."
+          },
+          {
+            "id": "s4",
+            "add": "Stardew Valley",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap; matches the tokens theme.",
+            "explanation": "Stardew Valley taps for colorless mana and can create Food tokens or draw a card by letting an opponent gain control of a permanent you control, an activation that is sorcery-speed only."
+          },
+          {
+            "id": "s5",
+            "add": "The Gold Saucer",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap; matches the tokens theme.",
+            "explanation": "The Gold Saucer taps for colorless mana and can draw a card by sacrificing two artifacts, or sometimes make a Treasure with a coin flip, a fit only if the deck has artifacts to sacrifice."
+          }
+        ]
+      },
+      {
+        "id": "R08",
+        "commander": "Trostani, Selesnya's Voice",
+        "theme": "tokens",
+        "change_type": "swap",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2733,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 459,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Kozilek's Command can create X Eldrazi Spawn tokens or scry X then draw, and can exile a creature with mana value X or less, choosing two modes. It fits the tokens plan, but its mode options are limited to the choices shown."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Freyalise, Llanowar's Fury makes a 1/1 Elf Druid token that taps for green mana with each +2 activation, and its −6 draws cards per green creature. Its −2 destroys an artifact or enchantment, which is a separate ability with its own cost."
+          },
+          {
+            "id": "s3",
+            "add": "Break the Spell",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Break the Spell destroys target enchantment for one mana, and it draws a card only if a permanent you controlled or a token was destroyed this way. It offers targeted enchantment removal at instant speed."
+          },
+          {
+            "id": "s4",
+            "add": "Bilbo's Gambit",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Bilbo's Gambit returns target spell to its owner's hand. The optional gift gives an opponent a Treasure, and if promised, players can't cast spells that turn."
+          },
+          {
+            "id": "s5",
+            "add": "Collector's Vault",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the tokens theme.",
+            "explanation": "Collector's Vault costs {2} and {T} to loot once, then creates a Treasure token, providing repeatable card filtering and mana. It is a repeatable ability rather than a one-shot effect."
+          }
+        ]
+      },
+      {
+        "id": "R09",
+        "commander": "Atraxa, Praetors' Voice",
+        "theme": "counters",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2473,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 404,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds instant-speed flexibility: it can make Eldrazi Spawn tokens for ramp, scry and draw, or exile a creature with mana value X or less, choosing two modes."
+          },
+          {
+            "id": "s2",
+            "add": "Heirloom Mirror // Inherited Fiend",
+            "cut": null,
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Heirloom Mirror // Inherited Fiend offers repeatable card filtering through its discard-and-draw ability and a flying body that can grow by exiling creature cards from graveyards."
+          },
+          {
+            "id": "s3",
+            "add": "Abzan Charm",
+            "cut": null,
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Abzan Charm can exile a creature with power 3 or greater, draw two cards at a life cost, or distribute two +1/+1 counters among one or two creatures."
+          },
+          {
+            "id": "s4",
+            "add": "Archdruid's Charm",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Archdruid's Charm can tutor a creature or land, which the card says goes to the battlefield tapped if it's a land and to hand otherwise, or exile a target artifact or enchantment."
+          },
+          {
+            "id": "s5",
+            "add": "Staff of Compleation",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the counters theme.",
+            "explanation": "Staff of Compleation provides repeatable mana, card draw for 4 life, and proliferate for 3 life, which fits the counters plan, though each use costs life."
+          }
+        ]
+      },
+      {
+        "id": "R10",
+        "commander": "Atraxa, Praetors' Voice",
+        "theme": "counters",
+        "change_type": "swap",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2918,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 411,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds a flexible instant that can make Eldrazi Spawn tokens for ramp, scry and draw, or exile a creature with mana value X or less, choosing two modes; it replaces a Command Tower."
+          },
+          {
+            "id": "s2",
+            "add": "Heirloom Mirror // Inherited Fiend",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Heirloom Mirror // Inherited Fiend adds a flying creature side that can grow with +1/+1 counters, supporting the counters plan and offering card filtering via discard."
+          },
+          {
+            "id": "s3",
+            "add": "Abzan Charm",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Abzan Charm offers a choice of exiling a creature with power 3 or greater, drawing two cards for 2 life, or distributing two +1/+1 counters, providing interaction and card draw."
+          },
+          {
+            "id": "s4",
+            "add": "Archdruid's Charm",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Archdruid's Charm can tutor a creature or land, with a land going onto the battlefield tapped and a creature going into your hand, and it can also exile an artifact or enchantment."
+          },
+          {
+            "id": "s5",
+            "add": "Staff of Compleation",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the counters theme.",
+            "explanation": "Staff of Compleation can draw cards for life, proliferate counters for 3 life, or destroy a permanent you own, adding card draw and counter support."
+          }
+        ]
+      }
+    ],
+    "supplied_card_facts": {
+      "Kozilek's Command": {
+        "oracleId": "2f2c549d-0293-4b9d-b9a8-ff392800f3a5",
+        "name": "Kozilek's Command",
+        "manaValue": 2.0,
+        "typeLine": "Kindred Instant — Eldrazi",
+        "oracleText": "Choose two —\n• Target player creates X 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"\n• Target player scries X, then draws a card.\n• Exile target creature with mana value X or less.\n• Exile up to X target cards from graveyards.",
+        "scryfallUri": "https://scryfall.com/card/mh3/11/kozileks-command?utm_source=api",
+        "tags": [
+          "graveyard",
+          "ramp",
+          "interaction",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Bojuka Bog": {
+        "oracleId": "04b7362d-0490-4cb0-b5d7-2a7732f659ce",
+        "name": "Bojuka Bog",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
+        "scryfallUri": "https://scryfall.com/card/soc/363/bojuka-bog?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "land"
+        ]
+      },
+      "Hive of the Eye Tyrant": {
+        "oracleId": "d17163d4-dd43-4de6-b7cf-576448160b7f",
+        "name": "Hive of the Eye Tyrant",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "If you control two or more other lands, this land enters tapped.\n{T}: Add {B}.\n{3}{B}: Until end of turn, this land becomes a 3/3 black Beholder creature with menace and \"Whenever this creature attacks, exile target card from defending player's graveyard.\" It's still a land.",
+        "scryfallUri": "https://scryfall.com/card/afr/258/hive-of-the-eye-tyrant?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "land"
+        ]
+      },
+      "Chromatic Star": {
+        "oracleId": "fedbd40b-e3a5-449c-a8a3-b42e9da191a9",
+        "name": "Chromatic Star",
+        "manaValue": 1.0,
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}, Sacrifice this artifact: Add one mana of any color.\nWhen this artifact is put into a graveyard from the battlefield, draw a card.",
+        "scryfallUri": "https://scryfall.com/card/tsr/263/chromatic-star?utm_source=api",
+        "tags": [
+          "graveyard",
+          "ramp",
+          "draw"
+        ]
+      },
+      "Cling to Dust": {
+        "oracleId": "9c44e556-4c7a-48bf-a108-c584f69c2cfa",
+        "name": "Cling to Dust",
+        "manaValue": 1.0,
+        "typeLine": "Instant",
+        "oracleText": "Exile target card from a graveyard. If it was a creature card, you gain 3 life. Otherwise, you draw a card.\nEscape—{3}{B}, Exile five other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)",
+        "scryfallUri": "https://scryfall.com/card/thb/87/cling-to-dust?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "draw"
+        ]
+      },
+      "Command Tower": {
+        "oracleId": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+        "name": "Command Tower",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "{T}: Add one mana of any color in your commander's color identity.",
+        "scryfallUri": "https://scryfall.com/card/frc/22/command-tower?utm_source=api",
+        "tags": [
+          "land"
+        ]
+      },
+      "Cremate": {
+        "oracleId": "c6a2e410-b182-48d1-aeb2-bc8de27e9cd2",
+        "name": "Cremate",
+        "manaValue": 1.0,
+        "typeLine": "Instant",
+        "oracleText": "Exile target card from a graveyard.\nDraw a card.",
+        "scryfallUri": "https://scryfall.com/card/rtr/59/cremate?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "draw"
+        ]
+      },
+      "Deathrite Shaman": {
+        "oracleId": "22f1a4a4-c423-4d1c-8775-0ed604a9fa51",
+        "name": "Deathrite Shaman",
+        "manaValue": 1.0,
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "{T}: Exile target land card from a graveyard. Add one mana of any color. (Activate only as an instant.)\n{B}, {T}: Exile target instant or sorcery card from a graveyard. Each opponent loses 2 life.\n{G}, {T}: Exile target creature card from a graveyard. You gain 2 life.",
+        "scryfallUri": "https://scryfall.com/card/rvr/175/deathrite-shaman?utm_source=api",
+        "tags": [
+          "graveyard",
+          "ramp",
+          "interaction"
+        ]
+      },
+      "Freyalise, Llanowar's Fury": {
+        "oracleId": "659dfdbf-5e9d-4828-a967-348cb3bcf05a",
+        "name": "Freyalise, Llanowar's Fury",
+        "manaValue": 5.0,
+        "typeLine": "Legendary Planeswalker — Freyalise",
+        "oracleText": "+2: Create a 1/1 green Elf Druid creature token with \"{T}: Add {G}.\"\n−2: Destroy target artifact or enchantment.\n−6: Draw a card for each green creature you control.\nFreyalise, Llanowar's Fury can be your commander.",
+        "scryfallUri": "https://scryfall.com/card/cmm/290/freyalise-llanowars-fury?utm_source=api",
+        "tags": [
+          "ramp",
+          "interaction",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Arch of Orazca": {
+        "oracleId": "3bb518ff-399b-4ce7-b9ad-a1d563dd7792",
+        "name": "Arch of Orazca",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\n{T}: Add {C}.\n{5}, {T}: Draw a card. Activate only if you have the city's blessing.",
+        "scryfallUri": "https://scryfall.com/card/lcc/319/arch-of-orazca?utm_source=api",
+        "tags": [
+          "land",
+          "draw"
+        ]
+      },
+      "Avishkar Raceway": {
+        "oracleId": "e2c35551-1ba5-4424-baf9-821b49bbcc8c",
+        "name": "Avishkar Raceway",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\n{T}: Add {C}.\nMax speed — {3}, {T}, Discard a card: Draw a card.",
+        "scryfallUri": "https://scryfall.com/card/dft/249/avishkar-raceway?utm_source=api",
+        "tags": [
+          "land",
+          "draw"
+        ]
+      },
+      "Baxter Building": {
+        "oracleId": "71bc69a5-7cec-4abd-b97d-13f8e1f9afac",
+        "name": "Baxter Building",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{4}, {T}: Add four mana in any combination of colors.\n{4}, {T}: Draw a card. Activate only if you control a creature with toughness 4 or greater.",
+        "scryfallUri": "https://scryfall.com/card/msh/261/baxter-building?utm_source=api",
+        "tags": [
+          "land",
+          "draw"
+        ]
+      },
+      "Abundant Growth": {
+        "oracleId": "947a2665-2f4d-4193-8768-118f85334549",
+        "name": "Abundant Growth",
+        "manaValue": 1.0,
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhen this Aura enters, draw a card.\nEnchanted land has \"{T}: Add one mana of any color.\"",
+        "scryfallUri": "https://scryfall.com/card/ecc/97/abundant-growth?utm_source=api",
+        "tags": [
+          "ramp",
+          "draw"
+        ]
+      },
+      "Arcum's Astrolabe": {
+        "oracleId": "ec463bde-dadf-4044-8e41-71338fd4d62f",
+        "name": "Arcum's Astrolabe",
+        "manaValue": 1.0,
+        "typeLine": "Snow Artifact",
+        "oracleText": "({S} can be paid with one mana from a snow source.)\nWhen this artifact enters, draw a card.\n{1}, {T}: Add one mana of any color.",
+        "scryfallUri": "https://scryfall.com/card/mh1/220/arcums-astrolabe?utm_source=api",
+        "tags": [
+          "ramp",
+          "draw"
+        ]
+      },
+      "Barbed Sextant": {
+        "oracleId": "97ba11a1-16cd-47ee-a187-1e919c468e4e",
+        "name": "Barbed Sextant",
+        "manaValue": 1.0,
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}, Sacrifice this artifact: Add one mana of any color. Draw a card at the beginning of the next turn's upkeep.",
+        "scryfallUri": "https://scryfall.com/card/me2/204/barbed-sextant?utm_source=api",
+        "tags": [
+          "ramp",
+          "draw"
+        ]
+      },
+      "Archdruid's Charm": {
+        "oracleId": "3c1ef404-e2c6-486d-a5a2-d5779c71d498",
+        "name": "Archdruid's Charm",
+        "manaValue": 3.0,
+        "typeLine": "Instant",
+        "oracleText": "Choose one —\n• Search your library for a creature or land card and reveal it. Put it onto the battlefield tapped if it's a land card. Otherwise, put it into your hand. Then shuffle.\n• Put a +1/+1 counter on target creature you control. It deals damage equal to its power to target creature you don't control.\n• Exile target artifact or enchantment.",
+        "scryfallUri": "https://scryfall.com/card/mkm/151/archdruids-charm?utm_source=api",
+        "tags": [
+          "counters",
+          "ramp",
+          "interaction"
+        ]
+      },
+      "Staff of Compleation": {
+        "oracleId": "11c7662f-e688-40a6-98fd-6ae89d231b44",
+        "name": "Staff of Compleation",
+        "manaValue": 3.0,
+        "typeLine": "Artifact",
+        "oracleText": "{T}, Pay 1 life: Destroy target permanent you own.\n{T}, Pay 2 life: Add one mana of any color.\n{T}, Pay 3 life: Proliferate.\n{T}, Pay 4 life: Draw a card.\n{5}: Untap this artifact.",
+        "scryfallUri": "https://scryfall.com/card/tdc/326/staff-of-compleation?utm_source=api",
+        "tags": [
+          "counters",
+          "ramp",
+          "draw"
+        ]
+      },
+      "Summon: Fenrir": {
+        "oracleId": "3509171e-8d7d-4e9e-97a1-58e6c7d225ed",
+        "name": "Summon: Fenrir",
+        "manaValue": 3.0,
+        "typeLine": "Enchantment Creature — Saga Wolf",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Crescent Fang — Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\nII — Heavenward Howl — When you next cast a creature spell this turn, that creature enters with an additional +1/+1 counter on it.\nIII — Ecliptic Growl — Draw a card if you control the creature with the greatest power or tied for the greatest power.",
+        "scryfallUri": "https://scryfall.com/card/fin/203/summon:-fenrir?utm_source=api",
+        "tags": [
+          "counters",
+          "ramp",
+          "draw"
+        ]
+      },
+      "The First Iroan Games": {
+        "oracleId": "58934f6d-1aa2-414c-85c6-955a1e26d675",
+        "name": "The First Iroan Games",
+        "manaValue": 3.0,
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.)\nI — Create a 1/1 white Human Soldier creature token.\nII — Put three +1/+1 counters on target creature you control.\nIII — If you control a creature with power 4 or greater, draw two cards.\nIV — Create a Gold token. (It's an artifact with \"Sacrifice this token: Add one mana of any color.\")",
+        "scryfallUri": "https://scryfall.com/card/thb/170/the-first-iroan-games?utm_source=api",
+        "tags": [
+          "counters",
+          "ramp",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Fountainport": {
+        "oracleId": "94e8b0a9-44a1-4dce-8d44-78681ae638a1",
+        "name": "Fountainport",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}, Sacrifice a token: Draw a card.\n{3}, {T}, Pay 1 life: Create a 1/1 blue Fish creature token.\n{4}, {T}: Create a Treasure token.",
+        "scryfallUri": "https://scryfall.com/card/blb/253/fountainport?utm_source=api",
+        "tags": [
+          "land",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Stardew Valley": {
+        "oracleId": "6a4ee425-b3b8-487d-866c-9e2d73682466",
+        "name": "Stardew Valley",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}, Tap an untapped creature you control: Create a Food token.\n{3}, {T}: Choose target permanent you control. Draw a card, then another player of your choice may gain control of that permanent. Activate only as a sorcery.",
+        "scryfallUri": "https://scryfall.com/card/sld/2801/stardew-valley?utm_source=api",
+        "tags": [
+          "land",
+          "tokens",
+          "draw"
+        ]
+      },
+      "The Gold Saucer": {
+        "oracleId": "93e38650-ce22-4ab9-b79d-cc7b6477c075",
+        "name": "The Gold Saucer",
+        "manaValue": 0.0,
+        "typeLine": "Land — Town",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}: Flip a coin. If you win the flip, create a Treasure token.\n{3}, {T}, Sacrifice two artifacts: Draw a card.",
+        "scryfallUri": "https://scryfall.com/card/fin/279/the-gold-saucer?utm_source=api",
+        "tags": [
+          "land",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Break the Spell": {
+        "oracleId": "b9d51e07-851f-4b7b-bffe-7c1efff0714c",
+        "name": "Break the Spell",
+        "manaValue": 1.0,
+        "typeLine": "Instant",
+        "oracleText": "Destroy target enchantment. If a permanent you controlled or a token was destroyed this way, draw a card.",
+        "scryfallUri": "https://scryfall.com/card/woe/5/break-the-spell?utm_source=api",
+        "tags": [
+          "interaction",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Bilbo's Gambit": {
+        "oracleId": "ef71ef07-8a35-41ec-a851-d95e9e3a221b",
+        "name": "Bilbo's Gambit",
+        "manaValue": 2.0,
+        "typeLine": "Instant",
+        "oracleText": "Gift a Treasure (You may promise an opponent a gift as you cast this spell. If you do, they create a Treasure token before its other effects. It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nReturn target spell to its owner's hand. If the gift was promised, players can't cast spells this turn.",
+        "scryfallUri": "https://scryfall.com/card/hob/5/bilbos-gambit?utm_source=api",
+        "tags": [
+          "ramp",
+          "interaction",
+          "tokens"
+        ]
+      },
+      "Collector's Vault": {
+        "oracleId": "f460ff80-8175-43f7-9810-540cf3817085",
+        "name": "Collector's Vault",
+        "manaValue": 2.0,
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}: Draw a card, then discard a card. Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "scryfallUri": "https://scryfall.com/card/woe/244/collectors-vault?utm_source=api",
+        "tags": [
+          "ramp",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Heirloom Mirror // Inherited Fiend": {
+        "oracleId": "b33390dd-f2f8-4059-83a9-45c0edccd5e4",
+        "name": "Heirloom Mirror // Inherited Fiend",
+        "manaValue": 2.0,
+        "typeLine": "Artifact // Creature — Demon",
+        "oracleText": "{1}, {T}, Pay 1 life, Discard a card: Draw a card, mill a card, then put a ritual counter on this artifact. Then if it has three or more ritual counters on it, remove them and transform it. Activate only as a sorcery.\nFlying\n{2}{B}: Exile target creature card from a graveyard. Put a +1/+1 counter on this creature.",
+        "scryfallUri": "https://scryfall.com/card/mid/105/heirloom-mirror-inherited-fiend?utm_source=api",
+        "tags": [
+          "graveyard",
+          "counters",
+          "interaction",
+          "draw"
+        ]
+      },
+      "Abzan Charm": {
+        "oracleId": "4137a22c-f793-4e27-a9b2-72740a6e2121",
+        "name": "Abzan Charm",
+        "manaValue": 3.0,
+        "typeLine": "Instant",
+        "oracleText": "Choose one —\n• Exile target creature with power 3 or greater.\n• You draw two cards and you lose 2 life.\n• Distribute two +1/+1 counters among one or two target creatures.",
+        "scryfallUri": "https://scryfall.com/card/dmc/138/abzan-charm?utm_source=api",
+        "tags": [
+          "counters",
+          "interaction",
+          "draw"
+        ]
+      }
+    },
+    "content_review": {
+      "reviewer": "Codex assistant",
+      "human_attestation": false,
+      "verdict": "failed",
+      "findings": [
+        {
+          "run": "R01",
+          "suggestion": "s2",
+          "issue": "Required Bojuka Bog entry trigger described as optional because the player chooses a target."
+        },
+        {
+          "run": "R07",
+          "suggestion": "s4",
+          "issue": "Stardew Valley drawing described as depending on giving away a permanent."
+        },
+        {
+          "run": "R05",
+          "suggestions": [
+            "s3",
+            "s4",
+            "s5"
+          ],
+          "issue": "Mana fixing/filtering promoted as ramp; the classifier rule was narrowed and versioned again."
+        }
+      ]
+    }
+  },
+  "final_batch": {
+    "source_commit": "c5200d03d03b09451e2f8f824992e181ab03d7db",
+    "role_version": "roles-v4",
+    "prompt_version": "explanations-v4",
+    "summary": {
+      "model": "claude-haiku-5-5",
+      "catalog_cards": 34473,
+      "runs": 10,
+      "explanations": 50,
+      "input_tokens": 25845,
+      "output_tokens": 5371,
+      "personal_decks_sent": false,
+      "live_provider_requests": 10,
+      "retained_results": 10,
+      "application_jar_sha256": "63e6669a6341b2e1855c177f7e6a610a7c115760b6e97c86c5ec28e2a6250b17",
+      "human_scores_supplied": false
+    },
+    "runs": [
+      {
+        "id": "R01",
+        "commander": "Meren of Clan Nel Toth",
+        "theme": "graveyard",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2265,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 488,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Kozilek's Command lets you choose two modes from making X Eldrazi Spawn tokens, scrying X then drawing, exiling a creature with mana value X or less, or exiling up to X graveyard cards, adding flexible ramp, card draw, and removal options. It fits the graveyard theme through its graveyard-exile mode."
+          },
+          {
+            "id": "s2",
+            "add": "Bojuka Bog",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Bojuka Bog is a land that enters tapped, taps for {B}, and when it enters exiles target player's graveyard. It adds a black land and can exile a graveyard as a one-time effect."
+          },
+          {
+            "id": "s3",
+            "add": "Hive of the Eye Tyrant",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Hive of the Eye Tyrant taps for {B} and enters tapped if you control two or more other lands. For {3}{B} it becomes a 3/3 menace creature until end of turn that exiles a card from the defending player's graveyard when it attacks, and it remains a land."
+          },
+          {
+            "id": "s4",
+            "add": "Cling to Dust",
+            "cut": null,
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Cling to Dust exiles a target card from a graveyard, gaining 3 life if it was a creature card and drawing a card otherwise. It can be cast from your graveyard for its escape cost of {3}{B} plus exiling five other cards."
+          },
+          {
+            "id": "s5",
+            "add": "Cremate",
+            "cut": null,
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Cremate exiles a target card from a graveyard and then draws a card. It is a cheap instant that provides graveyard hate and card draw."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "flag",
+          "correct_change": "pass",
+          "usefulness": "flag",
+          "no_invented_claims": "flag",
+          "verdict": "flag",
+          "notes": [
+            {
+              "suggestion_id": "s2",
+              "issue": "Bojuka Bog is called a black land; say a land that produces black mana. The required entry trigger is now described without making target choice optional."
+            }
+          ]
+        }
+      },
+      {
+        "id": "R02",
+        "commander": "Meren of Clan Nel Toth",
+        "theme": "graveyard",
+        "change_type": "swap",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2765,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 613,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Kozilek's Command adds flexible instant-speed value: it can make Eldrazi Spawn for ramp, scry and draw, or exile a creature with mana value X or less, with X choosing the size of each mode. The cut Command Tower produces mana of your commander's color identity, so the swap trades that land's fixing for these modes."
+          },
+          {
+            "id": "s2",
+            "add": "Cling to Dust",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Cling to Dust exiles a graveyard card, gaining 3 life if it was a creature or drawing a card otherwise, and can be cast again from the graveyard via escape. The cut Command Tower is a land that taps for mana of your commander's color identity, so this trades that mana source for the card's repeatable graveyard interaction and draw."
+          },
+          {
+            "id": "s3",
+            "add": "Cremate",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Cremate exiles a card from a graveyard and draws a card for one mana. Compared with Command Tower, which taps for mana of your commander's color identity, it trades that land's mana source for cheap graveyard hate and card draw."
+          },
+          {
+            "id": "s4",
+            "add": "Deathrite Shaman",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Deathrite Shaman can tap to exile a land card from a graveyard for one mana of any color, and it has separate black and green abilities that drain life or gain life by exiling graveyard cards. The cut Command Tower taps for mana of your commander's color identity, so the swap trades that fixed land mana for this creature's ramp option and graveyard abilities."
+          },
+          {
+            "id": "s5",
+            "add": "Lantern of the Lost",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the graveyard theme.",
+            "explanation": "Lantern of the Lost exiles a graveyard card when it enters, and for {1} plus tapping and exiling itself it exiles all graveyard cards and draws a card. The cut Command Tower taps for mana of your commander's color identity, so this trades that land's mana for the artifact's one-time graveyard exile and draw."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "flag",
+          "correct_change": "pass",
+          "usefulness": "flag",
+          "no_invented_claims": "flag",
+          "verdict": "flag",
+          "notes": [
+            {
+              "suggestion_id": "s1",
+              "issue": "X does not scale every part of every mode; the draw remains one card."
+            },
+            {
+              "suggestion_id": "s4",
+              "issue": "Replace drain life with each opponent loses 2 life. The black ability does not gain life."
+            }
+          ]
+        }
+      },
+      {
+        "id": "R03",
+        "commander": "Meren of Clan Nel Toth",
+        "theme": "general",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2389,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 487,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds flexible instant-speed value: you choose two modes from making Eldrazi Spawn, scry then draw, exiling a creature with mana value X or less, or exiling up to X graveyard cards. It fills the ramp, draw, and interaction gaps."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Freyalise, Llanowar's Fury makes a 1/1 green Elf Druid token with a mana ability each turn with its +2, supporting ramp, and its -6 draws a card for each green creature you control. It also has a -2 to destroy an artifact or enchantment."
+          },
+          {
+            "id": "s3",
+            "add": "Arch of Orazca",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Arch of Orazca taps for colorless mana and, once you have the city's blessing from ten or more permanents, can pay five and tap to draw a card. It adds a land that contributes to the draw gap."
+          },
+          {
+            "id": "s4",
+            "add": "Avishkar Raceway",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Avishkar Raceway taps for colorless mana, and at max speed you can pay three, tap, and discard a card to draw a card. It adds a land that contributes to the draw gap."
+          },
+          {
+            "id": "s5",
+            "add": "Baxter Building",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Baxter Building taps for colorless mana, can pay four and tap to add four mana of any combination of colors, and can pay four and tap to draw a card if you control a creature with toughness 4 or greater. It adds a land that contributes to the draw gap."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "pass",
+          "correct_change": "pass",
+          "usefulness": "pass",
+          "no_invented_claims": "pass",
+          "verdict": "pass",
+          "notes": []
+        }
+      },
+      {
+        "id": "R04",
+        "commander": "Ezuri, Renegade Leader",
+        "theme": "general",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2319,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 504,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds instant-speed interaction by exiling a creature with mana value X or less, and can also scry then draw or make Eldrazi Spawn tokens. The ramp and draw gaps are heuristic gaps in the current deck, not caused by the removed card."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Freyalise, Llanowar's Fury adds a planeswalker that makes 1/1 green Elf Druid tokens with mana abilities, and its -2 can destroy an artifact or enchantment. Its -6 draws a card for each green creature you control."
+          },
+          {
+            "id": "s3",
+            "add": "Arch of Orazca",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Arch of Orazca is a colorless land that taps for {C}, and once you have the city's blessing it can pay {5} and tap to draw a card. The land and draw gaps are heuristic gaps in the current deck."
+          },
+          {
+            "id": "s4",
+            "add": "Avishkar Raceway",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Avishkar Raceway is a colorless land that taps for {C}, and at max speed it can pay {3}, tap, and discard a card to draw a card. The land and draw gaps are heuristic gaps in the current deck."
+          },
+          {
+            "id": "s5",
+            "add": "Baxter Building",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap.",
+            "explanation": "Baxter Building is a land that taps for {C}, can pay {4} and tap to add four mana of any combination of colors, and can pay {4} and tap to draw a card if you control a creature with toughness 4 or greater. It fills the land and draw gaps in the current deck."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "pass",
+          "correct_change": "fail",
+          "usefulness": "fail",
+          "no_invented_claims": "fail",
+          "verdict": "fail",
+          "notes": [
+            {
+              "suggestion_id": "s1",
+              "issue": "This is an addition run. The removed-card boilerplate does not describe its actual change."
+            }
+          ]
+        }
+      },
+      {
+        "id": "R05",
+        "commander": "Ezuri, Renegade Leader",
+        "theme": "general",
+        "change_type": "swap",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2690,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 621,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds flexible instant-speed value: choose two modes from token creation, scry X then draw, exiling a creature with mana value X or less, or exiling up to X graveyard cards. It replaces Command Tower, which only taps for mana in the commander's color identity, so the cut gives up one land's mana fixing."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Freyalise, Llanowar's Fury makes a 1/1 Elf Druid mana token each turn with +2, can destroy an artifact or enchantment with −2, and can draw cards with −6 based on green creatures. It replaces Command Tower, which only taps for mana in the commander's color identity, so the cut gives up one land's mana fixing."
+          },
+          {
+            "id": "s3",
+            "add": "Insidious Fungus",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap.",
+            "explanation": "Insidious Fungus can be sacrificed for {2} to destroy an artifact or enchantment, or to draw a card and optionally put a land from hand onto the battlefield tapped. It replaces Command Tower, which only taps for mana in the commander's color identity, so the cut gives up one land's mana fixing."
+          },
+          {
+            "id": "s4",
+            "add": "Lantern of the Lost",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap.",
+            "explanation": "Lantern of the Lost exiles a graveyard card on entry and can later pay {1} and tap and exile itself to exile all graveyard cards and draw a card. It replaces Command Tower, which only taps for mana in the commander's color identity, so the cut gives up one land's mana fixing."
+          },
+          {
+            "id": "s5",
+            "add": "Phyrexian Furnace",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap.",
+            "explanation": "Phyrexian Furnace can tap to exile the bottom card of a target player's graveyard, or pay {1} and sacrifice itself to exile a graveyard card and draw a card. It replaces Command Tower, which only taps for mana in the commander's color identity, so the cut gives up one land's mana fixing."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "pass",
+          "correct_change": "pass",
+          "usefulness": "pass",
+          "no_invented_claims": "pass",
+          "verdict": "pass",
+          "notes": []
+        }
+      },
+      {
+        "id": "R06",
+        "commander": "Ezuri, Renegade Leader",
+        "theme": "counters",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2668,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 589,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command is an instant that can make Eldrazi Spawn tokens for mana, scry then draw, exile a creature with mana value X or less, or exile cards from graveyards; it adds ramp, card draw, and removal options. Its modes are chosen from two options, so it does not do every listed effect at once."
+          },
+          {
+            "id": "s2",
+            "add": "Archdruid's Charm",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Archdruid's Charm can search for a creature or land card (lands enter tapped) for ramp or card access, or put a +1/+1 counter on your creature and have it deal damage equal to its power to an opposing creature. It also has a mode that exiles an artifact or enchantment."
+          },
+          {
+            "id": "s3",
+            "add": "Staff of Compleation",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the counters theme.",
+            "explanation": "Staff of Compleation can draw a card by tapping and paying 4 life, add mana of any color by paying 2 life, or proliferate by paying 3 life, so it adds ramp, card draw, and counter support. Each ability costs life and taps the artifact, and its other abilities are separate choices."
+          },
+          {
+            "id": "s4",
+            "add": "Summon: Fenrir",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the counters theme.",
+            "explanation": "Summon: Fenrir is a Saga that searches for a basic land onto the battlefield tapped, boosts the next creature spell you cast that turn with a +1/+1 counter, and draws a card on chapter III only if you control the creature with the greatest or tied-for-greatest power. Its draw is conditional on that power check."
+          },
+          {
+            "id": "s5",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Freyalise, Llanowar's Fury makes 1/1 Elf Druid tokens that tap for green mana, adding ramp and an Elf body, and can destroy an artifact or enchantment with its −2 ability. Its −6 draws cards equal to the number of green creatures you control."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "fail",
+          "correct_change": "pass",
+          "usefulness": "fail",
+          "no_invented_claims": "fail",
+          "verdict": "fail",
+          "notes": [
+            {
+              "suggestion_id": "s1",
+              "issue": "Choose two modes from four; chosen from two options is incorrect."
+            },
+            {
+              "suggestion_id": "s4",
+              "issue": "The next creature enters with a counter; the counter is not put on a creature spell."
+            },
+            {
+              "suggestion_id": "s2",
+              "issue": "State both tutor destinations: land to battlefield tapped, creature to hand."
+            }
+          ]
+        }
+      },
+      {
+        "id": "R07",
+        "commander": "Trostani, Selesnya's Voice",
+        "theme": "tokens",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2422,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 495,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Kozilek's Command is an instant that can make Eldrazi Spawn tokens or scry and draw, plus exile a creature with mana value X or less and exile graveyard cards. Its token mode fits the tokens theme."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Freyalise, Llanowar's Fury makes a 1/1 green Elf Druid token each turn with +2 and can destroy an artifact or enchantment with −2. Its token-making and token-producing mana fit the tokens theme."
+          },
+          {
+            "id": "s3",
+            "add": "Fountainport",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap; matches the tokens theme.",
+            "explanation": "Fountainport is a colorless land that can make Fish tokens for {3}, {T}, and paying 1 life, and can draw a card by sacrificing a token for {2}, {T}. Its token abilities fit the tokens theme."
+          },
+          {
+            "id": "s4",
+            "add": "Stardew Valley",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap; matches the tokens theme.",
+            "explanation": "Stardew Valley is a colorless land that can create Food tokens by tapping an untapped creature you control, and can draw a card for {3}, {T} at sorcery speed, but the chosen permanent may then be given to another player. Its Food ability fits the tokens theme."
+          },
+          {
+            "id": "s5",
+            "add": "The Gold Saucer",
+            "cut": null,
+            "rule_reason": "Fills the land gap; fills the draw gap; matches the tokens theme.",
+            "explanation": "The Gold Saucer is a colorless land that can make Treasure tokens with a coin flip for {2}, {T}, and can draw a card by sacrificing two artifacts for {3}, {T}. Its artifact-based draw fits the tokens theme."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "pass",
+          "correct_change": "pass",
+          "usefulness": "flag",
+          "no_invented_claims": "pass",
+          "verdict": "flag",
+          "notes": [
+            {
+              "suggestion_id": "s4",
+              "issue": "Draw and Food are now separate and the later transfer is optional. Include the Food activation cost of {2}, {T}, plus tapping an untapped creature you control."
+            }
+          ]
+        }
+      },
+      {
+        "id": "R08",
+        "commander": "Trostani, Selesnya's Voice",
+        "theme": "tokens",
+        "change_type": "swap",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2797,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 524,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Kozilek's Command adds instant-speed flexibility, letting you choose two modes such as making Eldrazi Spawn tokens or exiling a creature with mana value X or less. It replaces Command Tower, which only taps for mana in your commander's color identity."
+          },
+          {
+            "id": "s2",
+            "add": "Freyalise, Llanowar's Fury",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Freyalise, Llanowar's Fury makes a 1/1 green Elf Druid token that taps for {G} with its +2 ability, fitting the tokens theme. Its -2 can destroy an artifact or enchantment, and it replaces Command Tower, a land that only taps for colors in your commander's identity."
+          },
+          {
+            "id": "s3",
+            "add": "Break the Spell",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Break the Spell is a one-mana instant that destroys target enchantment and draws a card if a permanent you controlled or a token was destroyed this way. It replaces Command Tower, which only taps for mana in your commander's color identity."
+          },
+          {
+            "id": "s4",
+            "add": "Pawpatch Formation",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Pawpatch Formation is an instant that can destroy a creature with flying, destroy an enchantment, or draw a card and create a Food token, chosen as one mode. It replaces Command Tower, which only taps for mana in your commander's color identity."
+          },
+          {
+            "id": "s5",
+            "add": "Seedship Impact",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the tokens theme.",
+            "explanation": "Seedship Impact is an instant that destroys target artifact or enchantment, and if its mana value was 2 or less it also creates a Lander token that can fetch a basic land. It replaces Command Tower, which only taps for mana in your commander's color identity."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "pass",
+          "correct_change": "pass",
+          "usefulness": "pass",
+          "no_invented_claims": "pass",
+          "verdict": "pass",
+          "notes": []
+        }
+      },
+      {
+        "id": "R09",
+        "commander": "Atraxa, Praetors' Voice",
+        "theme": "counters",
+        "change_type": "addition",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2545,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 513,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command adds instant-speed interaction and can give ramp via Eldrazi Spawn tokens or card draw via scry and draw, with the exile options handling creatures with mana value X or less and graveyard cards; it is a two-mode choice, so you pick two of these effects per cast."
+          },
+          {
+            "id": "s2",
+            "add": "Heirloom Mirror // Inherited Fiend",
+            "cut": null,
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Heirloom Mirror adds card draw through its discard-and-draw activation, which is sorcery speed and costs a discard and life, and it can later transform into a flying Demon that exiles creature cards from graveyards while growing with +1/+1 counters."
+          },
+          {
+            "id": "s3",
+            "add": "Abzan Charm",
+            "cut": null,
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Abzan Charm offers instant-speed removal for creatures with power 3 or greater, or two cards for 2 life, or two +1/+1 counters distributed among creatures, giving the deck flexible interaction, draw, and counter synergy."
+          },
+          {
+            "id": "s4",
+            "add": "Archdruid's Charm",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Archdruid's Charm can tutor a creature or land, with a land entering tapped, provides a counter-based damage mode that lets a creature you control deal damage equal to its power to a creature you don't control, and can exile an artifact or enchantment."
+          },
+          {
+            "id": "s5",
+            "add": "Staff of Compleation",
+            "cut": null,
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the counters theme.",
+            "explanation": "Staff of Compleation provides mana of any color for 2 life, proliferate for 3 life each activation, and card draw for 4 life, all tapping the artifact, so it supports the counters theme and ramp and draw but costs life each use."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "pass",
+          "correct_change": "pass",
+          "usefulness": "flag",
+          "no_invented_claims": "pass",
+          "verdict": "flag",
+          "notes": [
+            {
+              "suggestion_id": "s4",
+              "issue": "The land destination is stated, but the creature destination is omitted. State creature to hand explicitly."
+            }
+          ]
+        }
+      },
+      {
+        "id": "R10",
+        "commander": "Atraxa, Praetors' Voice",
+        "theme": "counters",
+        "change_type": "swap",
+        "structured_status": "haiku",
+        "retained_result": true,
+        "usage": {
+          "speed": "standard",
+          "input_tokens": 2985,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens": 537,
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0
+        },
+        "changes": [
+          {
+            "id": "s1",
+            "add": "Kozilek's Command",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; fills the interaction gap.",
+            "explanation": "Kozilek's Command is a flexible instant that can pick two modes, such as making Eldrazi Spawn tokens for ramp, scrying then drawing, or exiling a creature with mana value X or less. It replaces Command Tower, which only produces one mana of a color in the commander's identity."
+          },
+          {
+            "id": "s2",
+            "add": "Heirloom Mirror // Inherited Fiend",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Heirloom Mirror // Inherited Fiend adds a repeatable draw-and-mill ability that costs life and a discard, and a flying creature side that can grow by exiling creature cards from graveyards. It replaces Command Tower, a land that only taps for mana of the commander's colors."
+          },
+          {
+            "id": "s3",
+            "add": "Abzan Charm",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the draw gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Abzan Charm offers exile of a creature with power 3 or greater, drawing two cards for 2 life, or distributing two +1/+1 counters, which fits the counters theme. It replaces Command Tower, which only taps for mana."
+          },
+          {
+            "id": "s4",
+            "add": "Archdruid's Charm",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the interaction gap; matches the counters theme.",
+            "explanation": "Archdruid's Charm can tutor a creature or land, add a +1/+1 counter that lets a creature you control deal damage to an opposing creature, or exile an artifact or enchantment. Creature and land tutors go to hand or battlefield as stated, and it replaces Command Tower, which only taps for mana."
+          },
+          {
+            "id": "s5",
+            "add": "Staff of Compleation",
+            "cut": "Command Tower",
+            "rule_reason": "Fills the ramp gap; fills the draw gap; matches the counters theme.",
+            "explanation": "Staff of Compleation can proliferate, draw cards, or add mana of any color by paying life, and can be untapped for five mana. It replaces Command Tower, a land that only produces mana of the commander's colors."
+          }
+        ],
+        "assistant_review": {
+          "factual_support": "pass",
+          "correct_change": "pass",
+          "usefulness": "flag",
+          "no_invented_claims": "pass",
+          "verdict": "flag",
+          "notes": [
+            {
+              "suggestion_id": "s4",
+              "issue": "Hand or battlefield as stated leaves the type-to-destination mapping unclear. Use the corrected reference wording."
+            }
+          ]
+        }
+      }
+    ],
+    "supplied_card_facts": {
+      "Kozilek's Command": {
+        "oracleId": "2f2c549d-0293-4b9d-b9a8-ff392800f3a5",
+        "name": "Kozilek's Command",
+        "manaValue": 2.0,
+        "typeLine": "Kindred Instant — Eldrazi",
+        "oracleText": "Choose two —\n• Target player creates X 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"\n• Target player scries X, then draws a card.\n• Exile target creature with mana value X or less.\n• Exile up to X target cards from graveyards.",
+        "scryfallUri": "https://scryfall.com/card/mh3/11/kozileks-command?utm_source=api",
+        "tags": [
+          "graveyard",
+          "ramp",
+          "interaction",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Bojuka Bog": {
+        "oracleId": "04b7362d-0490-4cb0-b5d7-2a7732f659ce",
+        "name": "Bojuka Bog",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
+        "scryfallUri": "https://scryfall.com/card/soc/363/bojuka-bog?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "land"
+        ]
+      },
+      "Hive of the Eye Tyrant": {
+        "oracleId": "d17163d4-dd43-4de6-b7cf-576448160b7f",
+        "name": "Hive of the Eye Tyrant",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "If you control two or more other lands, this land enters tapped.\n{T}: Add {B}.\n{3}{B}: Until end of turn, this land becomes a 3/3 black Beholder creature with menace and \"Whenever this creature attacks, exile target card from defending player's graveyard.\" It's still a land.",
+        "scryfallUri": "https://scryfall.com/card/afr/258/hive-of-the-eye-tyrant?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "land"
+        ]
+      },
+      "Cling to Dust": {
+        "oracleId": "9c44e556-4c7a-48bf-a108-c584f69c2cfa",
+        "name": "Cling to Dust",
+        "manaValue": 1.0,
+        "typeLine": "Instant",
+        "oracleText": "Exile target card from a graveyard. If it was a creature card, you gain 3 life. Otherwise, you draw a card.\nEscape—{3}{B}, Exile five other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)",
+        "scryfallUri": "https://scryfall.com/card/thb/87/cling-to-dust?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "draw"
+        ]
+      },
+      "Cremate": {
+        "oracleId": "c6a2e410-b182-48d1-aeb2-bc8de27e9cd2",
+        "name": "Cremate",
+        "manaValue": 1.0,
+        "typeLine": "Instant",
+        "oracleText": "Exile target card from a graveyard.\nDraw a card.",
+        "scryfallUri": "https://scryfall.com/card/rtr/59/cremate?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "draw"
+        ]
+      },
+      "Command Tower": {
+        "oracleId": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+        "name": "Command Tower",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "{T}: Add one mana of any color in your commander's color identity.",
+        "scryfallUri": "https://scryfall.com/card/frc/22/command-tower?utm_source=api",
+        "tags": [
+          "land"
+        ]
+      },
+      "Deathrite Shaman": {
+        "oracleId": "22f1a4a4-c423-4d1c-8775-0ed604a9fa51",
+        "name": "Deathrite Shaman",
+        "manaValue": 1.0,
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "{T}: Exile target land card from a graveyard. Add one mana of any color. (Activate only as an instant.)\n{B}, {T}: Exile target instant or sorcery card from a graveyard. Each opponent loses 2 life.\n{G}, {T}: Exile target creature card from a graveyard. You gain 2 life.",
+        "scryfallUri": "https://scryfall.com/card/rvr/175/deathrite-shaman?utm_source=api",
+        "tags": [
+          "graveyard",
+          "ramp",
+          "interaction"
+        ]
+      },
+      "Lantern of the Lost": {
+        "oracleId": "f0c4414f-f153-40f6-a3b3-94bcbf1d3e29",
+        "name": "Lantern of the Lost",
+        "manaValue": 1.0,
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, exile target card from a graveyard.\n{1}, {T}, Exile this artifact: Exile all cards from all graveyards, then draw a card.",
+        "scryfallUri": "https://scryfall.com/card/vow/259/lantern-of-the-lost?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "draw"
+        ]
+      },
+      "Freyalise, Llanowar's Fury": {
+        "oracleId": "659dfdbf-5e9d-4828-a967-348cb3bcf05a",
+        "name": "Freyalise, Llanowar's Fury",
+        "manaValue": 5.0,
+        "typeLine": "Legendary Planeswalker — Freyalise",
+        "oracleText": "+2: Create a 1/1 green Elf Druid creature token with \"{T}: Add {G}.\"\n−2: Destroy target artifact or enchantment.\n−6: Draw a card for each green creature you control.\nFreyalise, Llanowar's Fury can be your commander.",
+        "scryfallUri": "https://scryfall.com/card/cmm/290/freyalise-llanowars-fury?utm_source=api",
+        "tags": [
+          "ramp",
+          "interaction",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Arch of Orazca": {
+        "oracleId": "3bb518ff-399b-4ce7-b9ad-a1d563dd7792",
+        "name": "Arch of Orazca",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\n{T}: Add {C}.\n{5}, {T}: Draw a card. Activate only if you have the city's blessing.",
+        "scryfallUri": "https://scryfall.com/card/lcc/319/arch-of-orazca?utm_source=api",
+        "tags": [
+          "land",
+          "draw"
+        ]
+      },
+      "Avishkar Raceway": {
+        "oracleId": "e2c35551-1ba5-4424-baf9-821b49bbcc8c",
+        "name": "Avishkar Raceway",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.)\n{T}: Add {C}.\nMax speed — {3}, {T}, Discard a card: Draw a card.",
+        "scryfallUri": "https://scryfall.com/card/dft/249/avishkar-raceway?utm_source=api",
+        "tags": [
+          "land",
+          "draw"
+        ]
+      },
+      "Baxter Building": {
+        "oracleId": "71bc69a5-7cec-4abd-b97d-13f8e1f9afac",
+        "name": "Baxter Building",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{4}, {T}: Add four mana in any combination of colors.\n{4}, {T}: Draw a card. Activate only if you control a creature with toughness 4 or greater.",
+        "scryfallUri": "https://scryfall.com/card/msh/261/baxter-building?utm_source=api",
+        "tags": [
+          "land",
+          "draw"
+        ]
+      },
+      "Insidious Fungus": {
+        "oracleId": "0a8d0217-ff24-4177-b6be-707eb2b6b9e9",
+        "name": "Insidious Fungus",
+        "manaValue": 1.0,
+        "typeLine": "Creature — Fungus",
+        "oracleText": "{2}, Sacrifice this creature: Choose one —\n• Destroy target artifact.\n• Destroy target enchantment.\n• Draw a card. Then you may put a land card from your hand onto the battlefield tapped.",
+        "scryfallUri": "https://scryfall.com/card/dsk/186/insidious-fungus?utm_source=api",
+        "tags": [
+          "interaction",
+          "draw"
+        ]
+      },
+      "Phyrexian Furnace": {
+        "oracleId": "4aafb7e7-b9fc-44ae-9c54-da11fd9dcc17",
+        "name": "Phyrexian Furnace",
+        "manaValue": 1.0,
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Exile the bottom card of target player's graveyard.\n{1}, Sacrifice this artifact: Exile target card from a graveyard. Draw a card.",
+        "scryfallUri": "https://scryfall.com/card/wth/155/phyrexian-furnace?utm_source=api",
+        "tags": [
+          "graveyard",
+          "interaction",
+          "draw"
+        ]
+      },
+      "Archdruid's Charm": {
+        "oracleId": "3c1ef404-e2c6-486d-a5a2-d5779c71d498",
+        "name": "Archdruid's Charm",
+        "manaValue": 3.0,
+        "typeLine": "Instant",
+        "oracleText": "Choose one —\n• Search your library for a creature or land card and reveal it. Put it onto the battlefield tapped if it's a land card. Otherwise, put it into your hand. Then shuffle.\n• Put a +1/+1 counter on target creature you control. It deals damage equal to its power to target creature you don't control.\n• Exile target artifact or enchantment.",
+        "scryfallUri": "https://scryfall.com/card/mkm/151/archdruids-charm?utm_source=api",
+        "tags": [
+          "counters",
+          "ramp",
+          "interaction"
+        ]
+      },
+      "Staff of Compleation": {
+        "oracleId": "11c7662f-e688-40a6-98fd-6ae89d231b44",
+        "name": "Staff of Compleation",
+        "manaValue": 3.0,
+        "typeLine": "Artifact",
+        "oracleText": "{T}, Pay 1 life: Destroy target permanent you own.\n{T}, Pay 2 life: Add one mana of any color.\n{T}, Pay 3 life: Proliferate.\n{T}, Pay 4 life: Draw a card.\n{5}: Untap this artifact.",
+        "scryfallUri": "https://scryfall.com/card/tdc/326/staff-of-compleation?utm_source=api",
+        "tags": [
+          "counters",
+          "ramp",
+          "draw"
+        ]
+      },
+      "Summon: Fenrir": {
+        "oracleId": "3509171e-8d7d-4e9e-97a1-58e6c7d225ed",
+        "name": "Summon: Fenrir",
+        "manaValue": 3.0,
+        "typeLine": "Enchantment Creature — Saga Wolf",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Crescent Fang — Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\nII — Heavenward Howl — When you next cast a creature spell this turn, that creature enters with an additional +1/+1 counter on it.\nIII — Ecliptic Growl — Draw a card if you control the creature with the greatest power or tied for the greatest power.",
+        "scryfallUri": "https://scryfall.com/card/fin/203/summon:-fenrir?utm_source=api",
+        "tags": [
+          "counters",
+          "ramp",
+          "draw"
+        ]
+      },
+      "Fountainport": {
+        "oracleId": "94e8b0a9-44a1-4dce-8d44-78681ae638a1",
+        "name": "Fountainport",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}, Sacrifice a token: Draw a card.\n{3}, {T}, Pay 1 life: Create a 1/1 blue Fish creature token.\n{4}, {T}: Create a Treasure token.",
+        "scryfallUri": "https://scryfall.com/card/blb/253/fountainport?utm_source=api",
+        "tags": [
+          "land",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Stardew Valley": {
+        "oracleId": "6a4ee425-b3b8-487d-866c-9e2d73682466",
+        "name": "Stardew Valley",
+        "manaValue": 0.0,
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}, Tap an untapped creature you control: Create a Food token.\n{3}, {T}: Choose target permanent you control. Draw a card, then another player of your choice may gain control of that permanent. Activate only as a sorcery.",
+        "scryfallUri": "https://scryfall.com/card/sld/2801/stardew-valley?utm_source=api",
+        "tags": [
+          "land",
+          "tokens",
+          "draw"
+        ]
+      },
+      "The Gold Saucer": {
+        "oracleId": "93e38650-ce22-4ab9-b79d-cc7b6477c075",
+        "name": "The Gold Saucer",
+        "manaValue": 0.0,
+        "typeLine": "Land — Town",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}: Flip a coin. If you win the flip, create a Treasure token.\n{3}, {T}, Sacrifice two artifacts: Draw a card.",
+        "scryfallUri": "https://scryfall.com/card/fin/279/the-gold-saucer?utm_source=api",
+        "tags": [
+          "land",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Break the Spell": {
+        "oracleId": "b9d51e07-851f-4b7b-bffe-7c1efff0714c",
+        "name": "Break the Spell",
+        "manaValue": 1.0,
+        "typeLine": "Instant",
+        "oracleText": "Destroy target enchantment. If a permanent you controlled or a token was destroyed this way, draw a card.",
+        "scryfallUri": "https://scryfall.com/card/woe/5/break-the-spell?utm_source=api",
+        "tags": [
+          "interaction",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Pawpatch Formation": {
+        "oracleId": "fa99cf82-ebf1-4526-ab9c-b24eb2970f2a",
+        "name": "Pawpatch Formation",
+        "manaValue": 2.0,
+        "typeLine": "Instant",
+        "oracleText": "Choose one —\n• Destroy target creature with flying.\n• Destroy target enchantment.\n• Draw a card. Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+        "scryfallUri": "https://scryfall.com/card/blb/186/pawpatch-formation?utm_source=api",
+        "tags": [
+          "interaction",
+          "tokens",
+          "draw"
+        ]
+      },
+      "Seedship Impact": {
+        "oracleId": "c6d89c4a-351f-4d63-ba57-b978a695191e",
+        "name": "Seedship Impact",
+        "manaValue": 2.0,
+        "typeLine": "Instant",
+        "oracleText": "Destroy target artifact or enchantment. If its mana value was 2 or less, create a Lander token. (It's an artifact with \"{2}, {T}, Sacrifice this token: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\")",
+        "scryfallUri": "https://scryfall.com/card/eoe/205/seedship-impact?utm_source=api",
+        "tags": [
+          "ramp",
+          "interaction",
+          "tokens"
+        ]
+      },
+      "Heirloom Mirror // Inherited Fiend": {
+        "oracleId": "b33390dd-f2f8-4059-83a9-45c0edccd5e4",
+        "name": "Heirloom Mirror // Inherited Fiend",
+        "manaValue": 2.0,
+        "typeLine": "Artifact // Creature — Demon",
+        "oracleText": "{1}, {T}, Pay 1 life, Discard a card: Draw a card, mill a card, then put a ritual counter on this artifact. Then if it has three or more ritual counters on it, remove them and transform it. Activate only as a sorcery.\nFlying\n{2}{B}: Exile target creature card from a graveyard. Put a +1/+1 counter on this creature.",
+        "scryfallUri": "https://scryfall.com/card/mid/105/heirloom-mirror-inherited-fiend?utm_source=api",
+        "tags": [
+          "graveyard",
+          "counters",
+          "interaction",
+          "draw"
+        ]
+      },
+      "Abzan Charm": {
+        "oracleId": "4137a22c-f793-4e27-a9b2-72740a6e2121",
+        "name": "Abzan Charm",
+        "manaValue": 3.0,
+        "typeLine": "Instant",
+        "oracleText": "Choose one —\n• Exile target creature with power 3 or greater.\n• You draw two cards and you lose 2 life.\n• Distribute two +1/+1 counters among one or two target creatures.",
+        "scryfallUri": "https://scryfall.com/card/dmc/138/abzan-charm?utm_source=api",
+        "tags": [
+          "counters",
+          "interaction",
+          "draw"
+        ]
+      }
+    },
+    "content_review": {
+      "reviewer": "Codex assistant",
+      "human_attestation": false,
+      "status": "completed_with_failures",
+      "rubric": [
+        "factual_support",
+        "correct_change",
+        "usefulness",
+        "no_invented_claims"
+      ],
+      "counts": {
+        "flag": 5,
+        "pass": 3,
+        "fail": 2
+      },
+      "overall_quality_gate": "fail",
+      "scope": "Ten known synthetic regression scenarios, 50 explanations. Prompt changes used observed examples; this is not a blind evaluation. Pass means the stated facts/reason were acceptable for that sample, not strategic optimality or complete coverage of every ability cost."
+    }
+  },
+  "live_requests_this_closeout": 20,
+  "personal_decks_sent": false,
+  "original_receipts_preserved": [
+    "role-tag-verification.json",
+    "haiku-review.json"
+  ],
+  "display_policy": "AI explanations remain labeled previews requiring the user to verify claims; rule explanations and deterministic selection/validation remain available. This review does not pass the original human-quality acceptance criterion."
+}
