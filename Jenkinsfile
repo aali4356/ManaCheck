@@ -16,8 +16,8 @@ pipeline {
   }
   post {
     always {
-      junit testResults: 'target/surefire-reports/TEST-*.xml', allowEmptyResults: false
       archiveArtifacts artifacts: 'target/surefire-reports/**,target/site/jacoco/**,target/cucumber/**,target/browser/**', allowEmptyArchive: true
+      junit testResults: 'target/surefire-reports/TEST-*.xml', allowEmptyResults: false
     }
   }
 }
