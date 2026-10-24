@@ -18,7 +18,7 @@ jobs:
           java-version: "21"
           cache: maven
       - name: Run Java, PostgreSQL, API, and Chrome checks
-        run: ./mvnw -B -Pbrowser verify
+        run: ./scripts/verify.sh
       - name: Retain test evidence
         if: always()
         uses: actions/upload-artifact@v4
