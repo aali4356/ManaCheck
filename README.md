@@ -1,10 +1,12 @@
 # ManaCheck
 
+[![Verification](https://github.com/aali4356/ManaCheck/actions/workflows/verify.yml/badge.svg)](https://github.com/aali4356/ManaCheck/actions/workflows/verify.yml)
+
 A local Commander deck tracker with immutable revision history, explicit SQL ranking, construction checks, and optional Haiku explanations. Built with Java 21, Spring Boot 4.1.1, PostgreSQL 17, Flyway, JDBC, and Thymeleaf.
 
 ![ManaCheck deck library](docs/evidence/library.png)
 
-Verified locally: **69 passing checks**, full **34,473-card** gameplay catalog, a recorded five-minute walkthrough, and measured SQL/API performance. The recording predates the sunset redesign; the screenshot above shows that interface before personal deck imports. Performance measurements used the earlier 33,411-card catalog. See the [verification receipt and limitations](docs/VERIFICATION.md).
+Verified locally and in GitHub Actions: **98 checks**, including Cucumber scenarios, REST Assured contracts, PostgreSQL, and Chrome. The local catalog contains **34,473 cards**. The recorded walkthrough predates the sunset redesign; screenshots predate personal imports, and performance measurements used the earlier 33,411-card catalog. See [verification evidence](docs/VERIFICATION.md).
 
 ## Run locally
 
@@ -51,7 +53,9 @@ The application does not read `.env` automatically. `.env.example` lists support
 
 Only **Explain with AI** calls the provider. It receives the commander, theme, deck count, and already selected changes, with a structured response schema, disabled thinking, a 1,200-token output cap, and a 10-second timeout. Each recommendation run permits one attempt; subsequent requests reuse the retained outcome. Provider usage is recorded when returned. No AI requests run during catalog imports, normal editing, ranking, startup, or CI.
 
-Java checks every returned suggestion ID and required explanation. These checks establish structural correctness. Strategic usefulness and factual accuracy require separate human review. Live Haiku quality remains unverified until that review is recorded.
+Java checks every returned suggestion ID and required explanation. Ten live fixture runs completed with saved usage and explanations. The [review](docs/HAIKU-REVIEW.md) records open heuristic findings; individual human rubric scores remain unrecorded.
+
+Development used Codex assistance. The [code reading and unaided exercise guide](docs/OWNERSHIP.md) separates passing automation from the owner's learning work.
 
 ## What this project tests
 
