@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "result": "SUCCESS",
+  "source_sha": "31ecebb1ab66b0cc270b17058c5ab6af208d7bfc",
+  "workflow_url": "https://github.com/aali4356/ManaCheck/actions/runs/40049439290",
+  "run_id": 40049439290,
+  "artifact_id": 12542708476,
+  "artifact_sha256": "8f7eb8338464cd23ec7778b385bd756d40bc601c193eb08d353e981ac3a140b4",
+  "artifact_retention_days": 14,
+  "runs": [
+    {
+      "run": 1,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 53.894,
+      "returncode": 0,
+      "state": "completed"
+    },
+    {
+      "run": 2,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 37.316,
+      "returncode": 0,
+      "state": "completed"
+    },
+    {
+      "run": 3,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 36.911,
+      "returncode": 0,
+      "state": "completed"
+    },
+    {
+      "run": 4,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 37.915,
+      "returncode": 0,
+      "state": "completed"
+    },
+    {
+      "run": 5,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 38.163,
+      "returncode": 0,
+      "state": "completed"
+    },
+    {
+      "run": 6,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 37.609,
+      "returncode": 0,
+      "state": "completed"
+    },
+    {
+      "run": 7,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 37.413,
+      "returncode": 0,
+      "state": "completed"
+    },
+    {
+      "run": 8,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 36.962,
+      "returncode": 0,
+      "state": "completed"
+    },
+    {
+      "run": 9,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 37.927,
+      "returncode": 0,
+      "state": "completed"
+    },
+    {
+      "run": 10,
+      "test_count": 98,
+      "xml_reports": 8,
+      "elapsed_seconds": 37.783,
+      "returncode": 0,
+      "state": "completed"
+    }
+  ],
+  "unique_test_keys": 98,
+  "total_test_executions": 980,
+  "changed_test_count": 0,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "detector_regressions": 11,
+  "dirty_worktree_at_start": false,
+  "verification": "Downloaded the GitHub artifact, matched its digest, and independently counted unique passing testcase records in every run\u2019s Surefire XML.",
+  "limits": [
+    "Ten fixed-fixture hosted runs with no observed instability; no guarantee of flake-free tests.",
+    "Provider inference and live catalog downloads are disabled."
+  ]
+}

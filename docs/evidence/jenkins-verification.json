@@ -41,5 +41,16 @@
     "Local Linux ARM64 controller; no Jenkins server was publicly deployed.",
     "Mutable LTS/plugins resolved at build time.",
     "Selenium reported a CDP 156/155 warning; the tested browser flows do not use DevTools."
-  ]
+  ],
+  "integrated_follow_up": {
+    "build": 4,
+    "result": "SUCCESS",
+    "source_commit": "31ecebb1ab66b0cc270b17058c5ab6af208d7bfc",
+    "duration_seconds": 48.99,
+    "java_checks": 98,
+    "detector_checks": 11,
+    "failures": 0,
+    "skipped": 0,
+    "archived_files": 103
+  }
 }

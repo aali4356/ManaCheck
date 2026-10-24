@@ -9,8 +9,8 @@ The [public repository](https://github.com/aali4356/ManaCheck) records the exist
 | Initial publication | [69 checks passed in Actions](https://github.com/aali4356/ManaCheck/actions/runs/40030099677) |
 | Cucumber business rules | [PR 1](https://github.com/aali4356/ManaCheck/pull/1), green hosted checks; 21 scenarios plus 69 existing tests |
 | REST Assured and JSON schemas | [PR 2](https://github.com/aali4356/ManaCheck/pull/2), green hosted checks; 98 local checks with no failures, errors, or skips |
-| Jenkins | [PR 4](https://github.com/aali4356/ManaCheck/pull/4), actual local Linux build: 98 passed; [receipt](evidence/jenkins-verification.json) |
-| Nightly stability | [PR 5](https://github.com/aali4356/ManaCheck/pull/5), 11 detector regressions; ten full local runs with 98 passing keys each and zero changed outcomes; [receipt](evidence/stability-verification.json) |
+| Jenkins | [PR 4](https://github.com/aali4356/ManaCheck/pull/4), actual local Linux builds: 98 app checks plus 11 detector checks passed; [receipt](evidence/jenkins-verification.json) |
+| Nightly stability | [PR 5](https://github.com/aali4356/ManaCheck/pull/5), 11 detector regressions; ten local and [ten hosted runs](https://github.com/aali4356/ManaCheck/actions/runs/40049439290), each with 98 passing keys and zero changed outcomes; [local receipt](evidence/stability-verification.json), [hosted receipt](evidence/stability-hosted.json) |
 | Live explanations | Ten fixture runs, 50 explanations; [review findings and limitations](HAIKU-REVIEW.md) |
 | Owner's learning | [Class reading and unaided rewrite](OWNERSHIP.md) remain unverified |
 

@@ -34,3 +34,5 @@ The first run downloads public Maven dependencies. Tests use an owned PostgreSQL
 ## Observed run
 
 Local build **3** passed all **98** checks with zero failures or skips in **57.363 seconds**, at commit `0bbe5570139025e6815d66d043a67b9cfa5a2e72`. JUnit and test artifacts were archived. [The receipt](evidence/jenkins-verification.json) records the actual controller/image and the two earlier setup failures, which executed no tests. The local authenticated controller is available at `http://localhost:18080`.
+
+After the stability checks were integrated, build **4** also passed **11 detector regressions and all 98 app checks**, with zero failures or skips, in **48.990 seconds** at commit `31ecebb1ab66b0cc270b17058c5ab6af208d7bfc`. Its result and 103 archived files are recorded in the same receipt.
