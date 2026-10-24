@@ -100,7 +100,7 @@ Run all existing tests, including the three Chrome journeys, plus the business s
 DEBUG=false bash -c 'source scripts/environment.sh; ./mvnw -B -Pbrowser test'
 ```
 
-The original suite has 69 test invocations with `-Pbrowser` (66 without it). The feature files add 21 scenario invocations and `ApiContractTest` adds 8. A full successful run should report **98 tests** (**95** without browser tests), with each test and expanded scenario discovered once. The focused Cucumber command should report **21 tests**. These counts describe local acceptance expectations; execution receipts belong in the task handoff.
+The original suite has 69 test invocations with `-Pbrowser` (66 without it). The feature files add 21 scenario invocations, `ApiContractTest` adds 8, and the role-tag regressions add 32. A full successful run should report **130 tests** (**127** without browser tests), with each test and expanded scenario discovered once. The focused Cucumber command should report **21 tests**. Historical receipts retain the inventory tested at that revision.
 
 | Feature | Business assertions |
 | --- | --- |

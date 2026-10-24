@@ -10,7 +10,7 @@ import tools.jackson.databind.JsonNode;
 
 @Component
 public class CardClassifier {
-  public static final String RULES_VERSION = "roles-v1";
+  public static final String RULES_VERSION = "roles-v2";
   public static final String CLASSIFIER_VERSION = "catalog-v3";
   // MH2 release notes: Grist is a creature during deck construction, despite its printed type.
   // https://magic.wizards.com/en/news/feature/modern-horizons-2-release-notes-2021-06-04
@@ -30,6 +30,11 @@ public class CardClassifier {
           Map.entry("ten", 10));
   private static final Pattern LIMITED =
       Pattern.compile("a deck can have up to (\\w+) cards named", Pattern.CASE_INSENSITIVE);
+  private static final Pattern DRAW =
+      Pattern.compile(
+          "\\bdraws?\\s+(?:a|one|two|three|four|five|six|seven|x|that many|[0-9]+)\\s+cards?\\b");
+  private static final Pattern DRAW_CONDITION = Pattern.compile("\\b(?:when|whenever|if|would)\\b");
+  private static final Pattern TOKEN = Pattern.compile("\\btokens?\\b");
   private static final Set<String> EXCLUDED_LAYOUTS =
       Set.of(
           "token",
@@ -158,16 +163,42 @@ public class CardClassifier {
         && (text.contains("add {")
             || text.matches("(?s).*search your library.*land.*onto the battlefield.*")))
       tags.add("ramp");
-    if (Pattern.compile("draw (?:a|one|two|three|four|five|six|seven|x|that many|[0-9]+) cards?")
-        .matcher(text)
-        .find()) tags.add("draw");
+    if (hasDrawInstruction(text)) tags.add("draw");
     if (text.matches(
         "(?s).*(?:destroy target|destroy all|exile target|counter target|return target.*owner.s"
             + " hand).*")) tags.add("interaction");
-    if (text.contains("token")) tags.add("tokens");
+    // Standalone token mentions retain the theme without matching "nontoken".
+    if (TOKEN.matcher(text).find()) tags.add("tokens");
     if (text.contains("+1/+1 counter") || text.contains("proliferate")) tags.add("counters");
     if (text.contains("graveyard")) tags.add("graveyard");
     return tags;
+  }
+
+  private boolean hasDrawInstruction(String text) {
+    // Bounded Oracle wording heuristic: ignore reminders and draw conditions, then look for
+    // an instruction. Commas separate "Whenever you draw ..." / "If you would draw ..."
+    // from their effects, while "If you do, draw a card" retains its actual instruction.
+    // This does not interpret arbitrary Oracle grammar or keyword-defined draw effects.
+    for (String clause : withoutReminderText(text).split("[.,;:\\r\\n]")) {
+      var draw = DRAW.matcher(clause);
+      while (draw.find())
+        if (!DRAW_CONDITION.matcher(clause.substring(0, draw.start())).find()) return true;
+    }
+    return false;
+  }
+
+  private String withoutReminderText(String text) {
+    StringBuilder rules = new StringBuilder();
+    int depth = 0;
+    for (int i = 0; i < text.length(); i++) {
+      char c = text.charAt(i);
+      if (c == '(') {
+        if (depth == 0) rules.append(' ');
+        depth++;
+      } else if (c == ')' && depth > 0) depth--;
+      else if (depth == 0) rules.append(c);
+    }
+    return rules.toString();
   }
 
   private String image(JsonNode n) {
