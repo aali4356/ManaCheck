@@ -1,0 +1,32 @@
+{
+  "verified_at": "2026-10-24T00:41:59.802605+00:00",
+  "command": "DEBUG=false ./scripts/verify.sh",
+  "tests": 98,
+  "unique_test_keys": 98,
+  "failures_or_errors": 0,
+  "skipped": 0,
+  "rest_assured_cases": 8,
+  "base_commit": "db5fc92086aafa6dabd793828a0747a96a4e2489",
+  "worker": {
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "agents": 1,
+    "attempts": 1,
+    "status": "runtime interrupted; no completed handoff",
+    "tokens": {
+      "input": 579674,
+      "cached_input": 504704,
+      "output": 11997,
+      "total": 591671
+    }
+  },
+  "integration_corrections": [
+    "Omit an empty required array in draft-04",
+    "RFC problem type defaults to about:blank when omitted",
+    "Use an explicitly tagged draw fixture for HTTP role-map assertions",
+    "Retain configured model identity on no-key fallback"
+  ],
+  "integration_model": "unknown",
+  "integration_effort": "unknown",
+  "integration_tokens": "unknown"
+}

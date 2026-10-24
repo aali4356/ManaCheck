@@ -8,6 +8,19 @@ This runs Java unit tests, actual PostgreSQL 17 integration tests, the 20 pinned
 
 For faster backend iteration, run `./mvnw test` after sourcing `scripts/environment.sh` when this Mac's toolchain needs discovery. For only the browser journeys: `./scripts/verify.sh -Dtest=BrowserTest`.
 
+## HTTP response contracts
+
+`ApiContractTest` uses REST Assured **6.0.0** and its **6.0.0** `json-schema-validator`, both test-scoped, against the random-port Spring server and `PostgresTestBase`'s disposable PostgreSQL 17 fixture. Its eight tests cover card search/filtering/pagination; deck create/get/list; immutable revision retrieval/history; bidirectional differences and atomic stale-save 409 problems; analysis counts, roles and catalog provenance; validated recommendation swaps and stale-run rejection; retained no-key explanation fallback; and a negative schema regression.
+
+```bash
+DEBUG=false bash -c 'source scripts/environment.sh; ./mvnw -B -Dtest=ApiContractTest test'
+git diff --check
+```
+
+Expect **8 tests** in the focused run. For restricted clones, use the clone-local Maven cache settings below. `schemas/*.json` use draft-04 and classpath-relative references to `definitions.json`. Required fields, explicit nullability, typed array members and closed objects apply through nested cards, faces, deck entries, analysis maps, suggestions, usage and RFC7807 problem documents. The regression starts with an actual HTTP deck response, then verifies rejection of missing nested required fields, incorrect scalar types and unexpected root/face fields. Empty legitimate maps and nullable fields remain supported. Requests use explicit Jackson 3 string serialization; production mappers are unchanged.
+
+All operations use fixture catalog data and synthetic decks. Demo seeding and provider credentials are disabled by the base fixture; no test calls Scryfall, a live AI provider or Compose. These are local HTTP contracts; browser acceptance, hosted CI and human/live explanation review require separate evidence. Schema usage follows the [official REST Assured guide](https://github.com/rest-assured/rest-assured/wiki/Usage#json-schema-validation).
+
 ## Executable business acceptance scenarios
 
 Cucumber JVM **8.0.4** runs through the JUnit Platform Suite engine on the Boot-managed JUnit 6 platform and Java 21. All new dependencies have test scope. `RunCucumberTest` selects only `features` and the Cucumber engine; it does not select Jupiter tests. `junit-platform.properties` disables Cucumber's direct root-engine discovery, so the suite is its sole entry point. Jupiter's existing tests keep their normal discovery. Both engines run sequentially because they share the test database.
@@ -24,7 +37,7 @@ Run all existing tests, including the three Chrome journeys, plus the business s
 DEBUG=false bash -c 'source scripts/environment.sh; ./mvnw -B -Pbrowser test'
 ```
 
-The existing suite has 69 test invocations with `-Pbrowser` (66 without it). The new feature files add 21 scenario invocations. A full successful run should report **90 tests**, with each existing test and each expanded scenario discovered once. The focused command should report **21 tests**. These counts describe local acceptance expectations; execution receipts belong in the task handoff.
+The original suite has 69 test invocations with `-Pbrowser` (66 without it). The feature files add 21 scenario invocations and `ApiContractTest` adds 8. A full successful run should report **98 tests** (**95** without browser tests), with each test and expanded scenario discovered once. The focused Cucumber command should report **21 tests**. These counts describe local acceptance expectations; execution receipts belong in the task handoff.
 
 | Feature | Business assertions |
 | --- | --- |
