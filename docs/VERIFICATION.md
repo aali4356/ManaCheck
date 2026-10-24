@@ -1,5 +1,24 @@
 # Local verification receipt
 
+## Role tags and explanation follow-up — October 23, 2026
+
+The [current receipt](evidence/role-tag-verification.json) separates tested source
+revisions and preserves the earlier receipts below.
+
+| Check | Result |
+| --- | --- |
+| Full verifier | 130 passing checks, zero failures/errors/skips; role regressions add 32 |
+| Public CI | [Role-tag PR 7](https://github.com/aali4356/ManaCheck/pull/7) passed [Actions](https://github.com/aali4356/ManaCheck/actions/runs/40053866047) |
+| Ten-run samples | Ten local and [ten hosted runs](https://github.com/aali4356/ManaCheck/actions/runs/40054469840), each with 130 passing keys; zero changed/nonpassing outcomes |
+| Artifact verification | Download digest matched; an independent XML recount found all 10 × 130 passing cases |
+| Jenkins | Actual local build 6 checked the updated explanation source: 130 app checks and 11 detector checks passed |
+| Personal library | Cached-source catalog refresh retained 34,473 cards and exact fingerprints of 10 decks, 20 revisions and 876 entries |
+| Live Haiku | Two full-catalog fixture batches, ten runs and 50 explanations each; retained results passed; [human review and wording flags remain open](HAIKU-REVIEW.md) |
+
+The hosted ten-run sample is pinned to the role-tag merge before the subsequent
+explanation prompt edit. Jenkins and the full local verifier also checked that
+prompt edit. These are bounded samples, with no guarantee of future stability.
+
 ## Published verification — October 23, 2026
 
 The [public repository](https://github.com/aali4356/ManaCheck) records the existing AI-assisted implementation with its actual commit dates. The employer-specific README section is now **What this project tests**.
