@@ -10,6 +10,9 @@ pipeline {
     MAVEN_OPTS = '-Xmx384m'
   }
   stages {
+    stage('Stability detector') {
+      steps { sh 'python3 -m unittest discover -s scripts -p test_check_stability.py' }
+    }
     stage('Java, PostgreSQL, API and Chrome') {
       steps { sh './scripts/verify.sh' }
     }
