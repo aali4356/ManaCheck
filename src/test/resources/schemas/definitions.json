@@ -1,0 +1,694 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "theme": {
+      "type": "string",
+      "enum": [
+        "general",
+        "tokens",
+        "counters",
+        "graveyard"
+      ]
+    },
+    "face": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "typeLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oracleText": {
+          "type": "string"
+        },
+        "imageUri": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "typeLine",
+        "oracleText",
+        "imageUri"
+      ],
+      "additionalProperties": false
+    },
+    "card": {
+      "type": "object",
+      "properties": {
+        "oracleId": {
+          "$ref": "#/definitions/uuid"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manaValue": {
+          "type": "number",
+          "minimum": 0
+        },
+        "typeLine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oracleText": {
+          "type": "string"
+        },
+        "colorIdentity": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "basicLandTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Plains",
+              "Island",
+              "Swamp",
+              "Mountain",
+              "Forest"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "commanderLegality": {
+          "type": "string",
+          "enum": [
+            "legal",
+            "not_legal",
+            "banned",
+            "restricted"
+          ]
+        },
+        "paper": {
+          "type": "boolean"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "commanderEligible": {
+          "type": "boolean"
+        },
+        "unsupportedReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "copyLimit": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "scryfallUri": {
+          "type": "string"
+        },
+        "faces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/face"
+          },
+          "minItems": 1
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "land",
+              "ramp",
+              "draw",
+              "interaction",
+              "tokens",
+              "counters",
+              "graveyard"
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "oracleId",
+        "name",
+        "manaValue",
+        "typeLine",
+        "oracleText",
+        "colorIdentity",
+        "basicLandTypes",
+        "keywords",
+        "commanderLegality",
+        "paper",
+        "active",
+        "commanderEligible",
+        "unsupportedReason",
+        "copyLimit",
+        "scryfallUri",
+        "faces",
+        "tags"
+      ],
+      "additionalProperties": false
+    },
+    "entry": {
+      "type": "object",
+      "properties": {
+        "card": {
+          "$ref": "#/definitions/card"
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "card",
+        "quantity"
+      ],
+      "additionalProperties": false
+    },
+    "deck": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "commander": {
+          "$ref": "#/definitions/card"
+        },
+        "theme": {
+          "$ref": "#/definitions/theme"
+        },
+        "note": {
+          "type": "string"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/entry"
+          }
+        },
+        "createdAt": {
+          "$ref": "#/definitions/timestamp"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "revision",
+        "commander",
+        "theme",
+        "note",
+        "entries",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "deckSummary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commanderName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commanderImageUri": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "theme": {
+          "$ref": "#/definitions/theme"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "totalCards": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "updatedAt": {
+          "$ref": "#/definitions/timestamp"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "commanderName",
+        "commanderImageUri",
+        "theme",
+        "revision",
+        "totalCards",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "revision": {
+      "type": "object",
+      "properties": {
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "theme": {
+          "$ref": "#/definitions/theme"
+        },
+        "note": {
+          "type": "string"
+        },
+        "createdAt": {
+          "$ref": "#/definitions/timestamp"
+        }
+      },
+      "required": [
+        "revision",
+        "theme",
+        "note",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "diffEntry": {
+      "type": "object",
+      "properties": {
+        "oracleId": {
+          "$ref": "#/definitions/uuid"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "beforeQuantity": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "afterQuantity": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "delta": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "oracleId",
+        "name",
+        "beforeQuantity",
+        "afterQuantity",
+        "delta"
+      ],
+      "additionalProperties": false
+    },
+    "finding": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oracleId": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "oracleId"
+      ],
+      "additionalProperties": false
+    },
+    "roles": {
+      "type": "object",
+      "properties": {
+        "land": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ramp": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "draw": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "interaction": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "land",
+        "ramp",
+        "draw",
+        "interaction"
+      ],
+      "additionalProperties": false
+    },
+    "manaCurve": {
+      "type": "object",
+      "patternProperties": {
+        "^([0-6]|7\\+)$": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "colors": {
+      "type": "object",
+      "properties": {
+        "W": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "U": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "B": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "R": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "G": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "C": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "W",
+        "U",
+        "B",
+        "R",
+        "G",
+        "C"
+      ],
+      "additionalProperties": false
+    },
+    "analysis": {
+      "type": "object",
+      "properties": {
+        "totalCards": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "recommendationEligible": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/finding"
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/finding"
+          }
+        },
+        "roles": {
+          "$ref": "#/definitions/roles"
+        },
+        "targets": {
+          "$ref": "#/definitions/roles"
+        },
+        "manaCurve": {
+          "$ref": "#/definitions/manaCurve"
+        },
+        "colors": {
+          "$ref": "#/definitions/colors"
+        },
+        "catalogImportId": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "catalogUpdatedAt": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/timestamp"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "totalCards",
+        "complete",
+        "recommendationEligible",
+        "errors",
+        "warnings",
+        "roles",
+        "targets",
+        "manaCurve",
+        "colors",
+        "catalogImportId",
+        "catalogUpdatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "suggestion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^s[1-5]$"
+        },
+        "add": {
+          "$ref": "#/definitions/card"
+        },
+        "cut": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/card"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ruleExplanation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aiExplanation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "score": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "add",
+        "cut",
+        "ruleExplanation",
+        "aiExplanation",
+        "score"
+      ],
+      "additionalProperties": false
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cache_creation_input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cache_read_input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "recommendation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "deckId": {
+          "$ref": "#/definitions/uuid"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "catalogImportId": {
+          "$ref": "#/definitions/uuid"
+        },
+        "suggestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/suggestion"
+          },
+          "maxItems": 5
+        },
+        "explanationStatus": {
+          "type": "string",
+          "enum": [
+            "rules",
+            "pending",
+            "haiku",
+            "fallback"
+          ]
+        },
+        "explanationDetail": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "usage": {
+          "$ref": "#/definitions/usage"
+        }
+      },
+      "required": [
+        "id",
+        "deckId",
+        "revision",
+        "catalogImportId",
+        "suggestions",
+        "explanationStatus",
+        "explanationDetail",
+        "model",
+        "usage"
+      ],
+      "additionalProperties": false
+    },
+    "problem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "integer",
+          "minimum": 400,
+          "maximum": 599
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instance": {
+          "type": "string",
+          "pattern": "^/api/"
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "title",
+        "status",
+        "detail",
+        "instance",
+        "code"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

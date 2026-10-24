@@ -18,6 +18,8 @@
     <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
     <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-webmvc-test</artifactId><scope>test</scope></dependency>
     <dependency><groupId>org.testcontainers</groupId><artifactId>testcontainers-postgresql</artifactId><scope>test</scope></dependency>
+    <dependency><groupId>io.rest-assured</groupId><artifactId>rest-assured</artifactId><version>6.0.0</version><scope>test</scope></dependency>
+    <dependency><groupId>io.rest-assured</groupId><artifactId>json-schema-validator</artifactId><version>6.0.0</version><scope>test</scope></dependency>
     <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-java</artifactId><scope>test</scope></dependency>
     <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-spring</artifactId><scope>test</scope></dependency>
     <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-junit-platform-engine</artifactId><scope>test</scope></dependency>
