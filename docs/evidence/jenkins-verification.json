@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "controller": "Jenkins 2.580.1",
+  "controller_url": "http://localhost:18080",
+  "build": 3,
+  "result": "SUCCESS",
+  "source_commit": "0bbe5570139025e6815d66d043a67b9cfa5a2e72",
+  "command": "./scripts/verify.sh",
+  "test_count": 98,
+  "failures": 0,
+  "skipped": 0,
+  "duration_seconds": 57.363,
+  "java": "21",
+  "database": "PostgreSQL 17 Testcontainers fixture",
+  "browser": "Chromium 156 (matching ChromeDriver)",
+  "image_id": "sha256:c7b6200d62c94889f25855e1abc9bcbe15ae96928d25d08c6ac290010c59a7fe",
+  "docker_client": "26.1.5",
+  "docker_server": "29.5.2",
+  "socket_group": 991,
+  "archived_files": 103,
+  "provider_requests": 0,
+  "earlier_attempts": [
+    {
+      "build": 1,
+      "result": "FAILURE",
+      "tests_started": false,
+      "reason": "Lightweight SCM checkout treated the exact commit SHA as a branch."
+    },
+    {
+      "build": 2,
+      "result": "FAILURE",
+      "tests_started": false,
+      "reason": "Debian docker.io omitted the CLI under --no-install-recommends."
+    }
+  ],
+  "setup_findings": [
+    "Use a client compatible with the daemon.",
+    "Grant the controller the actual socket group; root group alone was insufficient."
+  ],
+  "limits": [
+    "Local Linux ARM64 controller; no Jenkins server was publicly deployed.",
+    "Mutable LTS/plugins resolved at build time.",
+    "Selenium reported a CDP 156/155 warning; the tested browser flows do not use DevTools."
+  ]
+}
