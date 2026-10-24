@@ -6,7 +6,7 @@ A local Commander deck tracker with immutable revision history, explicit SQL ran
 
 ![ManaCheck deck library](docs/evidence/library.png)
 
-The local verifier passes **130 checks**, including Cucumber scenarios, REST Assured contracts, PostgreSQL, Chrome, and role-tag regressions. CI and Jenkins use the same verifier; saved receipts identify their tested revision and inventory. Earlier ten-run stability samples passed locally and in Actions with 98 checks. The local catalog contains **34,473 cards**. The recorded walkthrough predates the sunset redesign; screenshots predate personal imports, and performance measurements used the earlier 33,411-card catalog. See [verification evidence](docs/VERIFICATION.md) and [role-tag limits](docs/ROLE-TAGGING.md).
+The verifier passes **130 checks**, including Cucumber scenarios, REST Assured contracts, PostgreSQL, Chrome, and role-tag regressions. Jenkins passed the same suite; ten-run stability samples passed locally and in Actions with 130 checks. Saved receipts identify each tested revision. The local catalog contains **34,473 cards**. The recorded walkthrough predates the sunset redesign; screenshots predate personal imports, and performance measurements used the earlier 33,411-card catalog. See [verification evidence](docs/VERIFICATION.md), [role-tag limits](docs/ROLE-TAGGING.md), and [AI review findings](docs/HAIKU-REVIEW.md).
 
 ## Run locally
 
