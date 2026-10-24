@@ -20,8 +20,8 @@ class CardClassifierTest {
             tags(
                 "Enchantment",
                 "Whenever a nontoken creature you control enters, if it doesn't have the same name"
-                    + " as another creature you control or a creature card in your graveyard, draw a"
-                    + " card."))
+                    + " as another creature you control or a creature card in your graveyard, draw"
+                    + " a card."))
         .containsExactlyInAnyOrder("draw", "graveyard");
   }
 
@@ -94,7 +94,8 @@ class CardClassifierTest {
         "When you draw a card, you may gain 1 life.",
         "If you would draw a card, exile the top card of your library instead.",
         "If a player would draw two cards, that player mills two cards instead.",
-        "If you would draw a card except the first one you draw in each of your draw steps, skip that draw instead."
+        "If you would draw a card except the first one you draw in each of your draw steps, skip"
+            + " that draw instead."
       })
   void drawConditionsAndReplacementsWithoutActualDrawInstructionsAreNotDraw(String oracle) {
     assertThat(tags("Enchantment", oracle)).doesNotContain("draw");
@@ -125,17 +126,14 @@ class CardClassifierTest {
 
   @Test
   void realDrawAfterNestedReminderTextStillCounts() {
-    assertThat(
-            tags(
-                "Sorcery", "Ability (Reminder (nested reminder), do nothing.) Draw two cards."))
+    assertThat(tags("Sorcery", "Ability (Reminder (nested reminder), do nothing.) Draw two cards."))
         .containsExactly("draw");
   }
 
   @Test
   void llanowarVisionaryRetainsRampAndDrawOverlap() {
     assertThat(
-            tags(
-                "Creature — Elf Druid", "When this creature enters, draw a card.\n{T}: Add {G}."))
+            tags("Creature — Elf Druid", "When this creature enters, draw a card.\n{T}: Add {G}."))
         .containsExactlyInAnyOrder("draw", "ramp");
   }
 
