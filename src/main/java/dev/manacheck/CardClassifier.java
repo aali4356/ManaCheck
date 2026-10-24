@@ -10,7 +10,7 @@ import tools.jackson.databind.JsonNode;
 
 @Component
 public class CardClassifier {
-  public static final String RULES_VERSION = "roles-v3";
+  public static final String RULES_VERSION = "roles-v4";
   public static final String CLASSIFIER_VERSION = "catalog-v3";
   // MH2 release notes: Grist is a creature during deck construction, despite its printed type.
   // https://magic.wizards.com/en/news/feature/modern-horizons-2-release-notes-2021-06-04
@@ -37,6 +37,8 @@ public class CardClassifier {
   private static final Pattern TOKEN = Pattern.compile("\\btokens?\\b");
   private static final Pattern MANA_IN_WORDS =
       Pattern.compile("\\badd (?:one|two|three|four|five|six|[0-9]+) mana\\b");
+  private static final Pattern TAP_COST = Pattern.compile("^\\{[tq]\\}");
+  private static final Pattern COST_SYMBOL = Pattern.compile("\\{([^}]+)\\}");
   private static final Pattern INTERACTION =
       Pattern.compile(
           "\\b(?:destroy (?:target|all)|exile target|counter target)\\b[^.;\\r\\n]*"
@@ -171,7 +173,7 @@ public class CardClassifier {
     if (type.contains("Land")) tags.add("land");
     if (!type.contains("Land")
         && (text.contains("add {")
-            || MANA_IN_WORDS.matcher(text).find()
+            || hasUnpaidWordManaAbility(text)
             || text.matches("(?s).*search your library.*land.*onto the battlefield.*")))
       tags.add("ramp");
     if (hasDrawInstruction(text)) tags.add("draw");
@@ -181,6 +183,23 @@ public class CardClassifier {
     if (text.contains("+1/+1 counter") || text.contains("proliferate")) tags.add("counters");
     if (text.contains("graveyard")) tags.add("graveyard");
     return tags;
+  }
+
+  private boolean hasUnpaidWordManaAbility(String text) {
+    // Recognize direct tap-for-mana wording. A paid mana filter or a granted land
+    // ability does not establish acceleration. More complex mana engines remain heuristic.
+    for (String line : withoutReminderText(text).split("\\R")) {
+      int colon = line.indexOf(':');
+      if (colon < 0) continue;
+      String cost = line.substring(0, colon).strip();
+      if (!TAP_COST.matcher(cost).find()
+          || !MANA_IN_WORDS.matcher(line.substring(colon + 1)).find()) continue;
+      var symbols = COST_SYMBOL.matcher(cost);
+      boolean paysMana = false;
+      while (symbols.find()) if (!Set.of("t", "q").contains(symbols.group(1))) paysMana = true;
+      if (!paysMana) return true;
+    }
+    return false;
   }
 
   private boolean hasInteraction(String text) {

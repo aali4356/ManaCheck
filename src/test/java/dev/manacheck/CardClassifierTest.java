@@ -259,6 +259,20 @@ class CardClassifierTest {
         .containsExactly("counters");
   }
 
+  @ParameterizedTest
+  @ValueSource(
+      strings = {
+        "{1}, {T}, Sacrifice this artifact: Add one mana of any color.\n"
+            + "When this artifact is put into a graveyard from the battlefield, draw a card.",
+        "{1}, {T}: Add one mana of any color.",
+        "{T}, {1}: Add one mana of any color.",
+        "Enchant land\nWhen this Aura enters, draw a card.\n"
+            + "Enchanted land has \"{T}: Add one mana of any color.\""
+      })
+  void manaFilteringAndGrantingALandFixingDoNotEstablishWordManaRamp(String oracle) {
+    assertThat(tags("Artifact", oracle)).doesNotContain("ramp");
+  }
+
   private Set<String> tags(String type, String oracle) {
     var source = json.createObjectNode();
     source.put("oracle_id", "00000000-0000-0000-0000-000000000001");

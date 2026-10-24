@@ -13,7 +13,7 @@ import tools.jackson.databind.json.JsonMapper;
 
 @Service
 public class HaikuExplainer {
-  public static final String PROMPT_VERSION = "explanations-v3";
+  public static final String PROMPT_VERSION = "explanations-v4";
 
   public record Result(
       Map<String, String> explanations,
@@ -115,6 +115,10 @@ public class HaikuExplainer {
                   + " costs, and target restrictions. Focus on one relevant ability. Each"
                   + " activated ability has its own costs and effects; never combine separate"
                   + " abilities. Preserve optional 'may' choices and if/otherwise destinations."
+                  + " Choosing a target does not make a required effect optional. An optional"
+                  + " effect after drawing is not a cost or condition for drawing. Describe"
+                  + " effects in their supplied order. Describe lands by the mana they produce;"
+                  + " producing colored mana does not give a land that color."
                   + " When describing a tutor, specify each named card type's destination."
                   + " Self-recursion and effects restricted to your own cards do not establish"
                   + " opposing interaction. Mana value alone does not prove a spell is cheap or"
