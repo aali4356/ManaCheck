@@ -59,6 +59,12 @@ the lightweight detector checks in push/PR verification.
 Ten clean runs establish **no observed instability in that sample**; they provide
 no guarantee of flake-free tests.
 
+Observed local sample: **10 × 98 passing checks**, no skips or changed outcomes,
+at commit `539dd9f8f1d635acb17555f936e79e6dc3b5f17e`. All ten verifier exits were zero.
+[The receipt](evidence/stability-verification.json) includes ordered outcomes and
+per-run timings; original logs, XML and browser evidence remain in ignored local
+`stability-results/`.
+
 ## HTTP response contracts
 
 `ApiContractTest` uses REST Assured **6.0.0** and its **6.0.0** `json-schema-validator`, both test-scoped, against the random-port Spring server and `PostgresTestBase`'s disposable PostgreSQL 17 fixture. Its eight tests cover card search/filtering/pagination; deck create/get/list; immutable revision retrieval/history; bidirectional differences and atomic stale-save 409 problems; analysis counts, roles and catalog provenance; validated recommendation swaps and stale-run rejection; retained no-key explanation fallback; and a negative schema regression.
