@@ -1,5 +1,21 @@
 # Local verification receipt
 
+## Published verification — October 23, 2026
+
+The [public repository](https://github.com/aali4356/ManaCheck) records the existing AI-assisted implementation with its actual commit dates. The employer-specific README section is now **What this project tests**.
+
+| Check | Evidence |
+| --- | --- |
+| Initial publication | [69 checks passed in Actions](https://github.com/aali4356/ManaCheck/actions/runs/40030099677) |
+| Cucumber business rules | [PR 1](https://github.com/aali4356/ManaCheck/pull/1), green hosted checks; 21 scenarios plus 69 existing tests |
+| REST Assured and JSON schemas | [PR 2](https://github.com/aali4356/ManaCheck/pull/2), green hosted checks; 98 local checks with no failures, errors, or skips |
+| Live explanations | Ten fixture runs, 50 explanations; [review findings and limitations](HAIKU-REVIEW.md) |
+| Owner's learning | [Class reading and unaided rewrite](OWNERSHIP.md) remain unverified |
+
+The receipts below retain the original October 22 results. Later integration receipts are [Cucumber](evidence/cucumber-integration.json) and [REST Assured](evidence/rest-assured-integration.json). Passing checks do not establish human code ownership or strategic recommendation quality.
+
+## Original implementation receipt
+
 Verified on October 22, 2026. The machine-readable receipt is [verification.json](evidence/verification.json); it includes the application/source hashes and test-suite results.
 
 The later sunset UI redesign passed **68 checks**, including a third Chrome journey covering deck search and sorting. See [UI-REDESIGN.md](UI-REDESIGN.md) and its separate receipt for the current interface. The 67-check receipt and performance measurements below remain the original implementation evidence.

@@ -1,0 +1,642 @@
+{
+  "date": "2026-10-23",
+  "model": "claude-haiku-5-5",
+  "runs": 10,
+  "explanations": 50,
+  "fixture_scenarios": "R01-R10",
+  "database": "disposable",
+  "personal_decks_sent": false,
+  "structural_validation": "10/10 passed",
+  "retention": "10/10 repeated requests reused saved result",
+  "input_tokens": 13184,
+  "output_tokens": 3249,
+  "human_feedback": {
+    "overall": "General approval received",
+    "per_run_scores_supplied": false
+  },
+  "quality_status": "Known heuristic findings remain open; no claim of a completed rubric pass",
+  "findings": [
+    {
+      "id": "R08/s5",
+      "issue": "Guardian Project requires nontoken creatures; substring tagging labels it tokens and the explanation repeats a theme match."
+    },
+    {
+      "id": "R01/s4 and R02/s3",
+      "issue": "Life from the Loam is described as filling a draw gap; review the precision of that card-advantage shorthand."
+    }
+  ],
+  "rule_version": "roles-v1",
+  "classifier_version": "catalog-v3",
+  "cases": [
+    {
+      "id": "R01",
+      "commander": "Meren of Clan Nel Toth",
+      "theme": "graveyard",
+      "change_type": "addition",
+      "seconds": 3.194,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1293,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 322,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Mind Stone",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Mind Stone adds a colorless mana source and can be sacrificed to draw a card, covering the ramp and draw gaps."
+        },
+        {
+          "id": "s2",
+          "add": "Llanowar Visionary",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary taps for green mana and draws a card when it enters, covering both the ramp and draw gaps."
+        },
+        {
+          "id": "s3",
+          "add": "Deathrite Shaman",
+          "cut": null,
+          "rule_reason": "Fills the interaction gap; matches the graveyard theme.",
+          "explanation": "Deathrite Shaman can exile graveyard cards for mana or life loss and gain, matching the graveyard theme and filling the interaction gap."
+        },
+        {
+          "id": "s4",
+          "add": "Life from the Loam",
+          "cut": null,
+          "rule_reason": "Fills the draw gap; matches the graveyard theme.",
+          "explanation": "Life from the Loam returns land cards from the graveyard to hand and has dredge, matching the graveyard theme and filling the draw gap."
+        },
+        {
+          "id": "s5",
+          "add": "Return to Nature",
+          "cut": null,
+          "rule_reason": "Fills the interaction gap; matches the graveyard theme.",
+          "explanation": "Return to Nature can destroy an artifact or enchantment or exile a graveyard card, matching the graveyard theme and filling the interaction gap."
+        }
+      ]
+    },
+    {
+      "id": "R02",
+      "commander": "Meren of Clan Nel Toth",
+      "theme": "graveyard",
+      "change_type": "swap",
+      "seconds": 2.903,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1744,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 382,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Llanowar Visionary",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary replaces Arcane Signet, adding a mana creature that also draws a card on entry. It helps fill the ramp and draw gaps."
+        },
+        {
+          "id": "s2",
+          "add": "Deathrite Shaman",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the interaction gap; matches the graveyard theme.",
+          "explanation": "Deathrite Shaman replaces Arcane Signet and adds graveyard-based interaction that fits the graveyard theme. It fills the interaction gap."
+        },
+        {
+          "id": "s3",
+          "add": "Life from the Loam",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the draw gap; matches the graveyard theme.",
+          "explanation": "Life from the Loam replaces Arcane Signet, adding card advantage through land recursion from the graveyard. It fills the draw gap and fits the theme."
+        },
+        {
+          "id": "s4",
+          "add": "Return to Nature",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the interaction gap; matches the graveyard theme.",
+          "explanation": "Return to Nature replaces Arcane Signet with an instant that can destroy an artifact or enchantment or exile a graveyard card. It fills the interaction gap and matches the theme."
+        },
+        {
+          "id": "s5",
+          "add": "Grist, the Hunger Tide",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the interaction gap; matches the graveyard theme.",
+          "explanation": "Grist, the Hunger Tide replaces Arcane Signet and adds a planeswalker that makes tokens and can destroy creatures. It fills the interaction gap and matches the graveyard theme."
+        }
+      ]
+    },
+    {
+      "id": "R03",
+      "commander": "Meren of Clan Nel Toth",
+      "theme": "general",
+      "change_type": "addition",
+      "seconds": 1.761,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1132,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 284,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Mind Stone",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Mind Stone is a colorless mana rock that taps for mana and can be sacrificed to draw a card. It fills the ramp and draw gaps."
+        },
+        {
+          "id": "s2",
+          "add": "Llanowar Visionary",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary draws a card when it enters and taps for green mana. It fills the ramp and draw gaps."
+        },
+        {
+          "id": "s3",
+          "add": "Solemn Simulacrum",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Solemn Simulacrum fetches a basic land when it enters and draws a card when it dies. It fills the ramp and draw gaps."
+        },
+        {
+          "id": "s4",
+          "add": "Command Tower",
+          "cut": null,
+          "rule_reason": "Fills the land gap.",
+          "explanation": "Command Tower taps for any color in the commander's color identity. It fills the land gap."
+        },
+        {
+          "id": "s5",
+          "add": "Forest",
+          "cut": null,
+          "rule_reason": "Fills the land gap.",
+          "explanation": "Forest is a basic land that taps for green mana. It fills the land gap."
+        }
+      ]
+    },
+    {
+      "id": "R04",
+      "commander": "Ezuri, Renegade Leader",
+      "theme": "general",
+      "change_type": "addition",
+      "seconds": 3.674,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1097,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 284,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Mind Stone",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Mind Stone adds colorless mana and can be sacrificed to draw a card, covering the ramp and draw gaps. It is an artifact that taps for {C}."
+        },
+        {
+          "id": "s2",
+          "add": "Llanowar Visionary",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary draws a card when it enters and taps for green mana, covering both the ramp and draw gaps."
+        },
+        {
+          "id": "s3",
+          "add": "Solemn Simulacrum",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Solemn Simulacrum fetches a basic land when it enters and draws a card when it dies, covering both the ramp and draw gaps."
+        },
+        {
+          "id": "s4",
+          "add": "Command Tower",
+          "cut": null,
+          "rule_reason": "Fills the land gap.",
+          "explanation": "Command Tower taps for mana of any color in the commander's color identity, filling the land gap."
+        },
+        {
+          "id": "s5",
+          "add": "Forest",
+          "cut": null,
+          "rule_reason": "Fills the land gap.",
+          "explanation": "Forest taps for {G} and fills the land gap."
+        }
+      ]
+    },
+    {
+      "id": "R05",
+      "commander": "Ezuri, Renegade Leader",
+      "theme": "general",
+      "change_type": "swap",
+      "seconds": 2.542,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1391,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 323,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Llanowar Visionary",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary replaces Arcane Signet to add ramp and a card draw effect on entering. It is a green Elf Druid that taps for mana."
+        },
+        {
+          "id": "s2",
+          "add": "Solemn Simulacrum",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Solemn Simulacrum replaces Arcane Signet to add ramp by fetching a basic land and draws a card when it dies."
+        },
+        {
+          "id": "s3",
+          "add": "Elvish Mystic",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap.",
+          "explanation": "Elvish Mystic replaces Arcane Signet to add one-mana ramp. It is an Elf that taps for green mana."
+        },
+        {
+          "id": "s4",
+          "add": "Fyndhorn Elves",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap.",
+          "explanation": "Fyndhorn Elves replaces Arcane Signet to add one-mana ramp. It is an Elf that taps for green mana."
+        },
+        {
+          "id": "s5",
+          "add": "Llanowar Elves",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap.",
+          "explanation": "Llanowar Elves replaces Arcane Signet to add one-mana ramp. It is an Elf that taps for green mana."
+        }
+      ]
+    },
+    {
+      "id": "R06",
+      "commander": "Ezuri, Renegade Leader",
+      "theme": "counters",
+      "change_type": "addition",
+      "seconds": 2.038,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1159,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 295,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Mind Stone",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Mind Stone adds a colorless mana source and can later be sacrificed to draw a card, covering the ramp and draw gaps."
+        },
+        {
+          "id": "s2",
+          "add": "Llanowar Visionary",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary taps for green mana and draws a card when it enters, addressing both the ramp and draw gaps."
+        },
+        {
+          "id": "s3",
+          "add": "Inspiring Call",
+          "cut": null,
+          "rule_reason": "Fills the draw gap; matches the counters theme.",
+          "explanation": "Inspiring Call draws a card for each creature with a +1/+1 counter, filling the draw gap and matching the counters theme."
+        },
+        {
+          "id": "s4",
+          "add": "Solemn Simulacrum",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Solemn Simulacrum fetches a basic land on entry and draws a card when it dies, covering both the ramp and draw gaps."
+        },
+        {
+          "id": "s5",
+          "add": "Command Tower",
+          "cut": null,
+          "rule_reason": "Fills the land gap.",
+          "explanation": "Command Tower taps for any color in the commander's color identity, filling the land gap."
+        }
+      ]
+    },
+    {
+      "id": "R07",
+      "commander": "Trostani, Selesnya's Voice",
+      "theme": "tokens",
+      "change_type": "addition",
+      "seconds": 2.222,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1154,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 338,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Mind Stone",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Mind Stone is a mana rock that taps for colorless mana and can be sacrificed to draw a card, filling the ramp and draw gaps."
+        },
+        {
+          "id": "s2",
+          "add": "Llanowar Visionary",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary draws a card when it enters and taps for green mana, filling the ramp and draw gaps."
+        },
+        {
+          "id": "s3",
+          "add": "Beast Within",
+          "cut": null,
+          "rule_reason": "Fills the interaction gap; matches the tokens theme.",
+          "explanation": "Beast Within is an instant that destroys a target permanent and gives its controller a 3/3 Beast token, covering the interaction gap with a tokens-related downside."
+        },
+        {
+          "id": "s4",
+          "add": "Generous Gift",
+          "cut": null,
+          "rule_reason": "Fills the interaction gap; matches the tokens theme.",
+          "explanation": "Generous Gift is an instant that destroys a target permanent and gives its controller a 3/3 Elephant token, covering the interaction gap with a tokens-related downside."
+        },
+        {
+          "id": "s5",
+          "add": "Solemn Simulacrum",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Solemn Simulacrum ramps a basic land when it enters and draws a card when it dies, filling the ramp and draw gaps."
+        }
+      ]
+    },
+    {
+      "id": "R08",
+      "commander": "Trostani, Selesnya's Voice",
+      "theme": "tokens",
+      "change_type": "swap",
+      "seconds": 3.132,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1477,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 409,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Llanowar Visionary",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary replaces Arcane Signet, adding a creature that draws a card and taps for green mana. It fills the ramp and card draw gaps."
+        },
+        {
+          "id": "s2",
+          "add": "Beast Within",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the interaction gap; matches the tokens theme.",
+          "explanation": "Beast Within replaces Arcane Signet as an instant that destroys a permanent and gives its controller a 3/3 Beast token. It fills the interaction gap and matches the tokens theme."
+        },
+        {
+          "id": "s3",
+          "add": "Generous Gift",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the interaction gap; matches the tokens theme.",
+          "explanation": "Generous Gift replaces Arcane Signet as an instant that destroys a permanent and gives its controller a 3/3 Elephant token. It fills the interaction gap and matches the tokens theme."
+        },
+        {
+          "id": "s4",
+          "add": "Solemn Simulacrum",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Solemn Simulacrum replaces Arcane Signet, ramping a basic land when it enters and drawing a card when it dies. It fills the ramp and card draw gaps."
+        },
+        {
+          "id": "s5",
+          "add": "Guardian Project",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the draw gap; matches the tokens theme.",
+          "explanation": "Guardian Project replaces Arcane Signet and draws a card when nontoken creatures enter that don't share a name with another creature you control or in your graveyard. It fills the card draw gap and matches the tokens theme."
+        }
+      ]
+    },
+    {
+      "id": "R09",
+      "commander": "Atraxa, Praetors' Voice",
+      "theme": "counters",
+      "change_type": "addition",
+      "seconds": 2.476,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1175,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 296,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Mind Stone",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Mind Stone adds colorless mana and can be sacrificed to draw a card, covering both the ramp and draw gaps."
+        },
+        {
+          "id": "s2",
+          "add": "Llanowar Visionary",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary draws a card when it enters and taps for green mana, filling the ramp and draw gaps."
+        },
+        {
+          "id": "s3",
+          "add": "Inspiring Call",
+          "cut": null,
+          "rule_reason": "Fills the draw gap; matches the counters theme.",
+          "explanation": "Inspiring Call draws a card for each creature you control with a +1/+1 counter, fitting the counters theme and the draw gap."
+        },
+        {
+          "id": "s4",
+          "add": "Solemn Simulacrum",
+          "cut": null,
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Solemn Simulacrum fetches a basic land when it enters and draws a card when it dies, filling both the ramp and draw gaps."
+        },
+        {
+          "id": "s5",
+          "add": "Command Tower",
+          "cut": null,
+          "rule_reason": "Fills the land gap.",
+          "explanation": "Command Tower taps for mana of any color in your commander's color identity, filling the land gap."
+        }
+      ]
+    },
+    {
+      "id": "R10",
+      "commander": "Atraxa, Praetors' Voice",
+      "theme": "counters",
+      "change_type": "swap",
+      "seconds": 2.058,
+      "usage": {
+        "speed": "standard",
+        "input_tokens": 1562,
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "output_tokens": 316,
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0
+      },
+      "status": "haiku",
+      "changes": [
+        {
+          "id": "s1",
+          "add": "Llanowar Visionary",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Llanowar Visionary adds a mana source and draws a card on entry, replacing Arcane Signet, which only produces one mana of the commander's color identity."
+        },
+        {
+          "id": "s2",
+          "add": "Inspiring Call",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the draw gap; matches the counters theme.",
+          "explanation": "Inspiring Call draws a card for each creature with a +1/+1 counter, fitting the counters theme in place of Arcane Signet."
+        },
+        {
+          "id": "s3",
+          "add": "Solemn Simulacrum",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap; fills the draw gap.",
+          "explanation": "Solemn Simulacrum ramps by fetching a basic land on entry and draws a card when it dies, replacing Arcane Signet."
+        },
+        {
+          "id": "s4",
+          "add": "Deathrite Shaman",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the interaction gap.",
+          "explanation": "Deathrite Shaman adds interaction through its graveyard exile abilities, replacing Arcane Signet."
+        },
+        {
+          "id": "s5",
+          "add": "Elvish Mystic",
+          "cut": "Arcane Signet",
+          "rule_reason": "Fills the ramp gap.",
+          "explanation": "Elvish Mystic is a one-mana creature that taps for green, adding ramp in place of Arcane Signet."
+        }
+      ]
+    }
+  ]
+}
